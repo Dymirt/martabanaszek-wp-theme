@@ -1,0 +1,48 @@
+<span id="closeSizeTable" class="close">&times;</span>
+<table style="width:100%; padding-top: 32px; margin-bottom: 0">
+<tr>
+    <th>Rozmiar</th>
+    <th>34</th>
+    <th>36</th>
+    <th>38</th>
+    <th>40</th>
+    <th>42</th>
+    <th>44</th>
+</tr>
+<tr>
+    <td>Wzrost</td>
+    <td>168</td>
+    <td>168</td>
+    <td>168</td>
+    <td>168</td>
+    <td>168</td>
+    <td>168</td>
+</tr>
+<tr>
+    <td>Biust</td>
+    <td>84</td>
+    <td>88</td>
+    <td>92</td>
+    <td>96</td>
+    <td>100</td>
+    <td>104</td>
+</tr>
+<tr>
+    <td>Talia</td>
+    <td>68</td>
+    <td>72</td>
+    <td>76</td>
+    <td>80</td>
+    <td>84</td>
+    <td>88</td>
+</tr>
+<tr>
+    <td>Biodra</td>
+    <td>94</td>
+    <td>97</td>
+    <td>100</td>
+    <td>103</td>
+    <td>106</td>
+    <td>109</td>
+</tr>
+</table>
