@@ -64,18 +64,6 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 	<style>
-		.bio-img {
-			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/bio/logotypopacity-2.png') !important;
-			background-size: contain;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
-
-		.bio-background {
-
-			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/bio/biorev.jpg') !important;
-			background-position: 70% 0% !important;
-		}
 
 		.landing-background-top {
 			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/landing/top-full.png');

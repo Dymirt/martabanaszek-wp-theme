@@ -1,3 +1,8 @@
+.bio-background {
+    background-image: url('/wp-content/themes/mb2022mk2/img/bio/biorev.jpg') !important;
+    background-position: 70% 0% !important;
+}
+
 .blur-bio {
     background-color: rgba(27, 29, 32, 0.7);
     height: auto;
