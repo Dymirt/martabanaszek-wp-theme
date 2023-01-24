@@ -64,32 +64,9 @@
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 	<style>
-
-		.landing-background-top {
-			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/landing/top-full.png');
-		}
-
-		.landing-background-top-lg {
-			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/landing/top_cz2.jpg');
-		}
-
 		#opis-marki-dla-partnerow {
 			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/bio/biorev.jpg') !important;
 			background-position: 70% 0% !important;
-		}
-
-		@media only screen and (max-width: 768px) {
-			.landing-background-top {
-				background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/landing/top_mobile.jpg');
-			}
-		}
-
-		.landing-tablet-stylbook {
-			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/landing/tablet.png');
-		}
-
-		.landing-button span.icon {
-			background: url('<?php echo get_stylesheet_directory_uri(); ?>/img/landing/icons8-gift-96.png') no-repeat;
 		}
 	</style>
 
