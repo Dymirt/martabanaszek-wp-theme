@@ -416,12 +416,6 @@ ul.icon-list a:hover,
   margin-left: 0;
 }
 
-@media (min-width: 1024px) {
-  body.woocommerce-checkout .col-full.no-margin .content-area-wrapper,
-  body.woocommerce-cart .col-full.no-margin .content-area-wrapper {
-    width: 76.68%;
-  }
-}
 
 .col-full.no-margin {
   width: 100%;
@@ -1802,13 +1796,6 @@ div.btn.on {
   color: white;
 }
 
-.woocommerce-message {
-  background: #000;
-}
-
-.woocommerce-info {
-  background: #b5b5b5;
-}
 
 p.form-row {
   display: flex;
@@ -1827,15 +1814,6 @@ p.form-row span {
   width: 100%;
 }
 
-.col2-set {
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .col2-set {
-    width: 46.7%;
-    margin-right: 6.6%;
-  }
-}
 
 #order_review_heading,
 #order_review {
@@ -1868,42 +1846,6 @@ p.form-row span {
   }
 }
 
-.woocommerce-cart .entry-content .woocommerce .cart-collaterals {
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .woocommerce-cart .entry-content .woocommerce .cart-collaterals {
-    width: 33.3%;
-  }
-}
-.woocommerce-cart .entry-content .woocommerce .cart-collaterals .cart_totals {
-  width: 100%;
-}
-.woocommerce-cart
-  .entry-content
-  .woocommerce
-  .cart-collaterals
-  .cart_totals
-  .coupon {
-  display: flex;
-  margin: 0 0 1.41575em;
-}
-.woocommerce-cart
-  .entry-content
-  .woocommerce
-  .cart-collaterals
-  .cart_totals
-  .coupon
-  input,
-.woocommerce-cart
-  .entry-content
-  .woocommerce
-  .cart-collaterals
-  .cart_totals
-  .coupon
-  button {
-  width: 50%;
-}
 
 form.cart .quantity,
 .woocommerce-variation-add-to-cart .quantity {
@@ -2005,18 +1947,6 @@ table.cart .product-thumbnail img {
   margin: 0 auto;
 }
 
-.wc-proceed-to-checkout .button.checkout-button,
-#payment .place-order .button {
-  font-size: 1em;
-}
-
-form.checkout {
-  padding: 0 10px;
-}
-form.checkout table.woocommerce-checkout-review-order-table .product-name {
-  width: 45%;
-}
-
 .star-rating span:before,
 .quantity .plus,
 .quantity .minus,
@@ -2031,10 +1961,6 @@ p.stars a:after,
   color: #ddaa4c;
 }
 
-.col-1,
-.col-2 {
-  max-width: 100%;
-}
 
 .error-404.not-found {
   margin-top: 2em;
@@ -2390,3 +2316,24 @@ p.stars a:after,
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* fixes for woocommerce and Bootstrap 5 */
+
+.checkout .shipping h3#ship-to-different-address {
+  float: left;
+  clear: none;
+}
+
+.checkout .shipping .notes {
+  clear: left;
+}
+
+.checkout .shipping .form-row-first {
+  clear: left;
+}
+
+.col2-set {
+  width: auto;
+  float: left;
+  margin-right: 0;
+}
