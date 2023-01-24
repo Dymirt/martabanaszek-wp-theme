@@ -4,7 +4,7 @@ wp_enqueue_style('biography_page', get_stylesheet_directory_uri() . '/assets/css
 
 get_header(); ?>
 
-<div id="primary" class="content-area frontpage bioblack">
+<div id="primary" class="content-area frontpage">
     <?php
     while (have_posts()) :
         the_post();
@@ -30,14 +30,6 @@ get_header(); ?>
         </main><!-- #main -->
 
         <div class="bio-background  d-flex align-items-stretch">
-
-
-
-            <!--   <div class="col-md-4 col-sm-12 d-flex align-items-center" >
-            
-			<img class="bio-pic" src="<? echo get_stylesheet_directory_uri() ?>/img/bio/bioimg.jpg">
-			
-        </div> -->
 
             <div class="d-md-inline-flex blur-bio " data-aos="fade-in" data-aos-duration="1500">
 
