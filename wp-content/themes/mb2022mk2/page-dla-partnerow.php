@@ -1,12 +1,6 @@
 <?php
 
-/**
- * The template for displaying full width pages.
- *
- * 
- *
- * 
- */
+wp_enqueue_style('for-partners', get_stylesheet_directory_uri() . '/assets/css/for-partners_page.css');
 
 get_header(); ?>
 

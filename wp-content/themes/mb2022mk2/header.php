@@ -3,7 +3,7 @@
 /**
  * The header for our theme.
  *
- * Displays all of the <head> section and everything up till <div id="content">
+ * Displays all the <head> section and everything up till <div id="content">
  *
  * @package mb2023
  */
@@ -56,7 +56,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 	<!-- End Bootstrap  -->
 
+    <!-- XFN 1.1 relationships meta data profile -->
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+    <!-- End XFN 1.1 relationships meta data profile -->
+
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <!-- jQuery -->
@@ -142,11 +145,11 @@
 						$translations = pll_the_languages(array('raw' => 1));
 						//var_dump($translations);
 						?>
-						<li><a class="underline" href="<? echo ($translations['pl']['url']) ?>"><? echo ($translations['pl']['slug']) ?></a></li>
+						<li><a class="underline" href="<?php echo ($translations['pl']['url']) ?>"><?php echo ($translations['pl']['slug']) ?></a></li>
 						|
-						<li><a class="underline" href="<? echo ($translations['en']['url']) ?>"><? echo ($translations['en']['slug']) ?></a></li>
+						<li><a class="underline" href="<?php echo ($translations['en']['url']) ?>"><?php echo ($translations['en']['slug']) ?></a></li>
 					</ul>
-					<?
+					<?php
 					wp_nav_menu(
 						array(
 							'theme_location'  => 'secondary',
