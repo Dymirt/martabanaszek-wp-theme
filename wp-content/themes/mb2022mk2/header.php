@@ -59,16 +59,15 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- End jQuery -->
+
+    <!--  Animate On Scroll -->
 	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- End Animate On Scroll -->
 
-	<style>
-		#opis-marki-dla-partnerow {
-			background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/bio/biorev.jpg') !important;
-			background-position: 70% 0% !important;
-		}
-	</style>
 
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
