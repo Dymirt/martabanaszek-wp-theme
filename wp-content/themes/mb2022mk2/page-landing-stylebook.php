@@ -1,12 +1,6 @@
 <?php
 
-/**
- * This is custom page for Landing StyleBook
- *
- * 
- *
- * 
- */
+wp_enqueue_style('stylebook_page', get_stylesheet_directory_uri() . '/assets/css/stylebook_page.css');
 
 get_header(); ?>
 

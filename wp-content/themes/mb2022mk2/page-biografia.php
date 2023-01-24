@@ -1,12 +1,6 @@
 <?php
 
-/**
- * The template for displaying full width pages.
- *
- * Template Name: Biografia
- *
- * @package storefront
- */
+wp_enqueue_style('biography_page', get_stylesheet_directory_uri() . '/assets/css/biography_page.css');
 
 get_header(); ?>
 

@@ -1,0 +1,108 @@
+.blur-bio {
+    background-color: rgba(27, 29, 32, 0.7);
+    height: auto;
+    width: auto; /* Need a specific value to work */
+
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.bio-paragraph {
+    font-family: "Roboto";
+    font-weight: 200;
+    color: white;
+    font-size: 14px;
+
+    padding: 10px !important;
+}
+
+.strong-header {
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 5vh;
+    letter-spacing: 6px;
+}
+
+@media only screen and (max-width: 768px) {
+    .bio-paragraph {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .strong-header {
+        font-size: 7vw;
+    }
+}
+.bio-pic {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+.bio-header {
+    text-align: center !important;
+    justify-content: center !important;
+    text-justify: center !important;
+    object-fit: scale-down;
+    align-items: center !important;
+    padding: 40px;
+    padding-top: 0;
+    margin-top: 0;
+}
+.bio-background {
+    background-attachment: scroll;
+    object-fit: cover !important;
+    width: auto !important;
+    height: auto !important;
+    z-index: 1;
+}
+.bio {
+    font-family: "Roboto" !important;
+    font-weight: 300 !important;
+    font-size: 110px;
+    font-style: italic !important;
+    text-transform: lowercase;
+    color: white;
+}
+.bio-section {
+    position: absolute;
+    top: center;
+    bottom: center;
+    right: auto;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.bio-stuff {
+    position: relative;
+    z-index: 1;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.bio-img {
+    background-size: scale-down;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: auto;
+    height: 40vh;
+    margin-top: auto;
+    margin-bottom: auto;
+    z-index: 0;
+}
+
+.bio-overlay {
+    overflow: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    z-index: 3;
+    display: visible;
+}
+
+body .bioblack {
+    background: rgb(27, 29, 32) !important;
+    color: #fff;
+}

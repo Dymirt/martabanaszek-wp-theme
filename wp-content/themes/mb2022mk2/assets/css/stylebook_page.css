@@ -1,0 +1,88 @@
+.landing-button span.icon {
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
+}
+
+.wpcf7-form-control {
+    width: 100%;
+}
+
+.landing-button {
+    background: linear-gradient(
+            90deg,
+            rgba(190, 137, 57, 1) 0%,
+            rgba(224, 198, 108, 1) 70%,
+            rgba(190, 137, 57, 1) 100%
+    ) !important;
+    border-radius: 2px !important;
+    border-color: transparent;
+    font-weight: 700;
+}
+
+.landing-button:hover {
+    color: #000;
+    box-shadow: 3px 3px 8px 3px #888888;
+}
+
+.landing-background-top {
+    background-position: center;
+    background-size: cover;
+    height: 83vh;
+}
+
+#landing-top-text > h2 {
+    color: white !important;
+}
+
+#landing-top-text p {
+    color: white;
+}
+
+#landing-top-text {
+    margin-top: 10%;
+}
+
+.landing-top-text {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.landing-background-bottom {
+    height: 65vh;
+}
+
+.landing-background-bottom img {
+    position: relative;
+    left: 3rem;
+    top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .landing-background-top {
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+        min-height: 720px;
+    }
+
+    #landing-top-text {
+        margin-top: 50vh;
+    }
+
+    .landing-background-bottom {
+        min-height: 800px;
+        height: 100vh;
+    }
+
+    .landing-background-bottom h3 {
+        text-align: center;
+    }
+
+    .landing-background-bottom img {
+        position: relative;
+        left: 2rem;
+        top: 0;
+    }
+}
