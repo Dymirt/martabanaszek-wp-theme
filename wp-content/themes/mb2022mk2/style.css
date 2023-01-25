@@ -10,32 +10,9 @@
  *  Tags:         
  *  Text Domain:  MB2022*/
 
-.woocommerce-product-gallery {
-  margin: 0 !important;
-  width: 100%;
-  height: 100%;
-}
 
-#video-baner {
-  height: 50vh !important;
-}
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=latin-ext");
-
-.card-columns {
-  column-count: 3;
-}
-
-@media only screen and (max-width: 768px) {
-  .card-columns {
-    column-count: 1;
-  }
-}
-
-
-
-
-
 
 
 .video-overlay {
@@ -48,7 +25,6 @@
   min-height: 100vh !important;
   background: rgba(0, 0, 0, 0.1) !important;
   z-index: 100;
-  display: visible;
 }
 
 .menu-sidebar.widget-area {
@@ -2317,7 +2293,10 @@ p.stars a:after,
 
 /*# sourceMappingURL=style.css.map */
 
+
+/*****************************************/
 /* fixes for woocommerce and Bootstrap 5 */
+/*****************************************/
 
 .checkout .shipping h3#ship-to-different-address {
   float: left;
@@ -2333,7 +2312,40 @@ p.stars a:after,
 }
 
 .col2-set {
-  width: auto;
+  padding: 1rem;
+  width: 100%;
   float: left;
   margin-right: 0;
 }
+
+@media (min-width: 768px) {
+  .col2-set {
+    width: 50%;
+  }
+}
+
+.col2-set .billing,
+.col2-set .shipping {
+  margin-bottom: 1.618em;
+}
+
+.col2-set.addresses .billing {
+  width: 47.0588235294%;
+  float: left;
+  margin-right: 5.8823529412%;
+}
+.col2-set.addresses .shipping {
+  width: 47.0588235294%;
+  float: right;
+  margin-right: 0;
+}
+/*****************************************/
+/* End fixes for woocommerce and Bootstrap 5 */
+/*****************************************/
+
+/* Linguise */
+#menu-item-65800 > a > span {
+  width: 16px;
+  height: 16px;
+}
+/* End Linguise */
