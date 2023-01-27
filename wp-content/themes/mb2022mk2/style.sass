@@ -2,7 +2,7 @@
     Theme Name:   MB2020
     Theme URI:    
     Description:  Marta Banaszek 2020
-    Author:       Pawel Wnuk
+    Author:       Pawel Wnuk & Marcin Zajac & Dmytro Kolida
     Author URI:   http://pawelwnuk.pl
     Template:     storefront
     Version:      1.1.9
@@ -1298,11 +1298,18 @@ p.form-row
         width: fit-content
     span
         width: 100%
+
 .col2-set
     width: 100%
+    padding: 1rem
+    float: left
+    margin-right: 0
     @media (min-width: 768px)
-        width: 46.7%
-        margin-right: 6.6%
+        width: 50%
+    .billing, .shipping
+        margin-bottom: 1.618em
+
+
 #order_review_heading, #order_review
     width: 100%
     @media (min-width: 768px)
@@ -1707,3 +1714,10 @@ form.checkout
 
 .woocommerce-loop-product__title, .woocommerce-cart-form .product-details-row a, .cart_item .product-name
     text-transform: uppercase
+
+/* Linguise switcher Icon */
+.linguise_switcher
+    .linguise_language_icon
+        width: 16px !important
+        height: 16px !important
+/* End Linguise switcher Icon */
