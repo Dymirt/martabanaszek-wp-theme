@@ -53,10 +53,10 @@ jQuery(document).ready(function() {
 		jQuery('.site-header').addClass('transparent');
 	}
 
-	if(!$isFrontpage && !$isBio && !$isContact && !is_touch_device4()){
-		jQuery('.menu-wrap').addClass('menu-show');
-		jQuery('.toggle-button').addClass('button-open');
-	}
+	//if(!$isFrontpage && !$isBio && !$isContact && !is_touch_device4()){
+		//jQuery('.menu-wrap').addClass('menu-show');
+		//jQuery('.toggle-button').addClass('button-open');
+	//}
 
 	if($isFrontpage){
 		videoFallback();
@@ -113,7 +113,7 @@ jQuery(document).ready(function() {
 			setTimeout(function(){ 		
 				jQuery('#ebook-link').removeClass('showing');
 				jQuery('#ebook-link').addClass('hidding');	
-			}, 1500);
+			}, 5000);
 		}
 
 	});
@@ -266,10 +266,14 @@ function is_touch_device4() {
 function cookies_info(){
 	var display_cookies = localStorage["mb2020_cookies"];
 	if(display_cookies==0){
-		document.getElementById('cookies-info').classList.add('hidding');
-	}
-	else {
-		jQuery('.cookies').css('display','flex');
+		if(jQuery('.cookies').hasClass('showing')){
+			jQuery('.cookies').addClass('hidding');
+			jQuery('.cookies').removeClass('showing');
+		}
+		else {
+			jQuery('.cookies').addClass('showing');
+		}
+
 	}
 }
 
