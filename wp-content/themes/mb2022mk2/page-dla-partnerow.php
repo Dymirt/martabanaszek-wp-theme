@@ -7,9 +7,16 @@ get_header(); ?>
 <div id="primary" class="content-area frontpage">
     <main id="main" class="site-main" role="main" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-center">
 
-<section id="video-baner" class="fullpage" data-aos="fade-in" data-aos-duration="500">
-			<div id=''class="wrapper h50">
-				<? include('for-partners-page_s1.php');?>
+<section class="fullpage" data-aos="fade-in" data-aos-duration="500">
+			<div class="wrapper h50">
+                <div class="video-overlay"></div>
+                <video class="bg-video" id="video2" autoplay loop muted playsinline>
+                    <source src="<?php echo get_stylesheet_directory_uri()?>/img/s2/chapter4_25fps.mp4" type="video/mp4">
+                </video>
+                <div class="overlay caption">
+                    <h5>Zapoznaj się z marką</h5>
+                    <h1>MB Marta Banaszek</h1>
+                </div>
 			</div>
 	</section>
 
