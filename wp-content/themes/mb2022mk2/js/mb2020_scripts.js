@@ -52,14 +52,10 @@ jQuery(document).ready(function() {
 	if($hasThumbnail || $isFrontpage){
 		jQuery('.site-header').addClass('transparent');
 	}
-
+	// This code is hiding menu hamburger from all pages
 	//if(!$isFrontpage && !$isBio && !$isContact && !is_touch_device4()){
 		//jQuery('.menu-wrap').addClass('menu-show');
 		//jQuery('.toggle-button').addClass('button-open');
-	//}
-	// Delrting this code becouse front page not using fallbacks
-	//if($isFrontpage){
-	//	videoFallback();
 	//}
 
 	jQuery('li.product a').on('hover', function() {
@@ -264,32 +260,5 @@ function ebook_info(){
 	}
 	else {
 		jQuery('.ebook').addClass('showing');
-	}
-}
-
-function videoFallback(){
-	let videoArray = [
-		document.getElementById('video1'), 
-		document.getElementById('video2'), 
-		document.getElementById('video3'),
-		document.getElementById('video4')
-	];
-	let imageArray = [
-		document.getElementById('video1-fallback'), 
-		document.getElementById('video2-fallback'), 
-		document.getElementById('video3-fallback'),
-		document.getElementById('video4-fallback')
-	];
-
-	for (let i = 0; i < videoArray.length; i++) {
-		if(videoArray[i]){
-		videoArray[i].addEventListener('suspend', () => {
-			//video playback suspended
-		  });		
-		videoArray[i].addEventListener('play', () => {
-			//video playback resumed
-			imageArray[i].classList.add('d-none');
-		});
-		}
 	}
 }
