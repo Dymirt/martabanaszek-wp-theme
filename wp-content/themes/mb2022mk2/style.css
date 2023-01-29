@@ -1909,6 +1909,18 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
     right: 0;
   }
 }
+#cookies-info {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
 #cookies-info p {
   margin: 0;
   font-size: 0.75em;
@@ -1925,24 +1937,6 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
 }
 #cookies-info i:hover {
   color: #ddaa4c;
-}
-#cookies-info.showing {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 998;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.65);
-  color: white;
-  justify-content: center;
-  align-items: center;
-}
-#cookies-info.hidding {
-  position: fixed;
-  animation-name: slideLeft;
-  animation-fill-mode: forwards;
-  animation-duration: 10s;
 }
 
 .wc-backward::before, .woocommerce-Button--prev::before {

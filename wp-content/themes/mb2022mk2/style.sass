@@ -1547,6 +1547,16 @@ form.checkout
 
 
 #cookies-info
+    display: flex
+    position: fixed
+    bottom: 0
+    left: 0
+    z-index: 998
+    padding: 10px
+    background-color: rgba(0, 0, 0, 0.65)
+    color: white
+    justify-content: center
+    align-items: center
     p
         margin: 0
         font-size: .75em
@@ -1554,33 +1564,12 @@ form.checkout
     a
         text-decoration: none
         color: white
-
-
     i
         padding: 0px 5px
         transition: $transition-normal
         font-size: .75em
-
     i:hover
         color: $text-color-accent
-
-    &.showing
-        display: flex
-        position: fixed
-        bottom: 0
-        left: 0
-        z-index: 998
-        padding: 10px
-        background-color: rgba(0, 0, 0, 0.65)
-        color: white
-        justify-content: center
-        align-items: center
-
-    &.hidding
-        position: fixed
-        animation-name: slideLeft
-        animation-fill-mode: forwards
-        animation-duration: 10s
 
 .wc-backward::before, .woocommerce-Button--prev::before 
     -webkit-font-smoothing: antialiased

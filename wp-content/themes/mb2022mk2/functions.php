@@ -20,7 +20,7 @@ function load_custom_scripts() {
     wp_register_script('fontawesome', 'https://kit.fontawesome.com/7a0bc25598.js');
 
     wp_enqueue_script('imagesLoaded', 'https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js');
-
+    wp_enqueue_script('martabanaszek_main_theme', get_stylesheet_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
 
     //if(!is_user_logged_in()){
         wp_enqueue_script('custom_scripts'); 

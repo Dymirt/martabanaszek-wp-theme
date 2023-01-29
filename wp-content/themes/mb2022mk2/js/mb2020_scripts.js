@@ -57,10 +57,10 @@ jQuery(document).ready(function() {
 		//jQuery('.menu-wrap').addClass('menu-show');
 		//jQuery('.toggle-button').addClass('button-open');
 	//}
-
-	if($isFrontpage){
-		videoFallback();
-	}
+	// Delrting this code becouse front page not using fallbacks
+	//if($isFrontpage){
+	//	videoFallback();
+	//}
 
 	jQuery('li.product a').on('hover', function() {
 		jQuery(this).parent().toggleClass('hover');
@@ -82,17 +82,6 @@ jQuery(document).ready(function() {
 			scrollTop: jQuery('#page').offset().top
 		}, 300);
 	});
-    
-    jQuery('.cookies-more-info').click(function() {
-		alert("Strona korzysta z plików cookie. Wykorzystywane są one m.in. do zapamiętywania ustawień oraz zbierania danych statystycznych. Jeśli nie chcesz korzystać z plików cookie, proszę opuść tę stronę.");
-    }); 
- 
-    jQuery('.cookies-close').click(function() {
-		localStorage["mb2020_cookies"]=0;
-		cookies_info();
-    });    
-
-	cookies_info();
 
 	jQuery('.ebook-close, .ebook-link').click(function() {
 		localStorage["mb2020_ebook"]=0;
@@ -261,20 +250,6 @@ function is_touch_device4() {
 	// https://git.io/vznFH
 	var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
 	return mq(query);
-}
-
-function cookies_info(){
-	var display_cookies = localStorage["mb2020_cookies"];
-	if(display_cookies==0){
-		if(jQuery('.cookies').hasClass('showing')){
-			jQuery('.cookies').addClass('hidding');
-			jQuery('.cookies').removeClass('showing');
-		}
-		else {
-			jQuery('.cookies').addClass('showing');
-		}
-
-	}
 }
 
 function ebook_info(){

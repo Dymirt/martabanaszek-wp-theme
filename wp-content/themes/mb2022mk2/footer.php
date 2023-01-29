@@ -72,8 +72,8 @@
 		</div>
 		<div id="cookies-info" class="cookies">
 			<p>Strona korzysta z plików cookie.</p>
-			<a><i class="fas fa-info-circle cookies-more-info"></i></a>
-			<a><i class="fas fa-times-circle cookies-close"></i></a>
+			<a onclick="cookiesAlertInfo()"><i class="fas fa-info-circle cookies-more-info"></i></a>
+			<a onclick="cookiesClose()"><i class="fas fa-times-circle cookies-close"></i></a>
 		</div>
 	</footer><!-- #colophon -->
 	<div id="newsletterModal" class="modal">
