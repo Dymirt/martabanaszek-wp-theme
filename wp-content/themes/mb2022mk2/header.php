@@ -69,10 +69,6 @@
 
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <!-- End jQuery -->
-
         <!--  Animate On Scroll -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
