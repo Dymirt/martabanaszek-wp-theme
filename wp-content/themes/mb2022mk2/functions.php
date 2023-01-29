@@ -21,6 +21,7 @@ function load_custom_scripts() {
 
     wp_enqueue_script('imagesLoaded', 'https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js');
     wp_enqueue_script('martabanaszek_main_theme', get_stylesheet_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
+    wp_enqueue_script('martabanaszek_bootstrap_bundle', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", array(), '5.3.0', true);
 
     //if(!is_user_logged_in()){
         wp_enqueue_script('custom_scripts'); 
