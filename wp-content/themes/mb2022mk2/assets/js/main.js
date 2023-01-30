@@ -2,6 +2,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.body.classList.contains('single-product')) {
         insertProductSizeModalButton();
     }
+
+    // Fixing Bootstrap conflict on checkout page
+    if (document.body.classList.contains('woocommerce-checkout')) {
+        let customer_details = document.getElementById('customer_details');
+        customer_details.children.item(0).classList.add("billing");
+        customer_details.children.item(0).classList.remove('col-1')
+
+        customer_details.children.item(1).classList.add("shipping");
+        customer_details.children.item(1).classList.remove('col-2')
+    }
 });
 
 // cookies-info
