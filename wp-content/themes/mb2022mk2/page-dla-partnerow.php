@@ -35,7 +35,7 @@ get_header(); ?>
     </div>
     <div class='container'>
         <h2 style="text-align: center; color: white;">Nasze najlepsze produkty</h2>
-        <div class="row row-cols-md-3 g-4 ">
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
             <?php
             $args = array(
                 'post_type' => 'product',
@@ -52,7 +52,7 @@ get_header(); ?>
             $loop = new WP_Query($args);
             if ($loop->have_posts()) {
                 while ($loop->have_posts()) : $loop->the_post();
-                    wc_get_template_part('content', 'product-china');
+                    wc_get_template_part('content', 'products_for_partners');
                 endwhile;
             } else {
                 echo __('No products found');
