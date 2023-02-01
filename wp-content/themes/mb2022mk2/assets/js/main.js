@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
         customer_details.children.item(1).classList.add("shipping");
         customer_details.children.item(1).classList.remove('col-2')
     }
+
+    if (document.body.classList.contains('page-id-65869')) { // Ciriana page
+        checkCookie('products_offer'); // Create cookie if empty
+        const cookies = JSON.parse(getCookie('products_offer'));        let message = 'Price offered | Currency | Product URL \n';
+        setFormHiddenValue(cookies);
+    }
+
 });
 
 // cookies-info
@@ -28,15 +35,34 @@ function insertProductSizeModalButton(){
     elem.item(0).innerHTML += "<a id='sizeTableButton'>Tabela rozmiarów</a>";
 }
 
-function savePriceProposal(product_id, value) {
-    //const form = document.getElementById(`priceform-${product_id}`);
-    checkCookie('products_offer');
-    let cookies = JSON.parse(getCookie('products_offer'));
-    const product = {product_id:product_id, offered_price:value};
+function savePriceProposal(product_id, product_url, currency, offered_price) {
+    const cookies = JSON.parse(getCookie('products_offer'));
+    const product = {
+        product_id:product_id,
+        product_url:product_url,
+        offered_price:offered_price,
+        currency:currency
+    };
+    const form_input = document.getElementById("offer-message");
+
     cookies.push(product);
-    setCookie('products_offer', JSON.stringify(cookies), 10);
+    setCookie('products_offer', JSON.stringify(cookies), 365);
     console.log(getCookie('products_offer'));
+    setFormHiddenValue(cookies);
+
+
     return false;
+}
+
+function setFormHiddenValue(cookies) {
+    const form_input = document.getElementById("offer-message");
+    let message = 'Price offered | Product URL \n';
+
+    for (let offer in cookies){
+        message += cookies[offer].offered_price + " " + cookies[offer].currency + " | " + cookies[offer].product_url + '\n';
+    }
+
+    form_input.setAttribute('value',message);
 }
 
 

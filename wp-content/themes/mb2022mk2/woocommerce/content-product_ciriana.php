@@ -85,10 +85,10 @@ $attimages = get_attached_media('image', $product->ID);
                     <span class="badge text-bg-dark"><?php do_action('woocommerce_after_shop_loop_item_title'); ?></span>
                 </div>
                 <div class="col-8">
-                    <h6>Wpisz swoją cene:</h6>
+                    <h6>Proponowana cena:</h6>
                     <div id="priceform-<?php the_ID(); ?>">
                         <form class="input-group input-group-sm mb-3"
-                              onsubmit="savePriceProposal(<?php the_ID(); ?>, this['price-offer'].value); return false">
+                              onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink();?>', '<?php echo get_woocommerce_currency_symbol() ?>', this['price-offer'].value); return false">
                             <input type="number" name="price-offer" min="1" class="form-control"
                                    value="<?php echo wc_get_price_to_display($product) ?>">
                             <span class="input-group-text"><?php echo get_woocommerce_currency_symbol() ?></span>
