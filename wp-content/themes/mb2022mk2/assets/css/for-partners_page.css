@@ -1,4 +1,6 @@
-.card-header {
+@import url('https://fonts.cdnfonts.com/css/barlow');
+
+  .card-header {
     padding: 0;
 }
 
@@ -17,4 +19,9 @@
 }
 #contact {
     padding-top: 10rem !important;
+}
+@media (max-width: 768px) {
+    #bymarta{
+        padding-left: 15px;
+    }
 }

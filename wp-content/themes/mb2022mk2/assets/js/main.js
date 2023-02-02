@@ -1,4 +1,6 @@
 const price_offers_storage = 'price_offers'
+
+document.onload
 document.addEventListener('DOMContentLoaded', function () {
     if (document.body.classList.contains('single-product')) {
         insertProductSizeModalButton();
@@ -15,6 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (document.body.classList.contains('page-id-65869')) { // Ciriana page
+        //let logo = document.getElementsByClassName('custom-logo');
+        //for (let i in logo){
+        //    logo[i].src = '/wp-content/themes/mb2022mk2/img/ciriana_logo_biale.png';
+        //    console.log(logo[i]);
+        //}
+
         // Using localStorage
         if (checkLocalStorage(price_offers_storage)){
             const price_offers = JSON.parse(localStorage.getItem(price_offers_storage));
@@ -24,6 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+function setCirianaLogo(img_tag){
+    //console.log(img_tag)
+    //img_tag.src = '/wp-content/themes/mb2022mk2/img/ciriana_logo_biale.png';
+    //img_tag.currentSrc = '/wp-content/themes/mb2022mk2/img/ciriana_logo_biale.png';
+}
 
 function delProductCookie(product_obj) {
     let price_offers = JSON.parse(localStorage.getItem(price_offers_storage));

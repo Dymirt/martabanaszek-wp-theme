@@ -2,7 +2,7 @@
 
 wp_enqueue_style('for-partners', get_stylesheet_directory_uri() . '/assets/css/for-partners_page.css');
 
-get_header(); ?>
+get_header('ciriana'); ?>
 <?php
 // STARTS - wrapp your content with this conditional statement
 if (post_password_required()) :
@@ -59,14 +59,6 @@ else:?>
                 $args = array(
                     'post_type' => array('product', 'product_variation'),
                     'posts_per_page' => 100,
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'product_tag',
-                            'terms' => 'for-partners',
-                            'field' => 'slug',
-                            'operator' => 'IN'
-                        )
-                    ),
                     'meta_query' => array(
                         array(
                             'key' => '_stock',
@@ -147,4 +139,4 @@ else:?>
 // ENDS - hide custom fields with PPWP password protection
 ?>
 <?php
-get_footer('shop');
+get_footer('ciriana');

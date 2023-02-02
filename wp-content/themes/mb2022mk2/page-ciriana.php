@@ -2,7 +2,7 @@
 
 wp_enqueue_style('for-partners', get_stylesheet_directory_uri() . '/assets/css/for-partners_page.css');
 
-get_header(); ?>
+get_header('ciriana'); ?>
 <?php
 // STARTS - wrapp your content with this conditional statement
 if (post_password_required()) :
@@ -18,42 +18,18 @@ else:?>
             <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
                 <div class="wrapper h50">
                     <div class="video-overlay"></div>
-                    <video class="bg-video" id="video2" autoplay loop muted playsinline>
+                    <video class="bg-video" id="video2" autoplay loop muted playsinline style="object-position: top;">
                         <source src="<?php echo get_stylesheet_directory_uri() ?>/img/s2/chapter4_25fps.mp4"
                                 type="video/mp4">
                     </video>
-                    <div class="overlay caption">
-                        <h5>Zapoznaj się z marką</h5>
-                        <h1>MB Marta Banaszek</h1>
-                    </div>
                 </div>
             </section>
 
         </main><!-- #main -->
         <!-- Here Comes a PAGE -->
 
-        <div class='align-items-stretch' style='background-color: black; padding: 4rem 0;'>
-            <h2 class='strong-header' style="text-align: center; color: white">o Marce</h2>
-            <div class="container"
-                 style="text-align: center; font-weight: 500;font-size: 14.4px; color:white; max-width: 900px;">
-                <p>
-                    MB Marta Banaszek marka modowa, powstała w 2017 roku. Od początku istnienia najważniejszą dla Nas
-                    wartością jest zaufanie klientek, zdobyte dzięki transparentności oraz ciężkiej pracy.
-                    Wypracowaliśmy indywidualne podejście do klientki, które stało się domeną marki MB, widoczne we
-                    wszystkich projektach. W ten sposób pracujemy na wzajemne zaufanie i budujemy długofalową relację z
-                    naszymi klientkami.
-                    <br><br>Dla MB Marta Banaszek transparentność to podstawa, bez której nasze projekty nie ujrzałyby
-                    światła dziennego. Transparentność, to przede wszystkim gra w „otwarte karty”, gdzie każdy klient ma
-                    możliwość śledzenia całego procesu tworzenia. To biznes wykwalifikowanych rzemieślników pracujących
-                    na miejscu w Studio i otwartych na pracę z klientem.
-                    <br><br>Spełniamy marzenia kobiet o kreacjach - odzwierciedlając je w naszych projektach. Niezwykle
-                    projekty ubrań, które można nosić na wielkie wydarzenia wprost na czerwony dywan, jak i w życiu
-                    codziennym. </p>
-
-            </div>
-        </div>
         <div class='container'>
-            <h2 style="text-align: center; color: white;">Nasze najlepsze produkty</h2>
+            <h2 style="text-align: center; color: white; padding: 2rem;">Nasze najlepsze produkty</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4 ">
                 <?php
                 $args = array(
@@ -82,7 +58,7 @@ else:?>
         </div>
 
         <div class="container">
-            <h2 style="text-align: center; color: white;">Wykończenia</h2>
+            <h2 style="text-align: center; color: white; padding: 2rem;">Wykończenia</h2>
             <?php
             $args = array(
                 'post_type' => 'attachment',
@@ -101,7 +77,7 @@ else:?>
             echo do_shortcode($gallery_shortcode); ?>
         </div>
         <div class="container">
-            <h2 style="text-align: center; color: white;">Galeria Zdjęć</h2>
+            <h2 style="text-align: center; color: white; padding: 2rem;">Galeria Zdjęć</h2>
             <?php
             $args = array(
                 'post_type' => 'attachment',
@@ -121,7 +97,7 @@ else:?>
 
         </div>
         <div class='container' id="contact">
-            <h2 style="text-align: center; color: white;">Kontakt</h2>
+            <h2 style="text-align: center; color: white; padding: 2rem;">Kontakt</h2>
 
             <div style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem;">
                 Zapraszamy do współpracy Partnerów z Polski, jaki i zagranicy. Oferujemy atrakcyjne warunki współpracy,
@@ -139,4 +115,4 @@ else:?>
 // ENDS - hide custom fields with PPWP password protection
 ?>
 <?php
-get_footer('shop');
+get_footer('ciriana');
