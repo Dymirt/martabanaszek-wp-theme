@@ -120,7 +120,7 @@ else:?>
             echo do_shortcode($gallery_shortcode); ?>
 
         </div>
-        <div class='container'>
+        <div class='container' id="contact">
             <h2 style="text-align: center; color: white;">Kontakt</h2>
 
             <div style="text-align: center; font-size: 1.5rem; margin-bottom: 2rem;">

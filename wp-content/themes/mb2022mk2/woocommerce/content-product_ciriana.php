@@ -93,6 +93,7 @@ $attimages = get_attached_media('image', $product->ID);
                                    value="<?php echo wc_get_price_to_display($product) ?>">
                             <span class="input-group-text"><?php echo get_woocommerce_currency_symbol() ?></span>
                             <button class="btn btn-outline-dark">Zapisz</button>
+                            <a id='<?php the_ID(); ?>-sendButton' class="btn btn-outline-success" style="display: none">Wyślij</a>
                         </form>
                     </div>
                 </div>

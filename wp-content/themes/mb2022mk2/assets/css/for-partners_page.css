@@ -6,3 +6,15 @@
     object-fit: cover;
     height: 90vh;
 }
+
+.form-control:disabled {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.badge.text-bg-dark {
+    padding: 10px;
+}
+#contact {
+    padding-top: 10rem !important;
+}
