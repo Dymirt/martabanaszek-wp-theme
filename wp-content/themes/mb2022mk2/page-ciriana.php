@@ -36,9 +36,16 @@ else:?>
                     'post_type' => 'product',
                     'posts_per_page' => 100,
                     'tax_query' => array(
+                        'relation' => 'OR',
                         array(
                             'taxonomy' => 'product_tag',
                             'terms' => 'for-partners',
+                            'field' => 'slug',
+                            'operator' => 'IN'
+                        ),
+                        array(
+                            'taxonomy' => 'product_tag',
+                            'terms' => 'ciriana',
                             'field' => 'slug',
                             'operator' => 'IN'
                         )

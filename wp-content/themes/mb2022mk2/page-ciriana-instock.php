@@ -57,21 +57,27 @@ else:?>
             <div class="row row-cols-1 row-cols-md-3 g-4 ">
                 <?php
                 $args = array(
-                    'post_type' => array('product', 'product_variation'),
+                    'post_type' => 'product',
                     'posts_per_page' => 100,
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_tag',
+                            'terms' => 'ciriana-instock',
+                            'field' => 'slug',
+                            'operator' => 'IN'
+                        )
+                    ),
                     'meta_query' => array(
                         array(
-                            'key' => '_stock',
-                            'value' => 1,
-                            'compare' => '>=',
-                            'type' => 'NUMERIC'
+                            'key' => '_stock_status',
+                            'value' => 'instock'
                         )
                     )
                 );
                 $loop = new WP_Query($args);
                 if ($loop->have_posts()) {
                     while ($loop->have_posts()) : $loop->the_post();
-                        wc_get_template_part('content', 'product_ciriana');
+                        wc_get_template_part('content', 'product_ciriana_instock');
                     endwhile;
                 } else {
                     echo __('No products found');

@@ -132,7 +132,7 @@
             <div class="header-col" style="height: auto">
                 <?php //storefront_site_title_or_logo();
                 ?>
-                <a href="" class="custom-logo-link " rel="home" style="display: grid; margin-top: 10px;">
+                <a href="" class="custom-logo-link " rel="home" style="display: grid;">
                     <img width="276"
                          src="/wp-content/themes/mb2022mk2/assets/img/ciriana/ciriana_logo_biale.png"
                          class="custom-logo"
