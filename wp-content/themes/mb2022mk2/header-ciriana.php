@@ -149,6 +149,15 @@
 
             </div>
             <div class="header-col">
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'secondary',
+                        'container_class' => 'secondary-navigation',
+                        'menu_class' => 'icon-list'
+                    )
+                );
+                ?>
             </div>
         </div>
     </header><!-- #masthead -->
