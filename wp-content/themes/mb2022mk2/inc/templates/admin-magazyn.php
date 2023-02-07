@@ -12,15 +12,35 @@ $args = array(
         )
     )
 ); ?>
-
+<div style="padding-right: 20px;">
 <h1>Stany magazynowe</h1>
 <style>
+    table {
+        width: 100%;
+    }
     table, th, td {
         border: 1px solid;
     }
+
+    .product_table > tbody > tr > td:first-child {
+        width: 100px;
+    }
+    .product_table > tbody > tr > td:nth-child(2) {
+        padding:10px;
+    }
+    .product_table > tbody > tr > td:nth-child(3) {
+        text-align: center;
+    }
+
+    /* variations table */
+    .variations_table > tbody > tr > td {
+        padding: 0 5px;
+    }
+
+
 </style>
 
-<table>
+<table class="product_table">
     <thead>
     <tr>
         <th>Zdjęcie</th>
@@ -41,3 +61,4 @@ $args = array(
     wp_reset_postdata();
     ?>
 </table>
+</div>

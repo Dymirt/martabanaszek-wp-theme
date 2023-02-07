@@ -37,19 +37,19 @@ $variations = $product->get_available_variations();
 
 
     <tr>
-        <td><img src="<?php the_post_thumbnail_url(); ?>" class="" style="width: 100px; height: 150px; object-fit: cover"></td>
+        <td><img src="<?php the_post_thumbnail_url(); ?>" style="width: 100%;"></td>
         <td><a href="<?php
             echo get_admin_url();
             echo 'post.php?post=';
             echo the_ID();
             echo '&action=edit'; ?>"><?php the_title(); ?></a></td>
-        <td class="<?php echo $product -> stock_status;?>"><?php echo $product -> stock_status;?></td>
+        <td><?php echo $product -> stock_status;?></td>
         <?php if (count($variations) > 0 ) { ?>
         <td>
-            <table style="width: 100%">
+            <table class="variations_table">
                 <thead>
                     <tr>
-                        <th style="width: 180px;">Opis wariantu</th>
+                        <th>Opis wariantu</th>
                         <th>Ilość</th>
                         <th>Cena min.(zł)</th>
                         <th>Cena w sklepie(zł)</th>
