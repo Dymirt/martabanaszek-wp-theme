@@ -21,6 +21,13 @@ defined('ABSPATH') || exit;
 global $product;
 $attimages = get_attached_media('image', $product->ID);
 
+$variations = $product->get_available_variations();
+if (count($variations) > 0) {
+    $minimum_price_pln = get_post_meta( $variations[0]['variation_id'], 'minimum-price-pln', true );
+} else {
+    $minimum_price_pln = 0;
+}
+
 
 // Ensure visibility.
 
@@ -82,16 +89,19 @@ $attimages = get_attached_media('image', $product->ID);
             <div class="row">
                 <div class="col-4">
                     <h6>Nasza cena:</h6>
-                    <span class="badge text-bg-dark"><?php do_action('woocommerce_after_shop_loop_item_title'); ?></span>
+                    <span class="badge text-bg-dark"><?php echo $minimum_price_pln; ?>.00 zł</span>
                 </div>
                 <div class="col-8">
                     <h6>Proponowana cena:</h6>
                     <div id="priceform-<?php the_ID(); ?>">
                         <form class="input-group input-group-sm mb-3"
-                              onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink();?>', '<?php echo get_woocommerce_currency_symbol() ?>', this['price-offer'].value); return false">
-                            <input type="number" name="price-offer" min="1" class="form-control"
-                                   value="<?php echo wc_get_price_to_display($product) ?>">
-                            <span class="input-group-text"><?php echo get_woocommerce_currency_symbol() ?></span>
+                              onsubmit="savePriceProposal(<?php the_ID(); ?>, '<?php echo get_permalink();?>', 'zł', this['price-offer'].value); return false">
+                            <input type="number"
+                                   name="price-offer"
+                                   min="1"
+                                   class="form-control"
+                                   value="<?php echo $minimum_price_pln; ?>">
+                            <span class="input-group-text">zł</span>
                             <button class="btn btn-outline-dark">Zapisz</button>
                             <a id='<?php the_ID(); ?>-sendButton' class="btn btn-outline-success" style="display: none">Wyślij</a>
                         </form>
