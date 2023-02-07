@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 
 global $product;
 $attimages = get_attached_media('image', $product->ID);
-$variations = $product->get_available_variations();
+$variations_id = $product->get_children();
 
 
 // Ensure visibility.
@@ -81,20 +81,11 @@ $variations = $product->get_available_variations();
                 <?php woocommerce_template_single_excerpt(); ?>
                 <strong>Dostępne rozmiary i warianty:<br></strong>
                 <?php
-                $childrens =  $product->get_children();
-                foreach ($variations as $children => $val) {
-                    //echo '<pre>'; print_r($val); echo '</pre>';
-                    //"ID: " . $val['variation_id']
-
-                    $variation_o = new WC_Product_Variation( $val['variation_id'] );
+                foreach ($variations_id as $variation_id) {
+                    $variation_o = new WC_Product_Variation( $variation_id );
                     $variation_stock = $variation_o->get_stock_quantity();
                     if ($variation_stock > 0) {
-                        if ($val['attributes']['attribute_pa_kolor']) {
-                            echo "Rozmiar: " . $val['attributes']['attribute_pa_rozmiar'] . " Kolor: " . $val['attributes']['attribute_pa_kolor'] . " (" . $variation_stock . "szt.)";
-                        } else {
-                            echo "Rozmiar: " . $val['attributes']['attribute_pa_rozmiar'] . " (" . $variation_stock . "szt.)";
-                        }
-                        echo "<br>";
+                        echo $variation_o->get_attribute_summary() . " (" . $variation_stock . "szt.)<br>" ;
                     }
                 }
                 ?>
