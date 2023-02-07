@@ -2,6 +2,7 @@
 /**  */
 
 require get_stylesheet_directory() . '/inc/functions-custom-variation-fields.php';
+require get_stylesheet_directory() . '/inc/functions-admin.php';
 
 function my_theme_enqueue_styles() {
  
