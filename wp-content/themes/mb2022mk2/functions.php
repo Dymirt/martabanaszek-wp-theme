@@ -489,21 +489,24 @@ add_action( 'woocommerce_before_shop_loop', 'add_filter_toggle', 25 );
 function add_filter_toggle() {
 	echo('<button class="toggle-filter-button click right"><i class="fas fa-filter"></i> Filtruj produkty</button>');
 }
-
+//// Remove this hook to free left side bar
 add_action( 'menu', 'mb2020_menu_slide_out' );
+
 add_action( 'menu_hidden', 'mb2020_menu_slide_out_hidden' );
 
 function mb2020_menu_slide_out() {
     
-    echo('<div class="slide-out-pane">
+    echo('<div class="slide-out-pane l">
     <div class="menu-wrap left">
         <div class="menu-sidebar">');
-        wp_nav_menu(
+        // There is a hook for left side panel
+        // Remove this entire function to free left side bar
+        /*wp_nav_menu(
             array(
                 'theme_location'  => 'primary',
                 'container_class' => 'primary-navigation',
             )
-        );
+        );*/
             echo('</div>
         </div>
     </div>');
@@ -524,13 +527,6 @@ function mb2020_menu_slide_out_hidden() {
     </div>');
 }
 
-add_action( 'wp_print_scripts', 'remove_storefront_unused_scripts', 100 );
-function remove_storefront_unused_scripts() {
-    //wp_dequeue_script( 'storefront-sticky-add-to-cart' );
-}
-
-
-//require_once(get_stylesheet_directory().'/widgets/wc-recently-viewed.php');
 function add_custom_widgets() {
     register_widget( 'WC_Widget_Recently_Viewed_MB2020' );
 }
@@ -743,13 +739,6 @@ function mytheme_infinite_scroll_render() {
     endwhile;
 
 
-}
-
-//Remove woocommerce_sale_flash completely
-//add_filter('woocommerce_sale_flash', 'woo_custom_hide_sales_flash');
-function woo_custom_hide_sales_flash()
-{
-    return false;
 }
 
 
