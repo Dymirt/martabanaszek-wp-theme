@@ -36,6 +36,9 @@ $args = array(
     .variations_table > tbody > tr > td {
         padding: 0 5px;
     }
+    .variations_table > thead > tr > th:first-child {
+        width: 180px;
+    }
 
 
 </style>
