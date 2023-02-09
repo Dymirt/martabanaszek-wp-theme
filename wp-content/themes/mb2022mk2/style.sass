@@ -165,7 +165,7 @@ body.admin-bar
 
 .site-header 
     padding-top: 0
-    height: 80px
+    //height: 80px
     border-bottom: none
     position: sticky
     position: -webkit-sticky
@@ -258,16 +258,12 @@ body.admin-bar
                 padding-right: 0
                 justify-content: flex-start
 
-ul.icon-list a, .toggle-button i, .toggle-filter-button i
+ul.icon-list a, .toggle-button i
     transition: .3s ease
     &:hover
         color: $text-color-accent !important
         cursor: pointer
 
-.toggle-filter-button
-    display: none
-    @media screen and ( min-width: 768px )
-        //display: block
 
 .menu-icon-portfolio
     .dashicons-admin-post
@@ -300,59 +296,16 @@ ul.icon-list a, .toggle-button i, .toggle-filter-button i
             display: block
             margin-left: 0
 
-body.woocommerce-checkout, body.woocommerce-cart
-    .col-full
-        &.no-margin
-            .content-area-wrapper
-                @media (min-width: 1024px)
-                    width: calc(100% - (16.66% + 3.33% * 2))
 .col-full
     &.no-margin
         width: 100%
         max-width: 100vw
         padding: 0
         margin: 0
-        .content-area-wrapper
-            overflow: auto
-            float: left
-            width: 100%
-            @media (min-width: 1024px)
-                width: calc(100% - (16.66% + 3.33%) * 2)
         .bottom-widgets
             margin-left: 0
             @media (min-width: 1024px)
                 margin-left: calc(16.66% + 3.33%)
-        .slide-out-pane
-            position: sticky
-            top: 80px
-            left: 0
-            float: left
-            //margin-top: -1.618em
-            width: 100%
-            z-index: 997
-            margin-left: -100%
-            display: none
-            .menu-wrap
-                margin-left: 0
-                width: 100%
-            @media (min-width: 580px)
-                width: auto
-            @media (min-width: 769px)
-                display: block
-            @media (min-width: 1024px)
-                width: 16.66%
-                margin-left: 0
-                margin-right: 3.33%
-            &.right
-                right: 0
-                margin-left: 10%
-                margin-right: 10%
-                width: 95%
-                @media (min-width: 769px)
-                    right: 0
-                    margin-left: 1.5%
-                    margin-right: 1.5%
-                    width: 16.66%
     .content-area 
         width: 100%
         margin: 0
@@ -896,25 +849,6 @@ body.woocommerce-checkout, body.woocommerce-cart
     margin-left: 0
     margin-right: 0
     position: relative
-.right > .menu-sidebar
-    margin-top: 30px
-    margin-left: 10px
-    margin-right: 10px
-    position: relative
-    color: #333333
-    h2
-        text-transform: uppercase
-        font-size: .9rem
-        font-weight: 500
-        letter-spacing: .1rem
-    li:not(.chosen), li.woocommerce-widget-layered-nav-list__item
-        text-transform: none
-        font-size: .8rem
-        font-weight: 300
-        letter-spacing: 0
-        margin: 5px 0
-        a
-            margin: 10px
 
 
 .menu-sidebar 
@@ -1718,3 +1652,33 @@ form.checkout
 
 .woocommerce-loop-product__title, .woocommerce-cart-form .product-details-row a, .cart_item .product-name
     text-transform: uppercase
+
+// Shop
+
+.secondary-header
+    display: inline-grid
+    grid-template-columns: 90% 10%
+    background-color: black
+    width: 100%
+    padding: 13px 40px
+    border-top: 1px solid dimgray
+
+    @media (max-width: 768px)
+        padding: 0
+
+    .storefront-breadcrumb
+        padding: 0
+        margin: 0
+        @media (max-width: 768px)
+            display: none
+        div:first-child
+            width: 100%
+            padding: 0
+            margin: 0
+
+
+#offcanvasRight
+    top: 136px
+    color: black
+    a
+        color: black !important
