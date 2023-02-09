@@ -12,10 +12,11 @@ function my_theme_enqueue_styles()
     $parent_style = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
 
     wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
+    wp_enqueue_style('bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css", array(), '5.3.0');
     wp_enqueue_style('jquery-ui', get_stylesheet_directory_uri() . '/js/jquery-ui.min.css');
     wp_enqueue_style('child-style',
         get_stylesheet_directory_uri() . '/style.css',
-        array($parent_style),
+        array($parent_style, 'bootstrap'),
         wp_get_theme()->get('Version')
     );
 }
@@ -99,19 +100,16 @@ function define_default_payment_gateway()
 
 /**
  * Remove description field from product editing
- * @return void
  */
 function remove_product_editor()
 {
     remove_post_type_support('product', 'editor');
 }
-
 add_action('init', 'remove_product_editor');
 
 /**
  * Show cart contents / total Ajax
  */
-add_filter('woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 
 function woocommerce_header_add_to_cart_fragment($fragments)
 {
@@ -126,17 +124,16 @@ function woocommerce_header_add_to_cart_fragment($fragments)
     $fragments['span.cart-total-count'] = ob_get_clean();
     return $fragments;
 }
+add_filter('woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 
-add_filter('wc_add_to_cart_message_html', 'my_custom_add_to_cart_message');
+
 function my_custom_add_to_cart_message($message)
 {
     $message .= sprintf('<a href="%s" class="button wc-backward">%s</a>', get_permalink(woocommerce_get_page_id('shop')), esc_html__('Continue shopping', 'woocommerce'));
     return $message;
 }
+add_filter('wc_add_to_cart_message_html', 'my_custom_add_to_cart_message');
 
-/*
-* Creating a function to create our CPT
-*/
 
 // Replace Posts label as News in Admin Panel 
 
@@ -171,7 +168,6 @@ add_action('admin_menu', 'change_post_menu_label');
 
 /**
  * Menu registrations
- * @return void
  */
 function mytheme_register_nav_menu()
 {
@@ -295,18 +291,18 @@ function storefront_post_content()
     </div><!-- .entry-content -->
     <?php
 }
-
+/*
 function storefront_post_excerpt()
 {
     ?>
     <div class="entry-content">
         <?php
 
-        /**
-         * Functions hooked in to storefront_post_content_before action.
-         *
-         * @hooked storefront_post_thumbnail - 10
-         */
+
+         //Functions hooked in to storefront_post_content_before action.
+
+         // @hooked storefront_post_thumbnail - 10
+
         do_action('storefront_post_content_before');
 
         the_excerpt();
@@ -327,7 +323,7 @@ function storefront_post_excerpt()
     </div><!-- .entry-content -->
     <?php
 }
-
+*/
 function storefront_before_content()
 {
     ?>
@@ -496,7 +492,7 @@ function jetpack_setup_override()
 }
 
 add_action('init', 'jetpack_setup_override', 0);
-
+/*
 function mytheme_infinite_scroll_render()
 {
     while (have_posts()) : the_post();
@@ -512,10 +508,12 @@ function mytheme_infinite_scroll_render()
 
 
 }
-
+*/
 
 //add_filter('woocommerce_variable_sale_price_html', 'shop_variable_product_price', 10, 2);
 //add_filter('woocommerce_variable_price_html','shop_variable_product_price', 10, 2 );
+
+/*
 function shop_variable_product_price($price, $product)
 {
     $variation_min_reg_price = $product->get_variation_regular_price('min', true);
@@ -532,8 +530,11 @@ function shop_variable_product_price($price, $product)
     }
     return $price;
 }
+*/
 
-// Disable WordPress image compression
+/**
+ * Disable WordPress image compression
+ */
 add_filter('wp_editor_set_quality', function ($arg) {
     return 100;
 });
