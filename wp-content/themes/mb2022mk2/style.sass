@@ -4,8 +4,7 @@
     Description:  Marta Banaszek 2023
     Author:       Pawel Wnuk & Marcin Zajac & Dmytro Kolida
     Author URI:   https://dymirt.pythonanywhere.com
-    Template:     storefront
-    Version:      1.2.0
+    Version:      1.2.1
     License:      GNU General Public License v2 or later
     License URI:  http://www.gnu.org/licenses/gpl-2.0.html
     Tags:         
@@ -1086,7 +1085,7 @@ ul.icon-list a, .toggle-button i
   left: 40px
   padding: 4px
   transition: .25s
-  z-index: 15
+  z-index: 2000
   display: block
   @media (max-width: 576px)
     left: 10px
@@ -1097,7 +1096,7 @@ ul.icon-list a, .toggle-button i
   &.right
     left: auto
     right: 40px
-    z-index: 1000
+    z-index: 2000
 
   &:hover
     cursor: pointer
@@ -1960,3 +1959,11 @@ form.checkout
 
   a
     color: black !important
+
+
+/*
+  * Override STOREFRONT styles
+  */
+
+.site-header
+  padding-bottom: 0
