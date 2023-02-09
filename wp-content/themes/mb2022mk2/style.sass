@@ -19,1525 +19,1789 @@ $text-color-accent: #ddaa4c
 
 $bg-color-black: #000
 $bg-color-dark: #161616
-$bg-color-menu: rgb(22,22,22)
+$bg-color-menu: rgb(22, 22, 22)
 $bg-color-lightgrey: #ebebeb
 $bg-color-grey: #b5b5b5
 $bg-color-darkgrey: #777
 $bg-color-white: #fff
 
-$transition-fast:   .10s linear
+$transition-fast: .10s linear
 $transition-normal: .25s linear
-$transition-slow:   .50s linear
+$transition-slow: .50s linear
 
 // Google Fonts //
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=latin-ext')
 
-body 
-    font-family: 'Roboto', sans-serif
+body
+  font-family: 'Roboto', sans-serif
+  background: $bg-color-white
+  color: $text-color-black
+  font-size: 1em
+  font-weight: 300
+
+  a
+    color: $text-color-black
+
+    &:focus
+      outline: none
+
+    &:hover
+      color: inherit
+      text-decoration: underline
+
+    &.link
+      text-decoration: underline !important
+      cursor: pointer
+
+      &:hover
+        text-decoration: none !important
+
+  .underline a, a.underline
+    text-decoration: none !important
+    position: relative
+
+    &::after
+      content: ""
+      display: block
+      height: 0.15em
+      position: absolute
+      top: 100%
+      width: 100%
+      left: 50%
+      transform: translate(-50%)
+      background-image: linear-gradient(to right, transparent 50.3%, $text-color-accent 50.3%)
+      transition: background-position .2s .1s ease-out
+      background-size: 200% auto
+
+    &:hover
+      text-decoration: none !important
+
+    &:hover::after
+      background-position: -100% 0
+
+  li.current_page_item:not(.current_page_parent), li.current-menu-item:not(.current_page_parent)
+    > a::after
+      background-position: -100% 0
+
+  h1
+    font-size: 2em
+    font-weight: 500
+    text-transform: uppercase
+
+  img
+    border-radius: 0
+
+  button, a, button, .button.alt, input, textarea, input[type="button"], input[type="reset"], input[type="submit"], input[type="email"], input[type="tel"], input[type="url"], input[type="password"], input[type="search"]
+    &:focus
+      outline: none
+  //outline-color: $text-color-accent
+  button
+    transition: $transition-normal
+    border: 2px solid $bg-color-white
+
+    &.black
+      border: 2px solid $bg-color-black
+
+      &:hover
+        border-color: $bg-color-white
+
+    &:hover
+      color: $text-color-accent
+      outline-color: $text-color-accent
+      border-color: $text-color-accent
+
+    > a
+      display: block
+
+  .black
+    background: $bg-color-black
+    color: $text-color-white
+
+    a
+      color: $text-color-white !important
+
+    .sub-menu
+      background: $bg-color-menu
+
+  .white
     background: $bg-color-white
     color: $text-color-black
-    font-size: 1em
-    font-weight: 300
+
     a
-        color: $text-color-black
-        &:focus
-            outline: none
-        &:hover
-            color: inherit
-            text-decoration: underline
-        &.link
-            text-decoration: underline !important
-            cursor: pointer
-            &:hover
-                text-decoration: none !important
-    .underline a, a.underline
-        text-decoration: none !important
-        position: relative
-        &::after 
-            content: ""
-            display: block
-            height: 0.15em
-            position: absolute
-            top: 100%
-            width: 100%
-            left: 50%
-            transform: translate(-50%)
-            background-image: linear-gradient(to right, transparent 50.3%, $text-color-accent 50.3%)
-            transition: background-position .2s .1s ease-out
-            background-size: 200% auto
-        &:hover
-            text-decoration: none !important
-        &:hover::after 
-            background-position: -100% 0
-    li.current_page_item:not(.current_page_parent), li.current-menu-item:not(.current_page_parent)
-        > a::after 
-            background-position: -100% 0
-    h1
-        font-size: 2em
-        font-weight: 500
-        text-transform: uppercase
-    img
-        border-radius: 0
-    button, a, button, .button.alt, input, textarea, input[type="button"], input[type="reset"], input[type="submit"], input[type="email"], input[type="tel"], input[type="url"], input[type="password"], input[type="search"]
-        &:focus
-            outline: none
-            //outline-color: $text-color-accent
-    button
-        transition: $transition-normal
-        border: 2px solid $bg-color-white
-        &.black
-            border: 2px solid $bg-color-black
-            &:hover
-                 border-color: $bg-color-white
-        &:hover
-            color: $text-color-accent
-            outline-color: $text-color-accent
-            border-color: $text-color-accent
-        > a 
-            display: block
-    .black
-        background: $bg-color-black
-        color: $text-color-white
-        a
-            color: $text-color-white !important
-        .sub-menu
-            background: $bg-color-menu
-    .white
-        background: $bg-color-white
-        color: $text-color-black
-        a
-            color: $text-color-black !important
-    &.modal-open
-        //overflow: visible
-        //position: fixed
-        @media screen and ( min-width: 768px )
-            position: absolute
-            padding-right: 12px
-    .page-title
-        text-align: center
+      color: $text-color-black !important
+
+  &.modal-open
+    //overflow: visible
+    //position: fixed
+    @media screen and (min-width: 768px)
+      position: absolute
+      padding-right: 12px
+
+  .page-title
+    text-align: center
+
 .site
-    overflow-x: unset
+  overflow-x: unset
 
 .page-template-template-homepage, .single-blog, .single-portfolio
-    .site-content 
-        margin-top: -80px
-    .site-header.transparent
-        background: rgba(0,0,0,.5) !important
+  .site-content
+    margin-top: -80px
+
+  .site-header.transparent
+    background: rgba(0, 0, 0, .5) !important
 
 .page-template-template-homepage, .page-template-template-bio, .page-template-template-contact
-    .toggle-button
-        display: block
-    .slide-out-pane.hidden
-        margin-left: -100vw
-        display: block
-        transition: $transition-normal
-        @media screen and ( min-width: 768px )
-            margin-left: -100%
-        .menu-show
-            margin-left: 0
-            display: block
-            width: 100vh
-            @media screen and ( min-width: 768px )
-                width: auto
+  .toggle-button
+    display: block
+
+  .slide-out-pane.hidden
+    margin-left: -100vw
+    display: block
+    transition: $transition-normal
+    @media screen and (min-width: 768px)
+      margin-left: -100%
+
+    .menu-show
+      margin-left: 0
+      display: block
+      width: 100vh
+      @media screen and (min-width: 768px)
+        width: auto
 
 
+body.admin-bar
+  .site-header
+    top: 32px
+    @media (max-width: 768px)
+      top: 46px
+    @media (max-width: 576px)
+      top: 0
 
-body.admin-bar 
-    .site-header
-        top: 32px
-        @media (max-width: 768px)
-            top: 46px
-        @media (max-width: 576px)
-            top: 0
-    .toggle-button 
-        //top: calc(30px + 32px)
-        @media (max-width: 768px)
-        //    top: calc(30px + 46px)
-        @media (max-width: 576px)
-        //    top: 32px
-    .menu-wrap
-        //top: calc(80px + 32px)
-        @media (max-width: 768px)
-        //    top: calc(80px + 46px)
-        @media (max-width: 576px)
-        //    top: 0
+  .toggle-button
+    //top: calc(30px + 32px)
+    @media (max-width: 768px)
+    //    top: calc(30px + 46px)
+    @media (max-width: 576px)
+  //    top: 32px
+  .menu-wrap
+    //top: calc(80px + 32px)
+    @media (max-width: 768px)
+    //    top: calc(80px + 46px)
+    @media (max-width: 576px)
+//    top: 0
 
 
-.site-header 
-    padding-top: 0
-    //height: 80px
-    border-bottom: none
-    position: sticky
-    position: -webkit-sticky
-    top: 0
-    //background: rgba(0,0,0,.5) !important
-    .header-row
+.site-header
+  padding-top: 0
+  //height: 80px
+  border-bottom: none
+  position: sticky
+  position: -webkit-sticky
+  top: 0
+  //background: rgba(0,0,0,.5) !important
+  .header-row
+    display: flex
+    //max-width: 1200px
+    margin: 0 auto
+
+  .header-col
+    display: block
+    width: 33.33%
+    max-height: 80px
+
+    &:nth-child(2)
+      text-align: center
+      height: 100%
+
+      a.custom-logo-link
         display: flex
-        //max-width: 1200px
-        margin: 0 auto
-    .header-col 
+        justify-content: center
+        align-items: center
+        height: 100%
+
+        img
+          height: 60px
+          width: auto
+          max-width: 250px
+          margin: 10px
+          @media (max-width: 576px)
+            max-width: 100%
+            height: auto
+
+    &:nth-child(3)
+      display: flex
+      justify-content: flex-end
+      padding-right: 40px
+      height: 100%
+
+      .secondary-navigation
+        margin: 0 !important
         display: block
-        width: 33.33%
-        max-height: 80px
-        &:nth-child(2)
-            text-align: center
-            height: 100%
-            a.custom-logo-link
-                display: flex
-                justify-content: center
-                align-items: center
-                height: 100%
-                img
-                    height: 60px
-                    width: auto
-                    max-width: 250px
-                    margin: 10px
-                    @media (max-width: 576px)
-                        max-width: 100%
-                        height: auto
-        &:nth-child(3)
-            display: flex
-            justify-content: flex-end
-            padding-right: 40px
-            height: 100%
-            .secondary-navigation
-                margin: 0 !important
-                display: block
-                width: 100%
-                @media (min-width: 768px)
-                    width: auto
-                ul
-                    li
-                        display: none
-                        @media (min-width: 768px)
-                            display: block
-                        &:first-child
-                            display: block
-            .icon-list
-                li:first-child
-                    color: red
-                    i
-                        position: relative
-                    span.cart-total-count
-                        font-family: 'Roboto'
-                        position: absolute
-                        bottom: -10px
-                        left: 10px
-                        height: 15px
-                        width: 15px
-                        display: block
-                        color: white
-                        //background: red
-                        font-size: 12px
-                        font-weight: bold
-                        line-height: 15px
-                        text-align: center
-                        border-radius: 50%
-            .language-list, .icon-list
-                list-style: none
-                margin: 0
-                display: flex
-                justify-content: center
-                align-items: center
-                text-transform: uppercase
-                height: 80px
-                width: 100%
-                li
-                    padding: 8px
-                    img
-                        height: 20px
-                        width: auto
-        @media (max-width: 576px)
+        width: 100%
+        @media (min-width: 768px)
+          width: auto
+
+        ul
+          li
+            display: none
+            @media (min-width: 768px)
+              display: block
+
             &:first-child
-                width: 80px
-            &:nth-child(2)
-                width: calc(100vw - 2 * 80px)
-                height: 80px
-            &:nth-child(3)
-                width: 80px
-                padding-right: 0
-                justify-content: flex-start
+              display: block
+
+      .icon-list
+        li:first-child
+          color: red
+
+          i
+            position: relative
+
+          span.cart-total-count
+            font-family: 'Roboto'
+            position: absolute
+            bottom: -10px
+            left: 10px
+            height: 15px
+            width: 15px
+            display: block
+            color: white
+            //background: red
+            font-size: 12px
+            font-weight: bold
+            line-height: 15px
+            text-align: center
+            border-radius: 50%
+
+      .language-list, .icon-list
+        list-style: none
+        margin: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        text-transform: uppercase
+        height: 80px
+        width: 100%
+
+        li
+          padding: 8px
+
+          img
+            height: 20px
+            width: auto
+
+    @media (max-width: 576px)
+      &:first-child
+        width: 80px
+      &:nth-child(2)
+        width: calc(100vw - 2 * 80px)
+        height: 80px
+      &:nth-child(3)
+        width: 80px
+        padding-right: 0
+        justify-content: flex-start
 
 ul.icon-list a, .toggle-button i
-    transition: .3s ease
-    &:hover
-        color: $text-color-accent !important
-        cursor: pointer
+  transition: .3s ease
+
+  &:hover
+    color: $text-color-accent !important
+    cursor: pointer
 
 
 .menu-icon-portfolio
-    .dashicons-admin-post
-        &:before
-            content: "\f489"
+  .dashicons-admin-post
+    &:before
+      content: "\f489"
+
 .dashicons-admin-post:before
-    content: "\f489"
+  content: "\f489"
 
 .slide-out-pane
+  position: sticky
+  top: 80px
+  left: 0
+  float: left
+  //margin-top: -1.618em
+  width: auto
+  z-index: 997
+  margin-left: -100%
+  //display: none
+  &.hidden
+    margin-left: -100vh
     position: sticky
-    top: 80px
-    left: 0
-    float: left
-    //margin-top: -1.618em
-    width: auto
-    z-index: 997
-    margin-left: -100%
-    //display: none
-    &.hidden
-        margin-left: -100vh
-        position: sticky
-        //top: 80px
-        //margin-top: 80px
-        display: block
-        position: relative
-        top: 40px
-        @media screen and ( min-width: 768px )
-            margin-left: -100%            
-        &.menu-show
-            display: block
-            margin-left: 0
+    //top: 80px
+    //margin-top: 80px
+    display: block
+    position: relative
+    top: 40px
+    @media screen and (min-width: 768px)
+      margin-left: -100%
+
+    &.menu-show
+      display: block
+      margin-left: 0
 
 .col-full
-    &.no-margin
-        width: 100%
-        max-width: 100vw
+  &.no-margin
+    width: 100%
+    max-width: 100vw
+    padding: 0
+    margin: 0
+
+    .bottom-widgets
+      margin-left: 0
+      @media (min-width: 1024px)
+        margin-left: calc(16.66% + 3.33%)
+
+  .content-area
+    width: 100%
+    margin: 0
+
+    &.two-column
+      display: flex
+      flex-direction: row
+      width: 100%
+      margin: 0 auto
+      min-height: 50vh
+      //max-width: 1280px
+      float: none
+      @media (max-width: 767px)
+        flex-direction: column-reverse
+
+      main, aside
+        width: 50%
+        //display: flex
+        //align-items: center
+        img
+          object-fit: cover
+          object-position: center 35%
+          width: 100%
+          height: calc(100vh - 80px * 2)
+
+        @media (max-aspect-ratio: 1/1)
+        //padding-top: 3rem
+        @media (max-width: 767px)
+          width: 100%
+          padding-top: 0
+          img
+            max-height: 50vh
+
+      main
+        padding: 3rem
+        margin: auto
+        max-width: 680px
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 0.8em
+
+        article
+          margin-bottom: 0
+
+      aside
+        #map-canvas
+          width: 100%
+          height: 100%
+          height: 50vh
+          @media (min-width: 768px)
+            min-height: 600px
+            height: calc(100vh - 80px * 2)
+
+      .entry-header
+        & > img
+          display: none
+
+    &.news
+      main
+        margin-top: 4.235801032em
+
+        .flex
+          display: flex
+          flex-direction: row
+          flex-wrap: wrap
+          justify-content: flex-start
+          align-items: stretch
+
+      article
+        border: 1px solid $bg-color-lightgrey
+        margin-bottom: 2em
+        //display: flex
+        //align-items: center
+        width: calc(100% - 10px * 2)
+        max-width: 400px
+        margin: 0 10px 2em
+        background: $bg-color-lightgrey
+
+        &:nth-child(n)
+          flex-direction: column
+          justify-content: flex-start
+
+          header > img.wp-post-image
+            object-position: left
+
+          @media screen and (min-width: 768px)
+            width: calc(33% - 10px * 3)
+            flex-direction: row
+
+        &:nth-child(2n)
+          background: $bg-color-lightgrey
+
+
+        header
+          border-bottom: none
+          margin-bottom: 0
+
+          img.wp-post-image
+            height: 100%
+            //max-height: 80px
+            width: 100%
+            //max-width: 400px
+            object-fit: contain
+            margin-bottom: 1em
+            margin-left: 0
+            margin-right: 0
+
+        .entry-content
+          width: 100%
+          padding: 0 10px
+          @media screen and (min-width: 768px)
+          //margin-left: 2em
+          h5
+            font-size: .8em
+            font-weight: 500
+            color: $bg-color-grey
+
+      .alpha.entry-title
+        //text-align: center
+        text-transform: uppercase
+        font-size: 1em
+
+        a
+          font-weight: 500
+          text-decoration: none
+
+    &.blog
+      article
+        border-bottom: 1px solid $bg-color-lightgrey
+
+        &:first-child
+          margin-top: 4.235801032em
+
+      .entry-header
+        border-bottom: none
+        display: flex
+        flex-direction: column-reverse
+        justify-content: center
+        align-items: center
+        @media (min-width: 768px)
+          flex-direction: column
+          margin-bottom: 0
+
+        img
+          max-height: 50vh
+          max-width: 760px
+          width: auto
+
+      .alpha.entry-title
+        text-align: center
+        text-transform: uppercase
+        font-size: 2em
+
+        a
+          font-weight: 700
+
+      .entry-content
+        text-align: center
+        position: relative
+
+        p
+          @media (min-width: 768px)
+            margin: 0 5% 1.41575em
+            line-height: 2
+          @media (min-width: 1200px)
+            margin: 0 10% 1.41575em
+          @media (min-width: 1600px)
+            margin: 0 20% 1.41575em
+
+          a
+            &.read-more
+              text-transform: uppercase
+              text-decoration: none
+              font-weight: 500
+
+              &::before
+                content: " >"
+                position: absolute
+                margin-left: 5px
+                left: 100%
+
+    &.portfolio
+      main
+        margin-bottom: 0
+        @media (min-width: 768px)
+          margin-bottom: 2.617924em
+
+        .flex
+          margin: 0 auto
+          overflow: auto
+          display: flex
+          justify-content: flex-start
+          align-items: center
+          flex-wrap: wrap
+          @media (min-width: 768px)
+            margin: 4.235801032em auto
+
+          article
+            width: 100%
+            margin-bottom: 0
+            @media (min-width: 768px)
+              width: calc(33.3% - 2em)
+              float: left
+              margin: 1em
+              margin-bottom: 4.2358em
+
+          .entry-content
+            text-align: center
+            position: relative
+
+            > a
+              img
+                opacity: .85
+                transition: $transition-fast
+
+              &:hover
+                img
+                  opacity: 1
+                  transform: scale(1.05)
+
+                .overlay
+                  transform: scale(1.05)
+                  background: rgba(0, 0, 0, 0)
+
+            img
+              max-height: 80vh
+              max-width: 760px
+              width: 100%
+              height: 350px
+              object-fit: cover
+              object-position: center
+              margin: 0
+              @media screen and (min-width: 768px)
+                max-height: 50vh
+
+            .overlay
+              width: 100%
+              height: 100%
+              display: flex
+              align-items: center
+              max-width: 100%
+              position: absolute
+              bottom: 0
+              background: rgba(0, 0, 0, .25)
+              transition: $transition-fast
+
+              .alpha.entry-title
+                padding: .5em
+                width: 100%
+                font-size: 2rem
+                text-align: center
+                text-transform: uppercase
+                font-weight: 700
+                text-decoration: none
+                color: $text-color-white
+
+    &.post
+      article
+        margin-top: calc(80px + 4.235801032em)
+
+      .entry-title
+        margin-top: 1.618em
+        text-align: center
+        font-weight: 700
+
+      .entry-slug
+        text-align: center
+
+      .entry-content
+        p
+          text-align: justify
+          padding: 0 1rem
+
+    &.portfolio
+      display: block
+
+      article
+      //width: 33.3%
+      //padding: 1rem
+      //float: left
+      .entry-title
+        text-align: center
+
+      .blocks-gallery-grid
+        img
+          opacity: .85
+          transition: $transition-fast
+
+          &:hover
+            transform: scale(1.05)
+            opacity: 1
+
+    &.single
+      main > img.wp-post-image
+        margin-bottom: 1.618em
+
+      .content-area-wrapper
+        .entry-content
+          max-width: 760px
+          margin: 0 auto
+
+      article.has-post-thumbnail
+        margin-top: 0
+
+    img.wp-post-image
+      width: 100%
+      height: auto
+      max-height: 50vh
+      object-fit: cover
+      object-position: center
+
+    &.shop, &.page
+      margin-top: 2em
+      @media screen and (min-width: 768px)
+        margin-top: 4.235801032em
+
+    &.frontpage
+      background: $bg-color-black
+      color: $text-color-white
+
+      main
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
         padding: 0
         margin: 0
-        .bottom-widgets
-            margin-left: 0
-            @media (min-width: 1024px)
-                margin-left: calc(16.66% + 3.33%)
-    .content-area 
-        width: 100%
-        margin: 0
-        &.two-column
-            display: flex
-            flex-direction: row
+
+        #s2.fullpage
+          > .wrapper
+            flex-direction: column-reverse
+            @media screen and (min-width: 768px)
+              flex-direction: row
+
+          .sticker.left
+            bottom: 25%
+
+            img
+              padding-left: 0
+
+          .col2:nth-child(1)
+            display: none
+            @media screen and (min-width: 768px)
+              display: block
+
+          .col2:nth-child(2)
+            img
+              @media screen and (min-width: 768px)
+                padding-top: 10%
+                padding-bottom: 10%
+                object-position: center
+
+        #s4.fullpage
+          > .wrapper
+            align-items: baseline
+
+          img
+          //height: 100%
+          //width: auto
+          .col2:nth-child(1)
+            display: none
+            @media screen and (min-width: 768px)
+              width: 45%
+              display: block
+              img
+                object-fit: contain
+                object-position: center top
+                margin-left: 2rem
+                padding: 1rem
+
+          .col2:nth-child(2)
+            padding: 0
+            @media screen and (min-width: 768px)
+              padding: 2rem
+
+            img
+              padding: 0
+              @media screen and (min-width: 768px)
+                padding: 4rem 0
+              object-position: center center
+
+            @media screen and (min-width: 768px)
+              width: 55%
+
+        #s6.fullpage
+          .col3
+            display: none
             width: 100%
-            margin: 0 auto
-            min-height: 50vh
-            //max-width: 1280px
-            float: none
-            @media (max-width: 767px)
-                flex-direction: column-reverse
-            main, aside
-                width: 50%
-                //display: flex
-                //align-items: center
-                img
-                    object-fit: cover
-                    object-position: center 35%
-                    width: 100%
-                    height: calc(100vh - 80px * 2)
-                @media (max-aspect-ratio: 1/1)
-                    //padding-top: 3rem
-                @media (max-width: 767px)
-                    width: 100%
-                    padding-top: 0
-                    img
-                        max-height: 50vh
+            height: 100%
+            padding: 0
+            @media screen and (min-width: 768px)
+              display: block
+              width: 33.3%
 
-            main
-                padding: 3rem
-                margin: auto
-                max-width: 680px
-                display: flex
-                justify-content: center
-                align-items: center
-                font-size: 0.8em
-                article
-                    margin-bottom: 0
-            aside
-                #map-canvas
-                    width: 100%
-                    height: 100%
-                    height: 50vh
-                    @media (min-width: 768px)
-                        min-height: 600px
-                        height: calc(100vh - 80px * 2)
-            .entry-header
-                &>img 
-                    display: none
-        &.news
-            main
-                margin-top: 4.235801032em
-                .flex
-                    display: flex
-                    flex-direction: row
-                    flex-wrap: wrap
-                    justify-content: flex-start
-                    align-items: stretch
-            article
-                border: 1px solid $bg-color-lightgrey
-                margin-bottom: 2em
-                //display: flex
-                //align-items: center
-                width: calc(100% - 10px * 2)
-                max-width: 400px   
-                margin: 0 10px 2em      
-                background: $bg-color-lightgrey
-                &:nth-child(n)
-                    flex-direction: column
-                    justify-content: flex-start
-                    header > img.wp-post-image
-                        object-position: left
-                    @media screen and ( min-width: 768px )
-                        width: calc(33% - 10px * 3)
-                        flex-direction: row
-                &:nth-child(2n)
-                    background: $bg-color-lightgrey
-
-                    
-                header
-                    border-bottom: none
-                    margin-bottom: 0
-                    img.wp-post-image
-                        height: 100%
-                        //max-height: 80px
-                        width: 100%
-                        //max-width: 400px
-                        object-fit: contain
-                        margin-bottom: 1em
-                        margin-left: 0
-                        margin-right: 0
-                .entry-content
-                    width: 100%
-                    padding: 0 10px
-                    @media screen and ( min-width: 768px )
-                        //margin-left: 2em
-                    h5
-                        font-size: .8em
-                        font-weight: 500
-                        color: $bg-color-grey
-            .alpha.entry-title
-                //text-align: center
-                text-transform: uppercase
-                font-size: 1em
-                a
-                    font-weight: 500
-                    text-decoration: none
-                    
-        &.blog
-            article
-                border-bottom: 1px solid $bg-color-lightgrey
-                &:first-child
-                    margin-top: 4.235801032em
-            .entry-header
-                border-bottom: none
-                display: flex
-                flex-direction: column-reverse
-                justify-content: center
-                align-items: center
-                @media (min-width: 768px)
-                    flex-direction: column
-                    margin-bottom: 0
-                img
-                    max-height: 50vh
-                    max-width: 760px
-                    width: auto
-            .alpha.entry-title
-                text-align: center
-                text-transform: uppercase
-                font-size: 2em
-                a
-                    font-weight: 700
-            .entry-content
-                text-align: center
-                position: relative
-                p
-                    @media (min-width: 768px)
-                        margin: 0 5% 1.41575em
-                        line-height: 2
-                    @media (min-width: 1200px)
-                        margin: 0 10% 1.41575em
-                    @media (min-width: 1600px)
-                        margin: 0 20% 1.41575em
-                    a
-                        &.read-more
-                            text-transform: uppercase
-                            text-decoration: none
-                            font-weight: 500
-                            &::before
-                                content: " >"
-                                position: absolute
-                                margin-left: 5px
-                                left: 100%
-        &.portfolio
-            main 
-                margin-bottom: 0
-                @media (min-width: 768px)
-                    margin-bottom: 2.617924em
-                .flex
-                    margin: 0 auto
-                    overflow: auto
-                    display: flex
-                    justify-content: flex-start
-                    align-items: center
-                    flex-wrap: wrap
-                    @media (min-width: 768px) 
-                        margin: 4.235801032em auto
-                    article
-                        width: 100%
-                        margin-bottom: 0
-                        @media (min-width: 768px)
-                            width: calc(33.3% - 2em)
-                            float: left
-                            margin: 1em
-                            margin-bottom: 4.2358em
-                    .entry-content
-                        text-align: center
-                        position: relative
-                        > a
-                            img
-                                opacity: .85
-                                transition: $transition-fast
-                            &:hover
-                                img
-                                    opacity: 1
-                                    transform: scale(1.05)
-                                .overlay
-                                    transform: scale(1.05)
-                                    background: rgba(0,0,0,0)
-                    
-                        img
-                            max-height: 80vh
-                            max-width: 760px
-                            width: 100%
-                            height: 350px
-                            object-fit: cover
-                            object-position: center
-                            margin: 0
-                            @media screen and ( min-width: 768px )
-                                max-height: 50vh
-                        .overlay
-                            width: 100%
-                            height: 100%
-                            display: flex
-                            align-items: center
-                            max-width: 100%
-                            position: absolute
-                            bottom: 0
-                            background: rgba(0,0,0,.25)
-                            transition: $transition-fast
-                            .alpha.entry-title 
-                                padding: .5em
-                                width: 100%
-                                font-size: 2rem                                
-                                text-align: center
-                                text-transform: uppercase
-                                font-weight: 700
-                                text-decoration: none
-                                color: $text-color-white
-                                
-        &.post
-            article
-                margin-top: calc(80px + 4.235801032em)
-            .entry-title
-                margin-top: 1.618em
-                text-align: center
-                font-weight: 700
-            .entry-slug
-                text-align: center
-            .entry-content
-                p 
-                    text-align: justify
-                    padding: 0 1rem
-        &.portfolio
+          .col3:nth-child(3)
             display: block
-            article
-                //width: 33.3%
-                //padding: 1rem
-                //float: left
-            .entry-title
-                text-align: center
-            .blocks-gallery-grid
-                img
-                    opacity: .85
-                    transition: $transition-fast
-                    &:hover
-                        transform: scale(1.05)
-                        opacity: 1
-        &.single
-            main > img.wp-post-image
-                margin-bottom: 1.618em
-            .content-area-wrapper
-                .entry-content
-                    max-width: 760px
-                    margin: 0 auto
-            article.has-post-thumbnail
-                margin-top: 0
-        img.wp-post-image
+            @media screen and (min-width: 768px)
+              padding: 3rem
+              .carousel
+                margin-left: 50px
+                margin-right: 50px
+
+                .carousel-control-prev
+                  margin-left: -60px
+
+                .carousel-control-next
+                  margin-right: -60px
+
+        .fullpage
+          width: 100%
+
+          &.margins
+            max-width: 1000px
+
+          &:not(:first-child)
+          //min-height: calc(100vh - 80px)
+          &:first-child
+            background: white
+
+            .wrapper
+              height: 100%
+              border: none
+
+          .wrapper
+            position: relative
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
             width: 100%
-            height: auto
-            max-height: 50vh
-            object-fit: cover
-            object-position: center
-            
-        &.shop, &.page
-            margin-top: 2em
-            @media screen and ( min-width: 768px )
-                margin-top: 4.235801032em
-        &.frontpage
-            background: $bg-color-black
-            color: $text-color-white
-            main
-                display: flex
-                flex-direction: column
-                justify-content: center
-                align-items: center
-                padding: 0
-                margin: 0
-                #s2.fullpage
-                    > .wrapper
-                        flex-direction: column-reverse
-                        @media screen and ( min-width: 768px  )
-                            flex-direction: row
-                    .sticker.left
-                        bottom: 25%
-                        img
-                            padding-left: 0
-                    .col2:nth-child(1)
-                        display: none
-                        @media screen and ( min-width: 768px )
-                            display: block
-                    .col2:nth-child(2)
-                        img
-                            @media screen and ( min-width: 768px  )
-                                padding-top: 10% 
-                                padding-bottom: 10% 
-                                object-position: center
-                #s4.fullpage
-                    >.wrapper
-                        align-items: baseline
-                    img 
-                        //height: 100%
-                        //width: auto
-                    .col2:nth-child(1)
-                        display: none
-                        @media screen and ( min-width: 768px  )
-                            width: 45%
-                            display: block
-                            img
-                                object-fit: contain
-                                object-position: center top
-                                margin-left: 2rem
-                                padding: 1rem
-                    .col2:nth-child(2)
-                        padding: 0
-                        @media screen and ( min-width: 768px )
-                            padding: 2rem
-                        img
-                            padding: 0
-                            @media screen and ( min-width: 768px )
-                                padding: 4rem 0
-                            object-position: center center
-                        @media screen and ( min-width: 768px )
-                            width: 55%
-                #s6.fullpage
-                    .col3
-                        display: none
-                        width: 100%
-                        height: 100%
-                        padding: 0
-                        @media screen and ( min-width: 768px  )
-                            display: block
-                            width: 33.3%
-                    .col3:nth-child(3)
-                        display: block
-                        @media screen and ( min-width: 768px  )
-                            padding: 3rem
-                            .carousel
-                                margin-left: 50px
-                                margin-right: 50px
-                                .carousel-control-prev
-                                    margin-left: -60px
-                                .carousel-control-next
-                                    margin-right: -60px
+            height: 100%
+            margin: 0
+            overflow: hidden
 
-                .fullpage
-                    width: 100%
-                    &.margins
-                        max-width: 1000px
-                    &:not(:first-child)
-                        //min-height: calc(100vh - 80px)
-                    &:first-child
-                        background: white
-                        .wrapper
-                            height: 100%
-                            border: none
-                    .wrapper
-                        position: relative
-                        display: flex
-                        flex-direction: column
-                        justify-content: center
-                        align-items: center
-                        width: 100%
-                        height: 100%
-                        margin: 0
-                        overflow: hidden
-                        &.visible
-                            overflow: visible
-                        @media screen and ( min-width: 768px  )
-                            flex-direction: row
-                        //border: 1px dashed #fff
-                        &.h100
-                            height: 100vh
-                        &.h50
-                            height: 50vh
-                        .col2
-                            width: 100%
-                            height: 100%
-                            padding: 0
-                            @media screen and ( min-width: 768px  )
-                                width: 50%
-                                padding: 1rem
+            &.visible
+              overflow: visible
 
-                        .col66
-                            width: 66.6%
-                            height: 100%
-                            padding: 1rem
-                        .sticker
-                            position: absolute                   
-                            height: 50%
-                            img
-                                background: #000
-                                padding: .5rem
-                                height: 100%
-                                width: auto
-                                @media screen and ( min-width: 768px  )
-                                    padding: 1rem
-                            &.left
-                                left: 0
-                                height: 35%
-                                bottom: 0
-                                @media screen and ( min-width: 768px  )
-                                    left: 0
-                                    height: 45%
-                                    top: 45% 
-                                @media screen and ( min-width: 1024px  )
-                                    left: 0
-                                    height: 60%
-                                    top: 35%
-                            & + img
-                                @media screen and ( min-width: 768px  )
-                                    margin-left: 30%
-                        img
-                            width: 100%
-                            height: auto
-                            //max-height: calc(100vh - 80px)
-                            object-fit: cover
-                            object-position: center top
-                            &.margin-left
-                                @media screen and ( min-width: 1024px  )
-                                    margin-left: 30%
-                            &.margin-right
-                                margin-right: 30%
-                                & + .sticker 
-                                    right: 0
-                                    top: 40%
-                        video
-                            height: 100%
-                            width: 100vw
-                            object-fit: cover
-                            object-position: center
-                            z-index: 99
-                            + img.video-fallback
-                                position: absolute
-                                top: 0
-                                left: 0
-                                height: 100vh
-                                max-height: 100vh
-                                width: 100vw
-                                z-index: 100
-                                object-fit: cover
-                                object-position: center
-                        .overlay
-                            position: absolute
-                            top: 0
-                            width: 100%
-                            height: 100%
-                            display: flex
-                            flex-direction: column
-                            justify-content: center
-                            align-items: center
-                            z-index: 100
-                            &.bottom 
-                                justify-content: flex-end
-                                padding-bottom: 10rem
-                        .caption
-                            text-shadow: 2px 2px 5px black
-                            h1, h5
-                                color: $text-color-white
-                                text-transform: uppercase
-                            h1
-                                font-size: 2.25rem
-                                font-weight: 500
-                                margin: 1rem auto
-                            h5
-                                font-size: 1.25rem
-                                font-weight: 300
-                                margin-bottom: 0
-                            button
-                                font-size: 1rem
-                                font-weight: 300
-                                text-transform: uppercase
-                                padding: .5rem .5rem
-                        .carousel
-                            height: 100%
-                            //width: 100%
-                            .carousel-inner
-                                height: 100%
-                                //width: 100%
-                                .carousel-item
-                                    height: 100%
-                                    //width: 100%
-                                    img, video
-                                        height: 100%
-                                        width: auto
-                                        object-fit: cover
-                                        object-position: center
-                                    .carousel-caption
-                                        height: 100%
-                                        top: 0
-                                        display: flex !important
-                                        flex-direction: column
-                                        justify-content: center
-                                        align-items: center
-                                        h1, h5
-                                            color: $text-color-white
+            @media screen and (min-width: 768px)
+              flex-direction: row
+            //border: 1px dashed #fff
+            &.h100
+              height: 100vh
+
+            &.h50
+              height: 50vh
+
+            .col2
+              width: 100%
+              height: 100%
+              padding: 0
+              @media screen and (min-width: 768px)
+                width: 50%
+                padding: 1rem
+
+            .col66
+              width: 66.6%
+              height: 100%
+              padding: 1rem
+
+            .sticker
+              position: absolute
+              height: 50%
+
+              img
+                background: #000
+                padding: .5rem
+                height: 100%
+                width: auto
+                @media screen and (min-width: 768px)
+                  padding: 1rem
+
+              &.left
+                left: 0
+                height: 35%
+                bottom: 0
+                @media screen and (min-width: 768px)
+                  left: 0
+                  height: 45%
+                  top: 45%
+                @media screen and (min-width: 1024px)
+                  left: 0
+                  height: 60%
+                  top: 35%
+
+              & + img
+                @media screen and (min-width: 768px)
+                  margin-left: 30%
+
+            img
+              width: 100%
+              height: auto
+              //max-height: calc(100vh - 80px)
+              object-fit: cover
+              object-position: center top
+
+              &.margin-left
+                @media screen and (min-width: 1024px)
+                  margin-left: 30%
+
+              &.margin-right
+                margin-right: 30%
+
+                & + .sticker
+                  right: 0
+                  top: 40%
+
+            video
+              height: 100%
+              width: 100vw
+              object-fit: cover
+              object-position: center
+              z-index: 99
+
+              + img.video-fallback
+                position: absolute
+                top: 0
+                left: 0
+                height: 100vh
+                max-height: 100vh
+                width: 100vw
+                z-index: 100
+                object-fit: cover
+                object-position: center
+
+            .overlay
+              position: absolute
+              top: 0
+              width: 100%
+              height: 100%
+              display: flex
+              flex-direction: column
+              justify-content: center
+              align-items: center
+              z-index: 100
+
+              &.bottom
+                justify-content: flex-end
+                padding-bottom: 10rem
+
+            .caption
+              text-shadow: 2px 2px 5px black
+
+              h1, h5
+                color: $text-color-white
+                text-transform: uppercase
+
+              h1
+                font-size: 2.25rem
+                font-weight: 500
+                margin: 1rem auto
+
+              h5
+                font-size: 1.25rem
+                font-weight: 300
+                margin-bottom: 0
+
+              button
+                font-size: 1rem
+                font-weight: 300
+                text-transform: uppercase
+                padding: .5rem .5rem
+
+            .carousel
+              height: 100%
+              //width: 100%
+              .carousel-inner
+                height: 100%
+                //width: 100%
+                .carousel-item
+                  height: 100%
+                  //width: 100%
+                  img, video
+                    height: 100%
+                    width: auto
+                    object-fit: cover
+                    object-position: center
+
+                  .carousel-caption
+                    height: 100%
+                    top: 0
+                    display: flex !important
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+
+                    h1, h5
+                      color: $text-color-white
 
 .pagination
-    border: none
-    display: flex
-    justify-content: center
-    align-items: center
+  border: none
+  display: flex
+  justify-content: center
+  align-items: center
 
 /* ==================================== */
 /*		  	  Navigaton Menu		
 /* ==================================== */
 
-.menu-wrap 
-    background-color: #fff
-    //position: fixed
-    top: 80px
-    height: 100vh
-    //width: 100%
-    margin-left: -100%
-    font-size: .9em
-    font-weight: 500
-    overflow: auto
-    transition: .25s
-    z-index: 10
-    h2
-        font-size: 1.2em
-        
-    &.right
-        right: 0
-        margin-left: auto
-        margin-right: -280px
-        &.menu-show
-            margin-right: 0
+.menu-wrap
+  background-color: #fff
+  //position: fixed
+  top: 80px
+  height: 100vh
+  //width: 100%
+  margin-left: -100%
+  font-size: .9em
+  font-weight: 500
+  overflow: auto
+  transition: .25s
+  z-index: 10
 
-.menu-show 
-    margin-left: 0
-    margin-right: 0
-    width: 100vw
-    @media screen and ( min-width: 768px )
-        width: auto        
+  h2
+    font-size: 1.2em
+
+  &.right
+    right: 0
+    margin-left: auto
+    margin-right: -280px
+
+    &.menu-show
+      margin-right: 0
+
+.menu-show
+  margin-left: 0
+  margin-right: 0
+  width: 100vw
+  @media screen and (min-width: 768px)
+    width: auto
+
 .left > .menu-sidebar
-    margin-top: 30px
-    margin-bottom: 30px
-    margin-left: 0
-    margin-right: 0
+  margin-top: 30px
+  margin-bottom: 30px
+  margin-left: 0
+  margin-right: 0
+  position: relative
+
+
+.menu-sidebar
+  .primary-navigation
+    display: block !important
+
+  ul
+    list-style: none
+    margin: 0
+
+    &.sub-menu
+      li
+        margin-left: 10px
+        text-transform: none
+
+  li.chosen:not(.woocommerce-widget-layered-nav-list__item)
+    a
+      margin-left: 10px
+      padding-right: 10px
+      font-weight: 400
+      transition: $transition-fast
+
+      &:hover
+        text-decoration: none
+        color: $text-color-accent
+
+        &::after
+          color: $text-color-accent
+
+      &::after
+        font-family: "Font Awesome 5 Free"
+        content: " \f057"
+        display: contents
+        transition: $transition-fast
+
+  li:not(.chosen)
+    margin: 10px 0
+    text-transform: uppercase
+    letter-spacing: .1rem
+
+    > a
+      //color: #f3f3f3
+      //font-size: 1.18em
+      text-decoration: none !important
+      position: relative
+      margin: 0 25px
+      color: #333
+
+      &::after
+        content: ""
+        display: block
+        height: 0.15em
+        position: absolute
+        top: 100%
+        width: 100%
+        left: 50%
+        transform: translate(-50%)
+        background-image: linear-gradient(to right, transparent 50.3%, $text-color-accent 50.3%)
+        transition: background-position .2s .1s ease-out
+        background-size: 200% auto
+
+      &:hover
+        text-decoration: none !important
+
+      &:hover::after
+        background-position: -100% 0
+
+  .menu-item-has-children
     position: relative
 
-
-.menu-sidebar 
-    .primary-navigation
-        display: block !important
-    ul
-        list-style: none
-        margin: 0
-        &.sub-menu   
-            li
-                margin-left: 10px
-                text-transform: none
-    li.chosen:not(.woocommerce-widget-layered-nav-list__item)
-        a
-            margin-left: 10px
-            padding-right: 10px
-            font-weight: 400
-            transition: $transition-fast
-            &:hover
-                text-decoration: none
-                color: $text-color-accent
-                &::after
-                    color: $text-color-accent
-            &::after
-                font-family: "Font Awesome 5 Free"
-                content: " \f057"
-                display: contents
-                transition: $transition-fast
-    li:not(.chosen)
-        margin: 10px 0
-        text-transform: uppercase
-        letter-spacing: .1rem
-        > a 
-            //color: #f3f3f3
-            //font-size: 1.18em
-            text-decoration: none !important
-            position: relative
-            margin: 0 25px
-            color: #333
-            &::after
-                content: ""
-                display: block
-                height: 0.15em
-                position: absolute
-                top: 100%
-                width: 100%
-                left: 50%
-                transform: translate(-50%)
-                background-image: linear-gradient(to right, transparent 50.3%, $text-color-accent 50.3%)
-                transition: background-position .2s .1s ease-out
-                background-size: 200% auto
-            &:hover
-                text-decoration: none !important
-            &:hover::after 
-                background-position: -100% 0
-    .menu-item-has-children 
-        position: relative
-        .sub-menu 
-            display: block
+    .sub-menu
+      display: block
 
 .sidebar-menu-arrow
-    &::after 
-        content: "\f107"
-        font-family: 'FontAwesome'
-        padding: 10px
-        color: #FFFA3B
-        position: relative
-    &:hover::after 
-        cursor: pointer
-        color: #fff
-    &:active::after 
-        top: 2px
+  &::after
+    content: "\f107"
+    font-family: 'FontAwesome'
+    padding: 10px
+    color: #FFFA3B
+    position: relative
+
+  &:hover::after
+    cursor: pointer
+    color: #fff
+
+  &:active::after
+    top: 2px
 
 /*Hamburger Button*/
-.toggle-button 
-    position: relative
-    width: 44px
-    height: 40px
-    top: 30px
-    left: 40px
-    padding: 4px
-    transition: .25s
-    z-index: 15
-    display: block
-    @media (max-width: 576px)
-        left: 10px
-        &.button-open
-            left: 10px
-    @media (min-width: 769px)
-        //display: none
-    &.right
-        left: auto
-        right: 40px
-        z-index: 1000
-    &:hover 
-        cursor: pointer
-    .menu-bar 
-        position: absolute
-        border-radius: 2px
-        width: 80%
-        transition: .5s
-    .menu-bar-top 
-        border: 4px solid $text-color-white
-        border-bottom: none
-        top: 0
-    .menu-bar-middle 
-        height: 4px
-        background-color: $text-color-white
-        margin-top: 7px
-        margin-bottom: 7px
-        top: 4px
-    .menu-bar-bottom 
-        border: 4px solid $text-color-white
-        border-top: none
-        top: 22px
+.toggle-button
+  position: relative
+  width: 44px
+  height: 40px
+  top: 30px
+  left: 40px
+  padding: 4px
+  transition: .25s
+  z-index: 15
+  display: block
+  @media (max-width: 576px)
+    left: 10px
+    &.button-open
+      left: 10px
+  @media (min-width: 769px)
+  //display: none
+  &.right
+    left: auto
+    right: 40px
+    z-index: 1000
 
-.button-open 
-    left: 40px
-    .menu-bar-top 
-        border-color: #fff
-        transform: rotate(45deg) translate(8px, 8px)
-        transition: .5s
-    .menu-bar-middle 
-        background-color: #fff
-        transform: translate(230px)
-        transition: .1s ease-in
-        opacity: 0
-    .menu-bar-bottom 
-        border-color: #fff
-        transform: rotate(-45deg) translate(7px, -7px)
-        transition: .5s
+  &:hover
+    cursor: pointer
+
+  .menu-bar
+    position: absolute
+    border-radius: 2px
+    width: 80%
+    transition: .5s
+
+  .menu-bar-top
+    border: 4px solid $text-color-white
+    border-bottom: none
+    top: 0
+
+  .menu-bar-middle
+    height: 4px
+    background-color: $text-color-white
+    margin-top: 7px
+    margin-bottom: 7px
+    top: 4px
+
+  .menu-bar-bottom
+    border: 4px solid $text-color-white
+    border-top: none
+    top: 22px
+
+.button-open
+  left: 40px
+
+  .menu-bar-top
+    border-color: #fff
+    transform: rotate(45deg) translate(8px, 8px)
+    transition: .5s
+
+  .menu-bar-middle
+    background-color: #fff
+    transform: translate(230px)
+    transition: .1s ease-in
+    opacity: 0
+
+  .menu-bar-bottom
+    border-color: #fff
+    transform: rotate(-45deg) translate(7px, -7px)
+    transition: .5s
 
 /* Text Block */
-.wrapper 
-    width: 40%
-    margin: 100px auto 0
-    color: $text-color-white
-    .content
-        width: 100%
-        min-height: 250px
-    .text 
-        padding: 30px
-        .heading 
-            margin-bottom: 40px
-            font-size: 2em
-        p 
-            line-height: 1.6em
-        .buttons 
-            margin-top: 40px
-    .buttons 
-        .button 
-            display: inline-block
-            margin-right: 20px
-            padding: 20px 25px
-            border-radius: 2em
-            background-color: #70CE64
-            color: #fff
-            font-size: .9em
-            font-weight: 700
-            transition: background-color .3s
-            span 
-                position: relative
-                display: inline-block
-                padding-right: 20px
-                &::after 
-                    position: absolute
-                    font-family: "FontAwesome"
-                    right: -3px
-                    font-size: 14px
-                    top: 0
-                    transition: top .3s, right .3s
-        .button-primary
-            &:hover 
-                background-color: #84D07A
-                span::after 
-                    top: 4px
-            &:active 
-                background-color: #70CE64
-            span::after 
-                content: "\f019"
-        .button-secondary 
-            background-color: #FF6746
-            &:hover
-                background-color: #FF7D60
-                span::after 
-                    right: -6px
-            &:active 
-                background-color: #FF6746
-            span::after 
-                content: "\f178"
+.wrapper
+  width: 40%
+  margin: 100px auto 0
+  color: $text-color-white
 
-footer.site-footer 
-    position: relative
-    padding: 1.618em 0
-    z-index: 997
-    .col-full
-        margin: 0 auto
-        max-width: 90%
-    .custom-logo-link
-        img
-            height: 60px
-            width: auto
-            max-width: 250px
-            margin: 3rem auto
-    ul.menu, ul.icon-list, .copyright
-        list-style: none
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        margin: 0 auto
-        font-size: .9em
-        @media (min-width: 768px)
-            flex-direction: row
-        //padding: 3rem
-        li
-            padding: 10px
-            text-transform: uppercase
-            letter-spacing: .1rem
-            a
-                text-decoration: none !important
-                position: relative
-                &::after 
-                    content: ""
-                    display: block
-                    height: 0.15em
-                    position: absolute
-                    top: 100%
-                    width: 100%
-                    left: 50%
-                    transform: translate(-50%)
-                    background-image: linear-gradient(to right, transparent 50.3%, $text-color-accent 50.3%)
-                    transition: background-position .2s .1s ease-out
-                    background-size: 200% auto
-                &:hover
-                    text-decoration: none !important
-                &:hover::after 
-                    background-position: -100% 0
-        p
-            padding: 10px
-    ul.menu
-        padding: 13rem 0 20rem 0
-        margin: 0 auto
-        font-weight: 500
-        @media (max-width: 576px)
-            padding: 3rem 0 5rem 0
-        .sub-menu
-            display: none
-        li
-            padding: 20px
-            @media (max-width: 768px)
-                padding: 10px
+  .content
+    width: 100%
+    min-height: 250px
 
+  .text
+    padding: 30px
 
-    ul.icon-list
-        flex-direction: row
-        li
-            a
-                transition: .3s ease
-                &:hover
-                    color: $text-color-accent
-    .copyright
-        font-size: .75em
-        p
-            margin-bottom: 0
-        .policy
-            display: flex
-            flex-direction: row
-            justify-content: center
-            align-items: center
-            @media (max-width: 576px)
-                width: 100%
-                p.text
-                    text-align: center
-                    width: calc(50% - 18px)
-    .back-to-top
-        position: absolute
-        bottom: 0
-        right: 0
-        margin: 0 2em 3em
+    .heading
+      margin-bottom: 40px
+      font-size: 2em
+
+    p
+      line-height: 1.6em
+
+    .buttons
+      margin-top: 40px
+
+  .buttons
+    .button
+      display: inline-block
+      margin-right: 20px
+      padding: 20px 25px
+      border-radius: 2em
+      background-color: #70CE64
+      color: #fff
+      font-size: .9em
+      font-weight: 700
+      transition: background-color .3s
+
+      span
+        position: relative
+        display: inline-block
+        padding-right: 20px
+
+        &::after
+          position: absolute
+          font-family: "FontAwesome"
+          right: -3px
+          font-size: 14px
+          top: 0
+          transition: top .3s, right .3s
+
+    .button-primary
+      &:hover
+        background-color: #84D07A
+
+        span::after
+          top: 4px
+
+      &:active
+        background-color: #70CE64
+
+      span::after
+        content: "\f019"
+
+    .button-secondary
+      background-color: #FF6746
+
+      &:hover
+        background-color: #FF7D60
+
+        span::after
+          right: -6px
+
+      &:active
+        background-color: #FF6746
+
+      span::after
+        content: "\f178"
+
+footer.site-footer
+  position: relative
+  padding: 1.618em 0
+  z-index: 997
+
+  .col-full
+    margin: 0 auto
+    max-width: 90%
+
+  .custom-logo-link
+    img
+      height: 60px
+      width: auto
+      max-width: 250px
+      margin: 3rem auto
+
+  ul.menu, ul.icon-list, .copyright
+    list-style: none
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin: 0 auto
+    font-size: .9em
+    @media (min-width: 768px)
+      flex-direction: row
+    //padding: 3rem
+    li
+      padding: 10px
+      text-transform: uppercase
+      letter-spacing: .1rem
+
+      a
+        text-decoration: none !important
+        position: relative
+
+        &::after
+          content: ""
+          display: block
+          height: 0.15em
+          position: absolute
+          top: 100%
+          width: 100%
+          left: 50%
+          transform: translate(-50%)
+          background-image: linear-gradient(to right, transparent 50.3%, $text-color-accent 50.3%)
+          transition: background-position .2s .1s ease-out
+          background-size: 200% auto
+
         &:hover
-            cursor: pointer
-            color: $text-color-accent
+          text-decoration: none !important
+
+        &:hover::after
+          background-position: -100% 0
+
+    p
+      padding: 10px
+
+  ul.menu
+    padding: 13rem 0 20rem 0
+    margin: 0 auto
+    font-weight: 500
+    @media (max-width: 576px)
+      padding: 3rem 0 5rem 0
+
+    .sub-menu
+      display: none
+
+    li
+      padding: 20px
+      @media (max-width: 768px)
+        padding: 10px
 
 
+  ul.icon-list
+    flex-direction: row
+
+    li
+      a
+        transition: .3s ease
+
+        &:hover
+          color: $text-color-accent
+
+  .copyright
+    font-size: .75em
+
+    p
+      margin-bottom: 0
+
+    .policy
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      @media (max-width: 576px)
+        width: 100%
+        p.text
+          text-align: center
+          width: calc(50% - 18px)
+
+  .back-to-top
+    position: absolute
+    bottom: 0
+    right: 0
+    margin: 0 2em 3em
+
+    &:hover
+      cursor: pointer
+      color: $text-color-accent
 
 
 .page-template-template-homepage
-    &::-webkit-scrollbar-thumb
-        background-color: $bg-color-white
-    &::-webkit-scrollbar 
-        height: 12px
-        width: 12px
-        background: $bg-color-black
-    &::-webkit-scrollbar-corner 
-        background: $bg-color-white
-::-webkit-scrollbar-thumb
-    background-color: $bg-color-black
-::-webkit-scrollbar 
+  &::-webkit-scrollbar-thumb
+    background-color: $bg-color-white
+
+  &::-webkit-scrollbar
     height: 12px
     width: 12px
-    background: $bg-color-white
-::-webkit-scrollbar-corner 
     background: $bg-color-black
-::-webkit-scrollbar-track 
-    display: none
-::-webkit-scrollbar-track 
-    background: transparent
+
+  &::-webkit-scrollbar-corner
+    background: $bg-color-white
+
+::-webkit-scrollbar-thumb
+  background-color: $bg-color-black
+
+::-webkit-scrollbar
+  height: 12px
+  width: 12px
+  background: $bg-color-white
+
+::-webkit-scrollbar-corner
+  background: $bg-color-black
+
+::-webkit-scrollbar-track
+  display: none
+
+::-webkit-scrollbar-track
+  background: transparent
 
 
+.storefront-sorting
+  display: flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  flex-direction: column
+  @media (min-width: 1280px)
+    flex-direction: row
 
-.storefront-sorting 
-    display: flex
-    align-items: center
-    justify-content: center
-    width: 100%
-    flex-direction: column
-    @media (min-width: 1280px)
-        flex-direction: row
-    select
-        height: 32px
-        option
-            height: 32px
+  select
+    height: 32px
+
+    option
+      height: 32px
 
 @media (min-width: 768px)
-    ul.products.columns-3 li.product 
-        width: 29.4117647059%
-        float: left
-        margin-right: 5.8823529412%
+  ul.products.columns-3 li.product
+    width: 29.4117647059%
+    float: left
+    margin-right: 5.8823529412%
 
 .site-main, .bottom-widgets
-    ul.products 
-        display: flex
-        flex-direction: row
-        flex-wrap: wrap
-        justify-content: flex-start
-        &.columns-3
-            margin-bottom: 2.617924em
-            li.product
-                margin-right: 0
-                margin-bottom: 0
-                margin: 0 auto
-                @media (min-width: 768px)
-                    margin: 0
-                    width: 33%
-        li.product
-            border: 1px solid $bg-color-lightgrey
-            transition: .3s ease
-            &.hover
-                border: 1px solid $bg-color-darkgrey
-            a
-                &:hover
-                    text-decoration: none                        
-            img
-                margin-bottom: 1rem
-                width: 100%
-                padding: 5px
-            .woocommerce-loop-product__title
-                font-weight: 500
-.single-product 
-    div.product
-        .summary.entry-summary, .related.products
-            padding: 0 10px
-
-        p.price
-            color: $bg-color-darkgrey
-            text-transform: uppercase
-            margin-top: 0
-            font-weight: 500
-
-div.btn 
-    display: inline-block
-
-div.btn.on 
-    background-color: #777
-    color: white
-
-.woocommerce-message
-    background: $bg-color-black
-.woocommerce-info
-    background: $bg-color-grey
-p.form-row
+  ul.products
     display: flex
     flex-direction: row
-    justify-content: space-between
-    align-items: center
-    margin-left: 5px
-    &.form-row-first
-        margin-right: calc(11.1111px - 10px)
-    label
-        width: fit-content
-    span
+    flex-wrap: wrap
+    justify-content: flex-start
+
+    &.columns-3
+      margin-bottom: 2.617924em
+
+      li.product
+        margin-right: 0
+        margin-bottom: 0
+        margin: 0 auto
+        @media (min-width: 768px)
+          margin: 0
+          width: 33%
+
+    li.product
+      border: 1px solid $bg-color-lightgrey
+      transition: .3s ease
+
+      &.hover
+        border: 1px solid $bg-color-darkgrey
+
+      a
+        &:hover
+          text-decoration: none
+
+      img
+        margin-bottom: 1rem
         width: 100%
+        padding: 5px
+
+      .woocommerce-loop-product__title
+        font-weight: 500
+
+.single-product
+  div.product
+    .summary.entry-summary, .related.products
+      padding: 0 10px
+
+    p.price
+      color: $bg-color-darkgrey
+      text-transform: uppercase
+      margin-top: 0
+      font-weight: 500
+
+div.btn
+  display: inline-block
+
+div.btn.on
+  background-color: #777
+  color: white
+
+.woocommerce-message
+  background: $bg-color-black
+
+.woocommerce-info
+  background: $bg-color-grey
+
+p.form-row
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  margin-left: 5px
+
+  &.form-row-first
+    margin-right: calc(11.1111px - 10px)
+
+  label
+    width: fit-content
+
+  span
+    width: 100%
 
 .col2-set
-    width: 100%
-    padding: 1rem
-    float: left
-    margin-right: 0
-    @media (min-width: 768px)
-        width: 50%
-    .billing, .shipping
-        margin-bottom: 1.618em
+  width: 100%
+  padding: 1rem
+  float: left
+  margin-right: 0
+  @media (min-width: 768px)
+    width: 50%
+
+  .billing, .shipping
+    margin-bottom: 1.618em
 
 
 #order_review_heading, #order_review
-    width: 100%
-    @media (min-width: 768px)
-        width: 46.7%
-table.shop_table
-    tfoot
-        th
-            width: 30%
-        td
-            width: 70%
-.choose-shipping
-    th
-        width: 40%
-    td
-        width: 60%
-.woocommerce-cart
-    .content-area-wrapper
-        overflow: hidden !important
-    .entry-content
-        .woocommerce
-            .woocommerce-cart-flex
-                display: flex
-                flex-direction: column
-                @media (min-width: 768px)
-                    flex-direction: row
-            .woocommerce-notices-wrapper
-                //
-            .woocommerce-cart-form
-                width: 100%
-                tr
-                    td 
-                        background-color: $bg-color-white
-                        &.product-thumbnail
-                            padding: 1rem 0
-                            img
-                                height: 300px
-                                object-fit: cover
-                        &.product-details
-                            width: 65%
-                        &.product-remove
-                            width: 5%
-                        a
-                            text-decoration: none
-                            font-weight: 500
-                            &:hover
-                                text-decoration: underline
-            .cart-collaterals
-                width: 100%
-                @media (min-width: 768px)
-                    width: 33.3%
-                .cart_totals
-                    width: 100%
-                    .coupon
-                        display: flex
-                        margin: 0 0 1.41575em
-                        input, button
-                            width: 50%
-form.cart, .woocommerce-variation-add-to-cart
-    .quantity
-        display: none !important
-    .variations
-        .value
-            div
-                width: auto
-                float: left
-                input[type=radio]
-                    display: none
-                    + label
-                        background: $bg-color-lightgrey
-                        color: $text-color-black
-                        padding: 1rem
-                        cursor: pointer
-                        transition: $transition-fast
-                        &.selected, &:hover
-                            background: $bg-color-darkgrey
-                            color: $text-color-white
-                input[type=radio]:checked
-                    display: none
-                    + label
-                        padding: 1rem
-                        cursor: pointer
-                        transition: $transition-fast
-                        background: $bg-color-darkgrey
-                        color: $text-color-white
-                            
-            .reset_variations
-                clear: both
-                padding: 1rem
-    .woocommerce-variation-availability
-        //margin-top: 1.41575em
-    .variations_button
-        padding-top: 0 !important
+  width: 100%
+  @media (min-width: 768px)
+    width: 46.7%
 
-    button
+table.shop_table
+  tfoot
+    th
+      width: 30%
+
+    td
+      width: 70%
+
+.choose-shipping
+  th
+    width: 40%
+
+  td
+    width: 60%
+
+.woocommerce-cart
+  .content-area-wrapper
+    overflow: hidden !important
+
+  .entry-content
+    .woocommerce
+      .woocommerce-cart-flex
+        display: flex
+        flex-direction: column
+        @media (min-width: 768px)
+          flex-direction: row
+
+      .woocommerce-notices-wrapper
+      //
+      .woocommerce-cart-form
         width: 100%
-        &.atr.select
-            width: auto
-            &.on
-                background: $bg-color-darkgrey
-                color: $text-color-white
+
+        tr
+          td
+            background-color: $bg-color-white
+
+            &.product-thumbnail
+              padding: 1rem 0
+
+              img
+                height: 300px
+                object-fit: cover
+
+            &.product-details
+              width: 65%
+
+            &.product-remove
+              width: 5%
+
+            a
+              text-decoration: none
+              font-weight: 500
+
+              &:hover
+                text-decoration: underline
+
+      .cart-collaterals
+        width: 100%
+        @media (min-width: 768px)
+          width: 33.3%
+
+        .cart_totals
+          width: 100%
+
+          .coupon
+            display: flex
+            margin: 0 0 1.41575em
+
+            input, button
+              width: 50%
+
+form.cart, .woocommerce-variation-add-to-cart
+  .quantity
+    display: none !important
+
+  .variations
+    .value
+      div
+        width: auto
+        float: left
+
+        input[type=radio]
+          display: none
+
+          + label
+            background: $bg-color-lightgrey
+            color: $text-color-black
+            padding: 1rem
+            cursor: pointer
+            transition: $transition-fast
+
+            &.selected, &:hover
+              background: $bg-color-darkgrey
+              color: $text-color-white
+
+        input[type=radio]:checked
+          display: none
+
+          + label
+            padding: 1rem
+            cursor: pointer
+            transition: $transition-fast
+            background: $bg-color-darkgrey
+            color: $text-color-white
+
+      .reset_variations
+        clear: both
+        padding: 1rem
+
+  .woocommerce-variation-availability
+  //margin-top: 1.41575em
+  .variations_button
+    padding-top: 0 !important
+
+  button
+    width: 100%
+
+    &.atr.select
+      width: auto
+
+      &.on
+        background: $bg-color-darkgrey
+        color: $text-color-white
 
 #selected-parcel-machine
-    min-width: unset !important
+  min-width: unset !important
+
 .easypack-parcel-machine-select
-    padding-bottom: 1rem !important
+  padding-bottom: 1rem !important
 
 
 table.cart .product-thumbnail img
-    max-width: 100%
-    margin: 0 auto
+  max-width: 100%
+  margin: 0 auto
 
 .wc-proceed-to-checkout .button.checkout-button,
 #payment .place-order .button
-    font-size: 1em
+  font-size: 1em
 
 form.checkout
-    padding: 0 10px
-    table.woocommerce-checkout-review-order-table .product-name
-        width: 45%
+  padding: 0 10px
 
-.star-rating span:before, .quantity .plus, .quantity .minus, p.stars a:hover:after, p.stars a:after, .star-rating span:before, #payment .payment_methods li input[type=radio]:first-child:checked+label:before
-    color: $text-color-accent
+  table.woocommerce-checkout-review-order-table .product-name
+    width: 45%
+
+.star-rating span:before, .quantity .plus, .quantity .minus, p.stars a:hover:after, p.stars a:after, .star-rating span:before, #payment .payment_methods li input[type=radio]:first-child:checked + label:before
+  color: $text-color-accent
 
 .col-1, .col-2
-    max-width: 100%
+  max-width: 100%
+
 .error-404.not-found
-    margin-top: 2em
+  margin-top: 2em
+
 .price_slider_wrapper
-    .ui-slider
-        margin-bottom: 10px
-    .ui-widget-header
-        background-color: $text-color-accent
-    button
-        width: 100%
+  .ui-slider
+    margin-bottom: 10px
+
+  .ui-widget-header
+    background-color: $text-color-accent
+
+  button
+    width: 100%
+
 .clearfix
-    clear: both
-    
+  clear: both
 
 
 #ebook-link
-    position: fixed
-    bottom: 50px
-    right: -50vw
-    z-index: 998
+  position: fixed
+  bottom: 50px
+  right: -50vw
+  z-index: 998
+  @media (min-width: 768px)
+    right: -210px
+
+  img.ebook-bg
+    width: 70vw
+    transition: $transition-normal
     @media (min-width: 768px)
-        right: -210px
-    img.ebook-bg
-        width: 70vw
-        transition: $transition-normal
-        @media (min-width: 768px)
-            width: 300px
-            opacity: .75
-        &:hover
-            opacity: 1
+      width: 300px
+      opacity: .75
+
+    &:hover
+      opacity: 1
+
+  .ebook-close
+    display: none
+
+  &.hidding
+    position: fixed
+    animation-name: slideRightMobile
+    animation-fill-mode: forwards
+    animation-duration: 1s
+    @media (min-width: 768px)
+      animation-name: slideRight
+
     .ebook-close
-        display: none
+      display: none
 
-    &.hidding
-        position: fixed
-        animation-name: slideRightMobile
-        animation-fill-mode: forwards
-        animation-duration: 1s
-        @media (min-width: 768px)
-            animation-name: slideRight
-        .ebook-close
-            display: none
+  &.showing
+    position: fixed
+    animation-name: slideLeftMobile
+    animation-fill-mode: forwards
+    animation-duration: .3s
+    @media (min-width: 768px)
+      animation-name: slideLeft
 
-    &.showing
-        position: fixed
-        animation-name: slideLeftMobile
-        animation-fill-mode: forwards
-        animation-duration: .3s
-        @media (min-width: 768px)
-            animation-name: slideLeft
-        .ebook-close
-            display: block
-            position: absolute
-            top: -10px
-            left: -10px
-            padding: 20px
-            font-size: 1.5rem
-            cursor: pointer
+    .ebook-close
+      display: block
+      position: absolute
+      top: -10px
+      left: -10px
+      padding: 20px
+      font-size: 1.5rem
+      cursor: pointer
 
-@keyframes hideRight 
-    from 
-        right: 0
-    
-    to 
-        right: -100%
+@keyframes hideRight
+  from
+    right: 0
+
+  to
+    right: -100%
 
 @keyframes hideLeft
-    from
-        left: 0
+  from
+    left: 0
 
-    to
-        left: -50%
-    
-@keyframes slideRight 
-    from 
-        right: 0
-    
-    to 
-        right: -210px
+  to
+    left: -50%
 
-@keyframes slideLeft 
-    from 
-        right: -210px
-    
-    to 
-        right: 0
+@keyframes slideRight
+  from
+    right: 0
+
+  to
+    right: -210px
+
+@keyframes slideLeft
+  from
+    right: -210px
+
+  to
+    right: 0
 
 @keyframes slideRightMobile
-    from 
-        right: 0
-    
-    to 
-        right: -50vw
+  from
+    right: 0
+
+  to
+    right: -50vw
 
 @keyframes slideLeftMobile
-    from 
-        right: -70vw
-    
-    to 
-        right: 0
+  from
+    right: -70vw
+
+  to
+    right: 0
 
 
 #cookies-info
-    display: flex
-    position: fixed
-    bottom: 0
-    left: 0
-    z-index: 998
-    padding: 10px
-    background-color: rgba(0, 0, 0, 0.65)
+  display: flex
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 998
+  padding: 10px
+  background-color: rgba(0, 0, 0, 0.65)
+  color: white
+  justify-content: center
+  align-items: center
+
+  p
+    margin: 0
+    font-size: .75em
+    line-height: .75em
+
+  a
+    text-decoration: none
     color: white
-    justify-content: center
-    align-items: center
-    p
-        margin: 0
-        font-size: .75em
-        line-height: .75em
-    a
-        text-decoration: none
-        color: white
-    i
-        padding: 0px 5px
-        transition: $transition-normal
-        font-size: .75em
-    i:hover
-        color: $text-color-accent
 
-.wc-backward::before, .woocommerce-Button--prev::before 
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    display: inline-block
-    font-style: normal
-    font-variant: normal
-    font-weight: normal
-    line-height: 1
-    font-family: 'Font Awesome 5 Free'
-    font-weight: 900
-    line-height: inherit
-    vertical-align: baseline
-    content: "\f30a"
-    margin-right: 0.5407911001em
+  i
+    padding: 0px 5px
+    transition: $transition-normal
+    font-size: .75em
 
-.wc_payment_methods 
-    input[type='radio'] 
-        display: block !important
-        width: auto !important
-        height: auto !important
-        clip: unset !important
-        clip-path: unset !important
-        top: 29px
-        left: 12px
-    label
-        &::before
-            display: none !important
+  i:hover
+    color: $text-color-accent
+
+.wc-backward::before, .woocommerce-Button--prev::before
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  display: inline-block
+  font-style: normal
+  font-variant: normal
+  font-weight: normal
+  line-height: 1
+  font-family: 'Font Awesome 5 Free'
+  font-weight: 900
+  line-height: inherit
+  vertical-align: baseline
+  content: "\f30a"
+  margin-right: 0.5407911001em
+
+.wc_payment_methods
+  input[type='radio']
+    display: block !important
+    width: auto !important
+    height: auto !important
+    clip: unset !important
+    clip-path: unset !important
+    top: 29px
+    left: 12px
+
+  label
+    &::before
+      display: none !important
 
 .infinite-loader
-    width: 100%
-    text-align: center
-    .spinner
-        //width: 100%
+  width: 100%
+  text-align: center
+
+  .spinner
+//width: 100%
 
 /* The Modal (background) */
 .modal
@@ -1549,14 +1813,16 @@ form.checkout
   width: 100%
   height: 100%
   overflow: auto
-  background-color: rgba(0,0,0,0.4)
+  background-color: rgba(0, 0, 0, 0.4)
   z-index: 999
   opacity: 0
   align-items: center
+
   &.show
     //background: #ffffff
     animation: fadeIn .3s linear
-    animation-fill-mode: forwards 
+    animation-fill-mode: forwards
+
   .modal-content
     background-color: #fefefe
     margin: auto
@@ -1565,56 +1831,68 @@ form.checkout
     width: 90%
     overflow-x: scroll
     border-radius: 10px
+
     &.newsletter
-        background-color: transparent
-        border: none
-        padding: 0
-        width: fit-content
-        height: auto
-        overflow: hidden
-        #sib-container 
-            background-image: url('./img/newsletter_side_image.jpeg')
-            background-size: cover
-            background-position: center
-            @media (min-width: 768px)
-                background: transparent
-        #sib-form 
-            background: rgba(255,255,255,0.75)
-            border-radius: 10px
-            @media (min-width: 768px)
-                background: transparent
-        .side-image
-            display: none
-            @media (min-width: 768px)
-                display: block
-                width: 35%
-        .popup-content
-            width: 100%
-            @media (min-width: 768px)
-                width: 65%
-            form
-                margin-bottom: 0
-            .title 
-                font-size: 22px
-                @media (min-width: 768px)
-                    font-size: 26px
-            .rodo
-                text-align: left
-                font-size: 9px
-                font-weight: 300
-                margin-top: 10px
-                p
-                    margin-bottom: 5px
+      background-color: transparent
+      border: none
+      padding: 0
+      width: fit-content
+      height: auto
+      overflow: hidden
+
+      #sib-container
+        background-image: url('./img/newsletter_side_image.jpeg')
+        background-size: cover
+        background-position: center
+        @media (min-width: 768px)
+          background: transparent
+
+      #sib-form
+        background: rgba(255, 255, 255, 0.75)
+        border-radius: 10px
+        @media (min-width: 768px)
+          background: transparent
+
+      .side-image
+        display: none
+        @media (min-width: 768px)
+          display: block
+          width: 35%
+
+      .popup-content
+        width: 100%
+        @media (min-width: 768px)
+          width: 65%
+
+        form
+          margin-bottom: 0
+
+        .title
+          font-size: 22px
+          @media (min-width: 768px)
+            font-size: 26px
+
+        .rodo
+          text-align: left
+          font-size: 9px
+          font-weight: 300
+          margin-top: 10px
+
+          p
+            margin-bottom: 5px
+
     table
-        td,th
-            padding: 0.5em
-            font-size: 80%
-            @media (min-width: 768px)
-                padding: 1em
-                font-size: 100%
+      td, th
+        padding: 0.5em
+        font-size: 80%
+        @media (min-width: 768px)
+          padding: 1em
+          font-size: 100%
+
     @media (min-width: 1024px)
-        width: 60%
-  .close 
+      width: 60%
+
+  .close
     color: #808080
     float: left
     text-align: right
@@ -1627,58 +1905,60 @@ form.checkout
     font-size: 32px
     font-weight: bold
     @media (min-width: 1024px)
-        //right: 21%
-    &:hover, &:focus 
+    //right: 21%
+    &:hover, &:focus
       color: black
       text-decoration: none
       cursor: pointer
 
-#sizeTableButton 
-    font-size: .8rem
-    font-weight: 400
-    cursor: pointer
+#sizeTableButton
+  font-size: .8rem
+  font-weight: 400
+  cursor: pointer
 
 @keyframes fadeIn
-  0% 
-    opacity: 0 
-  100% 
-    opacity: 1 
+  0%
+    opacity: 0
+  100%
+    opacity: 1
 
 @keyframes fadeOut
-  0% 
+  0%
     opacity: 1
-  100% 
-    opacity: 0 
+  100%
+    opacity: 0
 
 .woocommerce-loop-product__title, .woocommerce-cart-form .product-details-row a, .cart_item .product-name
-    text-transform: uppercase
+  text-transform: uppercase
 
 // Shop
 
 .secondary-header
-    display: inline-grid
-    grid-template-columns: 90% 10%
-    background-color: black
-    width: 100%
-    padding: 13px 40px
-    border-top: 1px solid dimgray
+  display: inline-grid
+  grid-template-columns: 90% 10%
+  background-color: black
+  width: 100%
+  padding: 13px 40px
+  border-top: 1px solid dimgray
 
+  @media (max-width: 768px)
+    padding: 0
+
+  .storefront-breadcrumb
+    padding: 0
+    margin: 0
     @media (max-width: 768px)
-        padding: 0
+      display: none
 
-    .storefront-breadcrumb
-        padding: 0
-        margin: 0
-        @media (max-width: 768px)
-            display: none
-        div:first-child
-            width: 100%
-            padding: 0
-            margin: 0
+    div:first-child
+      width: 100%
+      padding: 0
+      margin: 0
 
 
 #offcanvasRight
-    top: 136px
-    color: black
-    a
-        color: black !important
+  top: 136px
+  color: black
+
+  a
+    color: black !important
