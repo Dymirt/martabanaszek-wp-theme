@@ -3,6 +3,7 @@
 
 require get_stylesheet_directory() . '/inc/functions-custom-variation-fields.php'; // Custom product variations meta
 require get_stylesheet_directory() . '/inc/functions-admin.php'; // Admin functions (Magazyn)
+require get_stylesheet_directory() . '/inc/functions-filter.php';
 
 function my_theme_enqueue_styles()
 {
@@ -315,20 +316,10 @@ add_action('after_setup_theme', 'mytheme_register_nav_menu', 0);
  */
 function MB2020_widgets_init()
 {
-
     register_sidebar(array(
         'name' => 'Top below navbar',
         'id' => 'top-below-navbar',
         'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h2 class="">',
-        'after_title' => '</h2>',
-    ));
-    register_sidebar(array(
-        'name' => 'Right slide out',
-        'id' => 'right-slide-out',
-        'class' => 'right-slide-out menu-wrap',
-        'before_widget' => '<div class="menu-sidebar">',
         'after_widget' => '</div>',
         'before_title' => '<h2 class="">',
         'after_title' => '</h2>',
@@ -341,7 +332,6 @@ function MB2020_widgets_init()
         'before_title' => '<h2 class="">',
         'after_title' => '</h2>',
     ));
-
 }
 
 add_action('widgets_init', 'MB2020_widgets_init');
@@ -786,30 +776,3 @@ add_filter('wp_editor_set_quality', function ($arg) {
 add_filter('jpeg_quality', function ($arg) {
     return 100;
 });
-
-/**
- * Left offcanvas sidebar with filters
- * @return void
- */
-function addFilterSidebar()
-{
-    ?>
-    <button style="background-color: black; border: none; justify-self: end;" class="btn btn-dark" type="button"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <i class="fas fa-filter"></i> Filtry
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="staticBackdropLabel">
-                Filtry
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <?php dynamic_sidebar('right-slide-out'); ?>
-        </div>
-    </div>
-    <?php
-}
-
-add_action('storefront_before_content', 'addFilterSidebar', 11);
