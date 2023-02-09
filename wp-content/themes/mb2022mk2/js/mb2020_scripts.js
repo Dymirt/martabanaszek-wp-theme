@@ -7,23 +7,13 @@ jQuery(document).ready(function() {
 	nbspBeforeSingleLetterWord();
 
 	var $toggleButton = jQuery('.toggle-button:not(.click)'),
-		$toggleFilterButton = jQuery('.toggle-filter-button'),
-		$menuWrap = jQuery('.slide-out-pane.right'),
-		$body = jQuery('body'),
+
 		$article = jQuery('.single #primary > main > article'),
 		$hasThumbnail = $article.hasClass('has-post-thumbnail'),
 		$isFrontpage = document.body.classList.contains('page-template-template-homepage'),
-		$isBio = document.body.classList.contains('page-template-template-bio'),
-		$isContact = document.body.classList.contains('page-template-template-contact'),
 		$isShopPage = document.body.classList.contains('post-type-archive-product'),
 		$isProductPage = document.body.classList.contains('single-product');
 
-	if (window.screen.availWidth <= 768) {
-		console.log('smaller than 768px');
-		$toggleFilterButton.css('display', 'block');
-		jQuery('.slide-out-pane.right .menu-wrap').css('overflow', 'hidden');
-		$menuWrap.detach().appendTo('.storefront-sorting');
-	}
 
 	$toggleButton.click(function(event){
 		event.stopPropagation();
@@ -33,18 +23,6 @@ jQuery(document).ready(function() {
 		$menuWrap.toggleClass('menu-show');
 	});
 
-	$toggleFilterButton.on('click', function() {
-		console.log('mouse clicked toggle button');
-		jQuery('.slide-out-pane.right').slideToggle("slow", function() {
-			// Animation complete.
-		});		
-		$menuWrap.toggleClass('menu-show');
-	});
-	
-	$toggleFilterButton.click(function(event){
-		event.stopPropagation();
-	});
-
 	jQuery('.slide-out-pane').click(function(event){
 		event.stopPropagation();
 	});
@@ -52,11 +30,6 @@ jQuery(document).ready(function() {
 	if($hasThumbnail || $isFrontpage){
 		jQuery('.site-header').addClass('transparent');
 	}
-	// This code is hiding menu hamburger from all pages
-	//if(!$isFrontpage && !$isBio && !$isContact && !is_touch_device4()){
-		//jQuery('.menu-wrap').addClass('menu-show');
-		//jQuery('.toggle-button').addClass('button-open');
-	//}
 
 	jQuery('li.product a').on('hover', function() {
 		jQuery(this).parent().toggleClass('hover');
