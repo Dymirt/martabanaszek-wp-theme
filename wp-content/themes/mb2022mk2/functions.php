@@ -9,8 +9,7 @@ require get_stylesheet_directory() . '/inc/functions-cpt.php';
 
 function my_theme_enqueue_styles()
 {
-    $parent_style = 'parent-style'; // This is 'twentyfifteen-style' for the Twenty Fifteen theme.
-
+    $parent_style = 'parent-style'; // Storefront styles
     wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
     wp_enqueue_style('bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css", array(), '5.3.0');
     wp_enqueue_style('jquery-ui', get_stylesheet_directory_uri() . '/js/jquery-ui.min.css');
@@ -30,7 +29,7 @@ function load_custom_scripts()
 
     wp_enqueue_script('imagesLoaded', 'https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js');
     wp_enqueue_script('martabanaszek_main_theme', get_stylesheet_directory_uri() . '/assets/js/main.js', array(), '1.0', true);
-    wp_enqueue_script('martabanaszek_bootstrap_bundle', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", array(), '5.3.0', true);
+    wp_enqueue_script('bootstrap_bundle', "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js", array(), '5.3.0', true);
 
     //if(!is_user_logged_in()){
     wp_enqueue_script('custom_scripts');
@@ -466,7 +465,7 @@ function wc_dropdown_variation_attribute_options($args = array())
 
     echo apply_filters('woocommerce_dropdown_variation_attribute_options_html', $html, $args); // WPCS: XSS ok.
 }
-
+*/
 function mytheme_infinite_scroll_init()
 {
     add_theme_support('infinite-scroll', array(
@@ -478,7 +477,7 @@ function mytheme_infinite_scroll_init()
         'posts_per_page' => 10,
     ));
 }
-*/
+
 function jetpack_setup_override()
 {
     apply_filters('storefront_jetpack_infinite_scroll_args', array(
