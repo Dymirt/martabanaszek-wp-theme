@@ -32,12 +32,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <!-- Bootstrap 5.2 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous">
+    <!-- End Bootstrap  -->
 
 <?php wp_head(); ?>
 </head>
@@ -107,19 +110,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<?php //storefront_site_title_or_logo(); ?>
 				<a href="<?php echo get_site_url(); ?>" class="custom-logo-link" rel="home"><img width="276" height="67" src="/wp-content/uploads/2021/12/cropped-logo_final_poziom_white.png" class="custom-logo" alt="Marta Banaszek"></a>
 			</div>
-			<div class="header-col">		
-				<!-- outputs a list of languages names -->
-				<ul class="language-list d-none">
-					<?php 
-						//pll_the_languages(); 
-						$translations = pll_the_languages( array( 'raw' => 1 ) );
-						//var_dump($translations);
-					?>
-					<li><a class="underline" href="<? echo ($translations['pl']['url'])?>"><? echo ($translations['pl']['slug'])?></a></li>
-					|
-					<li><a class="underline" href="<? echo ($translations['en']['url'])?>"><? echo ($translations['en']['slug'])?></a></li>
-				</ul>
-				<?
+			<div class="header-col">
+				<?php
 				wp_nav_menu(
 					array(
 						'theme_location'  => 'secondary',
@@ -131,20 +123,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 		</div>
 
-		
-
-
+        <div class="secondary-header">
+            <?php
+            /**
+             * Functions hooked in to storefront_before_content
+             *
+             * @hooked storefront_header_widget_region - 10
+             * @hooked woocommerce_breadcrumb - 10
+             */
+            do_action( 'storefront_before_content' );
+            ?>
+        </div>
 	</header><!-- #masthead -->
-
-	<?php
-	/**
-	 * Functions hooked in to storefront_before_content
-	 *
-	 * @hooked storefront_header_widget_region - 10
-	 * @hooked woocommerce_breadcrumb - 10
-	 */
-	//do_action( 'storefront_before_content' );
-	?>
 
 	<div id="content" class="site-content" tabindex="-1">
 		<div class="col-full no-margin">
