@@ -6,6 +6,7 @@ require get_stylesheet_directory() . '/inc/functions-admin.php'; // Admin functi
 require get_stylesheet_directory() . '/inc/functions-filter.php';
 require get_stylesheet_directory() . '/inc/widgets/functions-recently-viewed.php';
 require get_stylesheet_directory() . '/inc/functions-cpt.php';
+require get_stylesheet_directory() . '/inc/functions-partners-cpt.php';
 
 function my_theme_enqueue_styles()
 {
@@ -327,7 +328,6 @@ function storefront_before_content()
 {
     ?>
     <?php if (is_active_sidebar('top-below-navbar')) : ?>
-    <div id="primary-sidebar" class="menu-sidebar widget-area" role="complementary">
         <?php
         //do_action('storefront_before_content');
         dynamic_sidebar('top-below-navbar');
