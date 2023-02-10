@@ -117,7 +117,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 
         <div class="secondary-header">
-            <?php
+            <div class="storefront_before_content row">
+                <?php
             /**
              * Functions hooked in to storefront_before_content
              *
@@ -126,6 +127,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
              */
             do_action( 'storefront_before_content' );
             ?>
+            </div>
+            <div class="woocommerce_before_shop_loop row">
+                <div></div>
+                <?php do_action('woocommerce_before_shop_loop'); ?>
+            </div>
+
+
         </div>
 	</header><!-- #masthead -->
 

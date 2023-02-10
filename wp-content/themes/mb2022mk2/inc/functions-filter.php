@@ -15,10 +15,12 @@ add_action('widgets_init', 'mb_offcanvas_right_init');
 function addFilterSidebar()
 {
     ?>
-    <button style="background-color: black; border: none; justify-self: end;" class="btn btn-dark" type="button"
-            data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <i class="fas fa-filter"></i> Filtry
-    </button>
+        <div style="display: inline-grid">
+            <button style="background-color: black; border: none; justify-self: end;" class="btn btn-dark" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i class="fas fa-filter"></i> Filtry
+            </button>
+        </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="staticBackdropLabel">
@@ -32,4 +34,4 @@ function addFilterSidebar()
     </div>
     <?php
 }
-add_action('storefront_before_content', 'addFilterSidebar', 11);
+add_action('woocommerce_before_shop_loop', 'addFilterSidebar', 40);

@@ -349,7 +349,7 @@ ul.icon-list a, .toggle-button i
 
     .bottom-widgets
       margin-left: 0
-      @media (min-width: 1024px)
+      //@media (min-width: 1024px)
         margin-left: calc(16.66% + 3.33%)
 
   .content-area
@@ -664,7 +664,7 @@ ul.icon-list a, .toggle-button i
       object-fit: cover
       object-position: center
 
-    &.shop, &.page
+    &.page
       margin-top: 2em
       @media screen and (min-width: 768px)
         margin-top: 4.235801032em
@@ -1085,7 +1085,7 @@ ul.icon-list a, .toggle-button i
   left: 40px
   padding: 4px
   transition: .25s
-  z-index: 2000
+  z-index: 15
   display: block
   @media (max-width: 576px)
     left: 10px
@@ -1931,9 +1931,9 @@ form.checkout
 
 // Shop
 
-.secondary-header
+//.secondary-header
   display: inline-grid
-  grid-template-columns: 90% 10%
+  grid-template-columns: 100% 40% 10%
   background-color: black
   width: 100%
   padding: 13px 40px
@@ -1952,6 +1952,41 @@ form.checkout
       width: 100%
       padding: 0
       margin: 0
+  .storefront-sorting
+    margin-bottom: 0
+    justify-self: start
+
+.storefront_before_content.row
+  .storefront-breadcrumb
+    margin-bottom: 0
+    padding: 0
+    .col-full
+      width: 100%
+      max-width: none
+    @media (max-width: 768px)
+      display: none
+
+.woocommerce_before_shop_loop.row
+  @media (min-width: 768px)
+    width: 100%
+    display: inline-grid
+    grid-template-columns: 10% 80% 10%
+    padding: 13px 40px
+  .storefront-sorting
+    margin-bottom: 0
+    @media (max-width: 768px)
+      width: 100%
+      display: inline-grid
+      grid-template-columns: 0% 40% 60%
+      .woocommerce-ordering
+        margin-bottom: 0
+      .woocommerce-pagination
+        padding: 0
+      .woocommerce-result-count
+        display: none
+  .btn.btn-dark
+
+
 
 
 #offcanvasRight
@@ -1967,3 +2002,17 @@ form.checkout
 
 .site-header
   padding-bottom: 0
+
+.products.columns-5
+  .product
+    width: 100%
+    margin: 0 !important
+    @media (min-width: 768px)
+      width: 20% !important
+
+
+.content-area.shop
+  .storefront-sorting
+    display: none
+  .btn
+    display: none
