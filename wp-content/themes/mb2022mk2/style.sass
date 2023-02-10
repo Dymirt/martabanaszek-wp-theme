@@ -2010,9 +2010,30 @@ form.checkout
     @media (min-width: 768px)
       width: 20% !important
 
-
-.content-area.shop
-  .storefront-sorting
+// Active filters
+.wc-blocks-filter-wrapper
+  h3
     display: none
-  .btn
-    display: none
+  .wp-block-woocommerce-active-filters
+    .wc-block-active-filters
+      display: flex
+      gap: 10px
+      margin-bottom: 0
+      .wc-block-active-filters__clear-all
+        margin-top: 0
+      .wc-block-active-filters__list
+        display: flex
+        gap: 10px
+        margin-bottom: 0
+        >li
+          margin-top: 0
+          display: flex
+          gap: 10px
+          .wc-block-active-filters__list-item-type
+            margin-top: 0
+            height: fit-content
+          >ul
+            display: flex
+            gap: 10px
+            .wc-block-active-filters__list-item
+              margin-top: 0
