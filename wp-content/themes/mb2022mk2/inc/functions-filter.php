@@ -12,7 +12,7 @@ function mb_offcanvas_right_init()
     ));
 }
 add_action('widgets_init', 'mb_offcanvas_right_init');
-function addFilterSidebar()
+function addFilterButton()
 {
     ?>
         <div style="display: inline-grid">
@@ -21,6 +21,17 @@ function addFilterSidebar()
                 <i class="fas fa-filter"></i> Filtry
             </button>
         </div>
+    <?php
+}
+add_action('woocommerce_before_shop_loop', 'addFilterButton', 31);
+function custom_layered_nav_filters_widget() {
+    the_widget( 'WC_Widget_Layered_Nav_Filters' );
+}
+add_action( 'woocommerce_before_shop_loop', 'custom_layered_nav_filters_widget', 10, 1 );
+
+function addFilterOffcanvas()
+{
+    ?>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="staticBackdropLabel">
@@ -34,4 +45,5 @@ function addFilterSidebar()
     </div>
     <?php
 }
-add_action('woocommerce_before_shop_loop', 'addFilterSidebar', 40);
+
+add_action('woocommerce_before_shop_loop', 'addFilterOffcanvas', 40);

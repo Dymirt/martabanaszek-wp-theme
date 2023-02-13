@@ -2011,7 +2011,7 @@ form.checkout
       width: 20% !important
 
 // Active filters
-.wc-blocks-filter-wrapper
+//.wc-blocks-filter-wrapper
   h3
     display: none
   .wp-block-woocommerce-active-filters
@@ -2030,10 +2030,72 @@ form.checkout
           display: flex
           gap: 10px
           .wc-block-active-filters__list-item-type
-            margin-top: 0
+            margin-top: 2px
             height: fit-content
           >ul
             display: flex
             gap: 10px
             .wc-block-active-filters__list-item
               margin-top: 0
+.content-area.shop
+  .woocommerce-products-header
+    background-color: black
+    @media (min-width: 768px)
+      padding-bottom: 0
+
+
+    .woocommerce-products-header__title.page-title
+      color: white
+      margin-bottom: 0
+
+
+.storefront-sorting
+  justify-content: space-between
+  background-color: black
+  padding-bottom: 1rem
+  padding-top: 1rem
+  margin-bottom: 0
+  .widget_layered_nav_filters
+    display: flex
+    gap: 10px
+    margin-bottom: 0
+    .widgettitle
+      margin-top: 3px
+      margin-bottom: 0
+      padding-bottom: 0
+      border: none
+    >ul
+      display: flex
+      gap: 10px
+      >li
+        padding-left: 0
+        margin-top: 2px
+        margin-bottom: 0
+        &.chosen
+          &::before
+            display: none
+  *
+    font-size: 1rem !important
+    color: white
+  .woocommerce-ordering
+    .orderby
+      color: black
+
+.content-area.portfolio
+  background-color: black
+
+// Product page
+.single-product
+  div.product
+    @media (min-width: 768px)
+      .woocommerce-product-gallery.woocommerce-product-gallery--with-images,
+      .summary.entry-summary
+          width: 50%
+
+      .woocommerce-product-gallery.woocommerce-product-gallery--with-images
+        margin-right: 0
+        img
+          width: 100%
+          &.wp-post-image
+            height: 100vh
+            object-fit: cover

@@ -326,14 +326,9 @@ function storefront_post_excerpt()
 */
 function storefront_before_content()
 {
-    ?>
-    <?php if (is_active_sidebar('top-below-navbar')) : ?>
-        <?php
-        //do_action('storefront_before_content');
-        dynamic_sidebar('top-below-navbar');
+    dynamic_sidebar('top-below-navbar');
         ?>
     </div><!-- #primary-sidebar -->
-<?php endif; ?>
     <?php do_action('menu'); ?>
     <div class="content-area-wrapper">
     <div id="primary" class="content-area shop">
