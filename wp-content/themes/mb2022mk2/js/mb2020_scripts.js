@@ -1,8 +1,8 @@
 jQuery(document).ready(function() {
 
-	AOS.init({
-		disable: false,
-	});
+	//AOS.init({
+	//	disable: false,
+	//});
 
 	nbspBeforeSingleLetterWord();
 

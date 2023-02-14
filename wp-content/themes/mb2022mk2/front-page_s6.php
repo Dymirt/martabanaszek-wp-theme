@@ -9,11 +9,11 @@
 </div>
 <div class="col3" data-aos="fade-up" data-aos-duration="1000" data-aos-anchor-placement="top-center">
     <div class="wrapper">
-        <img class="" src="<? echo get_stylesheet_directory_uri()?>/img/s6/garnitur.jpg">
+        <img class="lazy" data-src="<?php echo get_stylesheet_directory_uri()?>/img/s6/garnitur.jpg">
     </div>
 </div>
 <div class="col3" data-aos="fade-left" data-aos-duration="1000" data-aos-anchor-placement="top-center">
     <div class="wrapper">
-        <? include('front-page_s6_slider.php');?>
+        <?php include('front-page_s6_slider.php');?>
     </div>
 </div>

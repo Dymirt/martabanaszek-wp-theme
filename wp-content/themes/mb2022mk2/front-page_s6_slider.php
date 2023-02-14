@@ -14,16 +14,16 @@
             </a>
         </div>
         <div class="carousel-item active">
-            <img class="d-block w-100" src="<? echo get_stylesheet_directory_uri() ?>/img/s6/1s6.jpg">
+            <img class="d-block w-100 lazy" data-src="<?php echo get_stylesheet_directory_uri() ?>/img/s6/1s6.jpg">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="<? echo get_stylesheet_directory_uri() ?>/img/s6/2s6.jpg">
+            <img class="d-block w-100 lazy" data-src="<?php echo get_stylesheet_directory_uri() ?>/img/s6/2s6.jpg">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="<? echo get_stylesheet_directory_uri() ?>/img/s6/4s6.jpg">
+            <img class="d-block w-100 lazy" data-src="<?php echo get_stylesheet_directory_uri() ?>/img/s6/4s6.jpg">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="<? echo get_stylesheet_directory_uri() ?>/img/s6/5s6.jpg">
+            <img class="d-block w-100 lazy" data-src="<?php echo get_stylesheet_directory_uri() ?>/img/s6/5s6.jpg">
         </div>
     </div>
 
