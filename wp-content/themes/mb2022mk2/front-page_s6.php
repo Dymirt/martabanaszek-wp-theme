@@ -2,7 +2,7 @@
     <div class="wrapper">
       <div class="content"></div>
       <div class="overlay caption">
-            <h1>Suits</h1>
+            <h1>Garnitury</h1>
             <a href="sklep/kategoria/garnitury"><button class="white">Zobacz więcej</button></a>
         </div>
     </div>

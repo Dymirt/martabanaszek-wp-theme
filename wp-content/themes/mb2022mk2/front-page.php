@@ -17,7 +17,7 @@ get_header(); ?>
 
             <!-- Video Section -->
             <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper h100">
+                <div class="wrapper">
                     <div class="video-overlay"></div>
                     <video class="bg-video"
                            id="video1"
@@ -32,8 +32,13 @@ get_header(); ?>
             </section>
             <!-- End Video Section -->
 
+            <section id="s2" class="fullpage " data-aos="fade-in" data-aos-duration="500">
+                    <?php include('front-page_s2.php'); ?>
+            </section>
+
+            <!-- Video Section -->
             <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper h100">
+                <div class="wrapper">
                     <div class="video-overlay"></div>
                     <video class="bg-video"
                            id="video2"
@@ -53,15 +58,17 @@ get_header(); ?>
                     </div>
                 </div>
             </section>
-            <section id="s2" class="fullpage" data-aos="fade-in" data-aos-duration="500">
+            <!-- End Video Section -->
+
+            <section id="s4" class="fullpage" data-aos="fade-in" data-aos-duration="500">
                 <div class="wrapper">
-                    <?php include('front-page_s2.php'); ?>
+                    <?php include('front-page_s4.php'); ?>
                 </div>
             </section>
 
             <!-- Video Section -->
             <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper h100">
+                <div class="wrapper">
                     <video class="bg-video"
                            id="video3"
                            autoplay='false'
@@ -82,15 +89,15 @@ get_header(); ?>
             </section>
             <!-- End Video Section -->
 
-            <section id="s4" class="fullpage" data-aos="fade-in" data-aos-duration="500">
+            <section id="s6" class="fullpage" data-aos="fade-in" data-aos-duration="500">
                 <div class="wrapper">
-                    <?php include('front-page_s4.php'); ?>
+                    <?php include('front-page_s6.php'); ?>
                 </div>
             </section>
 
             <!-- Video Section -->
             <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper h100">
+                <div class="wrapper">
                     <div class="video-overlay"></div>
                     <video class="bg-video"
                            id="video4"
@@ -105,11 +112,7 @@ get_header(); ?>
             </section>
             <!-- End Video Section -->
 
-            <section id="s6" class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper">
-                    <?php include('front-page_s6.php'); ?>
-                </div>
-            </section>
+
         </main><!-- #main -->
     </div><!-- #primary -->
 
