@@ -24,10 +24,6 @@ function addFilterButton()
     <?php
 }
 add_action('woocommerce_before_shop_loop', 'addFilterButton', 31);
-function custom_layered_nav_filters_widget() {
-    the_widget( 'WC_Widget_Layered_Nav_Filters' );
-}
-add_action( 'woocommerce_before_shop_loop', 'custom_layered_nav_filters_widget', 10, 1 );
 
 function addFilterOffcanvas()
 {
