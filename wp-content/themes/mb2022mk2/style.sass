@@ -30,6 +30,69 @@ $transition-slow: .50s linear
 // Google Fonts //
 //@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=latin-ext')
 
+/* ==================================== */
+/*		  	    Keyframes
+/* ==================================== */
+
+@keyframes hideRight
+  from
+    right: 0
+
+  to
+    right: -100%
+
+@keyframes hideLeft
+  from
+    left: 0
+
+  to
+    left: -50%
+
+@keyframes slideRight
+  from
+    right: 0
+
+  to
+    right: -210px
+
+@keyframes slideLeft
+  from
+    right: -210px
+
+  to
+    right: 0
+
+@keyframes slideRightMobile
+  from
+    right: 0
+
+  to
+    right: -50vw
+
+@keyframes slideLeftMobile
+  from
+    right: -70vw
+
+  to
+    right: 0
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes fadeOut
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+/* ==================================== */
+/*		  	   End Keyframes
+/* ==================================== */
+
+
 body
   font-family: 'Roboto', sans-serif
   background: $bg-color-white
@@ -133,6 +196,7 @@ body
   .page-title
     text-align: center
 
+
 .site
   overflow-x: unset
 
@@ -142,6 +206,7 @@ body
 
   .site-header.transparent
     background: rgba(0, 0, 0, .5) !important
+
 
 .page-template-template-homepage, .page-template-template-bio, .page-template-template-contact
   .toggle-button
@@ -183,7 +248,6 @@ body.admin-bar
     @media (max-width: 576px)
 //    top: 0
 
-
 .site-header
   padding-top: 0
   //height: 80px
@@ -191,6 +255,8 @@ body.admin-bar
   position: sticky
   position: -webkit-sticky
   top: 0
+  @media (max-width: 768px)
+    padding-bottom: 0
   //background: rgba(0,0,0,.5) !important
   .header-row
     display: flex
@@ -294,6 +360,7 @@ body.admin-bar
         padding-right: 0
         justify-content: flex-start
 
+
 ul.icon-list a, .toggle-button i
   transition: .3s ease
 
@@ -306,6 +373,7 @@ ul.icon-list a, .toggle-button i
   .dashicons-admin-post
     &:before
       content: "\f489"
+
 
 .dashicons-admin-post:before
   content: "\f489"
@@ -334,6 +402,7 @@ ul.icon-list a, .toggle-button i
     &.menu-show
       display: block
       margin-left: 0
+
 
 .col-full
   &.no-margin
@@ -664,9 +733,6 @@ ul.icon-list a, .toggle-button i
       @media screen and (min-width: 768px)
         margin-top: 4.235801032em
 
-    &.frontpage
-      background: $bg-color-black
-      color: $text-color-white
 
       main
         display: flex
@@ -676,11 +742,13 @@ ul.icon-list a, .toggle-button i
         padding: 0
         margin: 0
 
+
 .pagination
   border: none
   display: flex
   justify-content: center
   align-items: center
+
 
 /* ==================================== */
 /*		  	  Navigaton Menu		
@@ -710,12 +778,14 @@ ul.icon-list a, .toggle-button i
     &.menu-show
       margin-right: 0
 
+
 .menu-show
   margin-left: 0
   margin-right: 0
   width: 100vw
   @media screen and (min-width: 768px)
     width: auto
+
 
 .left > .menu-sidebar
   margin-top: 30px
@@ -796,6 +866,7 @@ ul.icon-list a, .toggle-button i
     .sub-menu
       display: block
 
+
 .sidebar-menu-arrow
   &::after
     content: "\f107"
@@ -810,6 +881,7 @@ ul.icon-list a, .toggle-button i
 
   &:active::after
     top: 2px
+
 
 /*Hamburger Button*/
 .toggle-button
@@ -859,6 +931,7 @@ ul.icon-list a, .toggle-button i
     border-top: none
     top: 22px
 
+
 .button-open
   left: 40px
 
@@ -877,6 +950,7 @@ ul.icon-list a, .toggle-button i
     border-color: #fff
     transform: rotate(-45deg) translate(7px, -7px)
     transition: .5s
+
 
 /* Text Block */
 .wrapper
@@ -954,6 +1028,7 @@ ul.icon-list a, .toggle-button i
       span::after
         content: "\f178"
 
+
 footer.site-footer
   position: relative
   padding: 1.618em 0
@@ -968,7 +1043,7 @@ footer.site-footer
       height: 60px
       width: auto
       max-width: 250px
-      margin: 3rem auto
+      margin: 0 auto 3rem auto
 
   ul.menu, ul.icon-list, .copyright
     list-style: none
@@ -1013,7 +1088,6 @@ footer.site-footer
       padding: 10px
 
   ul.menu
-    padding: 13rem 0 20rem 0
     margin: 0 auto
     font-weight: 500
     @media (max-width: 576px)
@@ -1078,6 +1152,7 @@ footer.site-footer
   &::-webkit-scrollbar-corner
     background: $bg-color-white
 
+
 ::-webkit-scrollbar-thumb
   background-color: $bg-color-black
 
@@ -1085,6 +1160,7 @@ footer.site-footer
   height: 12px
   width: 12px
   background: $bg-color-white
+
 
 ::-webkit-scrollbar-corner
   background: $bg-color-black
@@ -1111,13 +1187,18 @@ footer.site-footer
     option
       height: 32px
 
+
 @media (min-width: 768px)
   ul.products.columns-3 li.product
     width: 29.4117647059%
     float: left
     margin-right: 5.8823529412%
 
+.site-main
+  margin-bottom: 0
+
 .site-main, .bottom-widgets
+
   ul.products
     display: flex
     flex-direction: row
@@ -1130,7 +1211,6 @@ footer.site-footer
       li.product
         margin-right: 0
         margin-bottom: 0
-        margin: 0 auto
         @media (min-width: 768px)
           margin: 0
           width: 33%
@@ -1154,16 +1234,7 @@ footer.site-footer
       .woocommerce-loop-product__title
         font-weight: 500
 
-.single-product
-  div.product
-    .summary.entry-summary, .related.products
-      padding: 0 10px
 
-    p.price
-      color: $bg-color-darkgrey
-      text-transform: uppercase
-      margin-top: 0
-      font-weight: 500
 
 div.btn
   display: inline-block
@@ -1171,6 +1242,7 @@ div.btn
 div.btn.on
   background-color: #777
   color: white
+
 
 .woocommerce-message
   background: $bg-color-black
@@ -1194,6 +1266,7 @@ p.form-row
   span
     width: 100%
 
+
 .col2-set
   width: 100%
   padding: 1rem
@@ -1211,6 +1284,7 @@ p.form-row
   @media (min-width: 768px)
     width: 46.7%
 
+
 table.shop_table
   tfoot
     th
@@ -1219,12 +1293,14 @@ table.shop_table
     td
       width: 70%
 
+
 .choose-shipping
   th
     width: 40%
 
   td
     width: 60%
+
 
 .woocommerce-cart
   .content-area-wrapper
@@ -1238,8 +1314,6 @@ table.shop_table
         @media (min-width: 768px)
           flex-direction: row
 
-      .woocommerce-notices-wrapper
-      //
       .woocommerce-cart-form
         width: 100%
 
@@ -1282,6 +1356,7 @@ table.shop_table
             input, button
               width: 50%
 
+
 form.cart, .woocommerce-variation-add-to-cart
   .quantity
     display: none !important
@@ -1320,8 +1395,6 @@ form.cart, .woocommerce-variation-add-to-cart
         clear: both
         padding: 1rem
 
-  .woocommerce-variation-availability
-  //margin-top: 1.41575em
   .variations_button
     padding-top: 0 !important
 
@@ -1335,18 +1408,20 @@ form.cart, .woocommerce-variation-add-to-cart
         background: $bg-color-darkgrey
         color: $text-color-white
 
+
 #selected-parcel-machine
   min-width: unset !important
 
 .easypack-parcel-machine-select
   padding-bottom: 1rem !important
 
-
 table.cart .product-thumbnail img
   max-width: 100%
   margin: 0 auto
 
+
 .wc-proceed-to-checkout .button.checkout-button,
+
 #payment .place-order .button
   font-size: 1em
 
@@ -1355,6 +1430,7 @@ form.checkout
 
   table.woocommerce-checkout-review-order-table .product-name
     width: 45%
+
 
 .star-rating span:before, .quantity .plus, .quantity .minus, p.stars a:hover:after, p.stars a:after, .star-rating span:before, #payment .payment_methods li input[type=radio]:first-child:checked + label:before
   color: $text-color-accent
@@ -1375,9 +1451,9 @@ form.checkout
   button
     width: 100%
 
+
 .clearfix
   clear: both
-
 
 #ebook-link
   position: fixed
@@ -1428,48 +1504,6 @@ form.checkout
       font-size: 1.5rem
       cursor: pointer
 
-@keyframes hideRight
-  from
-    right: 0
-
-  to
-    right: -100%
-
-@keyframes hideLeft
-  from
-    left: 0
-
-  to
-    left: -50%
-
-@keyframes slideRight
-  from
-    right: 0
-
-  to
-    right: -210px
-
-@keyframes slideLeft
-  from
-    right: -210px
-
-  to
-    right: 0
-
-@keyframes slideRightMobile
-  from
-    right: 0
-
-  to
-    right: -50vw
-
-@keyframes slideLeftMobile
-  from
-    right: -70vw
-
-  to
-    right: 0
-
 
 #cookies-info
   display: flex
@@ -1500,6 +1534,7 @@ form.checkout
   i:hover
     color: $text-color-accent
 
+
 .wc-backward::before, .woocommerce-Button--prev::before
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
@@ -1515,6 +1550,7 @@ form.checkout
   content: "\f30a"
   margin-right: 0.5407911001em
 
+
 .wc_payment_methods
   input[type='radio']
     display: block !important
@@ -1528,6 +1564,7 @@ form.checkout
   label
     &::before
       display: none !important
+
 
 .infinite-loader
   width: 100%
@@ -1644,325 +1681,291 @@ form.checkout
       text-decoration: none
       cursor: pointer
 
+
 #sizeTableButton
   font-size: .8rem
   font-weight: 400
   cursor: pointer
 
-@keyframes fadeIn
-  0%
-    opacity: 0
-  100%
-    opacity: 1
 
-@keyframes fadeOut
-  0%
-    opacity: 1
-  100%
-    opacity: 0
 
 .woocommerce-loop-product__title, .woocommerce-cart-form .product-details-row a, .cart_item .product-name
   text-transform: uppercase
 
-// Shop
-
-//.secondary-header
-  display: inline-grid
-  grid-template-columns: 100% 40% 10%
-  background-color: black
-  width: 100%
-  padding: 13px 40px
-  border-top: 1px solid dimgray
-
-  @media (max-width: 768px)
-    padding: 0
-
-  .storefront-breadcrumb
-    padding: 0
-    margin: 0
-    @media (max-width: 768px)
-      display: none
-
-    div:first-child
-      width: 100%
-      padding: 0
-      margin: 0
-  .storefront-sorting
-    margin-bottom: 0
-    justify-self: start
-
-.storefront_before_content.row
-  .storefront-breadcrumb
-    margin-bottom: 0
-    padding: 0
-    .col-full
-      width: 100%
-      max-width: none
-    @media (max-width: 768px)
-      display: none
-
-.woocommerce_before_shop_loop.row
-  @media (min-width: 768px)
-    width: 100%
-    display: inline-grid
-    grid-template-columns: 10% 80% 10%
-    padding: 13px 40px
-  .storefront-sorting
-    margin-bottom: 0
-    @media (max-width: 768px)
-      width: 100%
-      display: inline-grid
-      grid-template-columns: 0% 40% 60%
-      .woocommerce-ordering
-        margin-bottom: 0
-      .woocommerce-pagination
-        padding: 0
-      .woocommerce-result-count
-        display: none
-  .btn.btn-dark
-
-
-
-
-#offcanvasRight
-  color: black
-
-  a
-    color: black !important
-
-
-/*
-  * Override STOREFRONT styles
-  */
-
-.site-header
-  padding-bottom: 0
-
-.products.columns-5
-  .product
-    width: 100%
-    margin: 0 !important
-    @media (min-width: 768px)
-      width: 20% !important
-
-// Active filters
-//.wc-blocks-filter-wrapper
-  h3
-    display: none
-  .wp-block-woocommerce-active-filters
-    .wc-block-active-filters
-      display: flex
-      gap: 10px
-      margin-bottom: 0
-      .wc-block-active-filters__clear-all
-        margin-top: 0
-      .wc-block-active-filters__list
-        display: flex
-        gap: 10px
-        margin-bottom: 0
-        >li
-          margin-top: 0
-          display: flex
-          gap: 10px
-          .wc-block-active-filters__list-item-type
-            margin-top: 2px
-            height: fit-content
-          >ul
-            display: flex
-            gap: 10px
-            .wc-block-active-filters__list-item
-              margin-top: 0
-.content-area.shop
+/* ==================================== */
+/*		        Shop page
+/* ==================================== */
+.shop
   .woocommerce-products-header
     background-color: black
-    @media (min-width: 768px)
-      padding-bottom: 0
-
+    display: flex
+    justify-content: center
+    flex-direction: column
+    align-items: center
+    padding: 10px 35px
+    div
+      @media screen and (min-width: 768px)
+        align-self: end
 
     .woocommerce-products-header__title.page-title
       color: white
-      margin-bottom: 0
+      margin-bottom: 1rem
 
+  .storefront-sorting
+    display: none
 
-.storefront-sorting
-  justify-content: space-between
-  background-color: black
-  padding-bottom: 1rem
-  padding-top: 1rem
-  margin-bottom: 0
-  .widget_layered_nav_filters
-    display: flex
-    gap: 10px
-    margin-bottom: 0
-    .widgettitle
-      margin-top: 3px
-      margin-bottom: 0
-      padding-bottom: 0
-      border: none
-    >ul
-      display: flex
-      gap: 10px
-      >li
-        padding-left: 0
-        margin-top: 2px
-        margin-bottom: 0
-        &.chosen
-          &::before
-            display: none
-  *
-    font-size: 1rem !important
-    color: white
-  .woocommerce-ordering
-    .orderby
-      color: black
+  .products.columns-4
+    .product
+      width: 100%
+      margin: 0 !important
+      @media (min-width: 768px)
+        width: 25% !important
+
+  #offcanvasRight
+    color: black
+    a
+      color: black !important
+
+/* ==================================== */
+/*		  	Portfolio Page
+/* ==================================== */
 
 .content-area.portfolio
   background-color: black
 
-// Product page
+/* ==================================== */
+/*		  	Single Product Page
+/* ==================================== */
 .single-product
-  div.product
-    @media (min-width: 768px)
-      .woocommerce-product-gallery.woocommerce-product-gallery--with-images,
-      .summary.entry-summary
-          width: 50%
-
-      .woocommerce-product-gallery.woocommerce-product-gallery--with-images
-        margin-right: 0
-        img
-          width: 100%
-          &.wp-post-image
-            height: 100vh
+  .details
+    @media screen and (min-width: 480px)
+      display: flex
+    .carousel
+      height: 70vh
+      @media screen and (min-width: 480px)
+        height: 100vh
+        max-height: 1080px
+        width: 50%
+      .carousel-inner
+        height: 100%
+        .carousel-item
+          height: 100%
+          img
+            height: 100%
             object-fit: cover
 
-// Front Page sections
-#s2
-  display: flex
+    .product-summary
+      padding: 5rem
+      @media screen and (min-width: 480px)
+        width: 50%
 
-  >div
-    flex: 0 0 auto
+    section.related.products
+      h2
+        text-align: center
 
-  div:nth-child(1)
-    position: relative
-    width: 52%
-    @media screen and (max-width: 768px)
-      display: none
+      .products
+        margin-bottom: 0
+        li.product
+          width: 50%
+          @media screen and (min-width: 768px)
+            width: 25%
+          @media screen and (min-width: 768px)
+            width: 20%
+
+.bottom-widgets
+  .related
+    h2
+      text-align: center
+    li.product
+      width: 50%
+      @media screen and (min-width: 768px)
+        width: 25%
+      @media screen and (min-width: 768px)
+        width: 20%
+
+/* ==================================== */
+/*		  	    Front Page
+/* ==================================== */
+.frontpage
+  background: $bg-color-black
+  color: $text-color-white
+
+  #main
+    padding-top: 80px
+
+  .fullpage
+    width: 100vw
+    height: 93vh
+    @media (max-width: 480px)
+      height: 70vh
+
+  #s2
+    display: flex
 
     >div
-      background-size: cover
-      background-position: center
-      position: absolute
+      flex: 0 0 auto
 
     div:nth-child(1)
-      height: 100%
-      width: 80%
-      right: 0
+      position: relative
+      width: 52%
+      @media screen and (max-width: 768px)
+        display: none
+
+      >div
+        background-size: cover
+        background-position: center
+        position: absolute
+
+      div:nth-child(1)
+        height: 100%
+        width: 80%
+        right: 0
+
+      div:nth-child(2)
+        height: 64%
+        left: 10px
+        width: 45%
+        bottom: 6%
+        border: solid black 1.5rem
 
     div:nth-child(2)
-      height: 64%
-      left: 10px
-      width: 45%
-      bottom: 6%
-      border: solid black 1.5rem
-
-  div:nth-child(2)
-    width: 48%
-    display: flex
-    justify-content: center
-    align-items: center
-    @media screen and (max-width: 768px)
-      width: 100%
-
-    div:nth-child(1)
-      background-size: cover
-      background-position: center
-      height: 70%
-      width: 95%
+      width: 48%
       display: flex
       justify-content: center
       align-items: center
-      flex-direction: column
       @media screen and (max-width: 768px)
-        height: 100%
         width: 100%
 
+      div:nth-child(1)
+        background-size: cover
+        background-position: center
+        height: 70%
+        width: 95%
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: column
+        @media screen and (max-width: 768px)
+          height: 100%
+          width: 100%
+
+        h2
+          color: $text-color-white
+          text-transform: uppercase
+          font-weight: 400
+          font-size: xxx-large
+          text-shadow: 2px 2px 5px black
+
+        button
+          text-transform: uppercase
+          font-size: small
+          font-weight: 400
+          i
+            margin-right: 0.5rem
+
+
+  #s4
+    > .wrapper
+      align-items: baseline
+
+    img
+    //height: 100%
+    //width: auto
+    .col2:nth-child(1)
+      display: none
+      @media screen and (min-width: 768px)
+        width: 45%
+        display: block
+        img
+          object-fit: contain
+          object-position: center top
+          margin-left: 2rem
+          padding: 1rem
+
+    .col2:nth-child(2)
+      padding: 0
+      @media screen and (min-width: 768px)
+        padding: 2rem
+
+      img
+        padding: 0
+        @media screen and (min-width: 768px)
+          padding: 4rem 0
+        object-position: center center
+
+      @media screen and (min-width: 768px)
+        width: 55%
+
+
+  #s6
+    .col3
+      display: none
+      width: 100%
+      height: 100%
+      padding: 0
+      @media screen and (min-width: 768px)
+        display: block
+        width: 33.3%
+
+    .col3:nth-child(3)
+      display: block
+      @media screen and (min-width: 768px)
+        padding: 10% 3rem
+        .carousel
+          margin-left: 50px
+          margin-right: 50px
+          width: 100%
+
+          .carousel-control-prev
+            margin-left: -60px
+
+          .carousel-control-next
+            margin-right: -60px
+
+/* ==================================== */
+/*		  	   Ciriana Page
+/* ==================================== */
+.ciriana
+  background-color: $bg-color-black
+  color: $text-color-white
+
+  .video-header
+    width: 100vw
+    height: 50vh
+    position: relative
+
+    .video-overlay
+      position: absolute
+      top: 0
+      width: 100%
+      height: 100%
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
       h2
-        color: white
+        color: $text-color-white
         text-transform: uppercase
         font-weight: 400
         font-size: xxx-large
         text-shadow: 2px 2px 5px black
-
-      button
+      h5
+        font-size: medium
+        font-weight: 300
+        color: $text-color-white
         text-transform: uppercase
-        font-size: small
-        font-weight: 400
-        i
-          margin-right: 0.5rem
 
+    video
+      object-fit: cover
+      object-position: top
+      height: 100%
+      width: 100%
 
-
-#s4
-  > .wrapper
-    align-items: baseline
-
-  img
-  //height: 100%
-  //width: auto
-  .col2:nth-child(1)
-    display: none
-    @media screen and (min-width: 768px)
-      width: 45%
-      display: block
-      img
-        object-fit: contain
-        object-position: center top
-        margin-left: 2rem
-        padding: 1rem
-
-  .col2:nth-child(2)
-    padding: 0
-    @media screen and (min-width: 768px)
-      padding: 2rem
-
-    img
-      padding: 0
-      @media screen and (min-width: 768px)
-        padding: 4rem 0
-      object-position: center center
-
-    @media screen and (min-width: 768px)
-      width: 55%
-
-#s6
-  .col3
-    display: none
-    width: 100%
-    height: 100%
-    padding: 0
-    @media screen and (min-width: 768px)
-      display: block
-      width: 33.3%
-
-  .col3:nth-child(3)
-    display: block
-    @media screen and (min-width: 768px)
-      padding: 10% 3rem
-      .carousel
-        margin-left: 50px
-        margin-right: 50px
-        width: 100%
-
-        .carousel-control-prev
-          margin-left: -60px
-
-        .carousel-control-next
-          margin-right: -60px
-
+/* ==================================== */
+/*		  	  End Ciriana Page
+/* ==================================== */
 
 .fullpage
-  width: 100vw
-  height: 92vh
   &.margins
     max-width: 1000px
 
@@ -2106,3 +2109,6 @@ form.checkout
 
             h1, h5
               color: $text-color-white
+
+.woocommerce-result-count
+  display: none
