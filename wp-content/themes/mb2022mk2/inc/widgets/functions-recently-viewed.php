@@ -82,7 +82,7 @@ class WC_Widget_Recently_Viewed_MB2020 extends WC_Widget
 
             $this->widget_start($args, $instance);
 
-            echo wp_kses_post(apply_filters('woocommerce_before_widget_product_list', '<ul class="products columns-5">'));
+            echo wp_kses_post(apply_filters('woocommerce_before_widget_product_list', '<ul class="products">'));
 
             $template_args = array(
                 'widget_id' => isset($args['widget_id']) ? $args['widget_id'] : $this->widget_id,

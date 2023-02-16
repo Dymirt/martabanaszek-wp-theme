@@ -15,7 +15,7 @@ add_action('widgets_init', 'mb_offcanvas_right_init');
 function addFilterButton()
 {
     ?>
-        <div style="display: inline-grid">
+        <div>
             <button style="background-color: black; border: none; justify-self: end;" class="btn btn-dark" type="button"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <i class="fas fa-filter"></i> Filtry
@@ -23,7 +23,7 @@ function addFilterButton()
         </div>
     <?php
 }
-add_action('woocommerce_before_shop_loop', 'addFilterButton', 31);
+add_action('woocommerce_archive_description', 'addFilterButton', 31);
 
 function addFilterOffcanvas()
 {
@@ -36,7 +36,11 @@ function addFilterOffcanvas()
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <?php dynamic_sidebar('right-slide-out'); ?>
+            <h6>Sortowanie</h6>
+            <?php
+            woocommerce_catalog_ordering();
+            dynamic_sidebar('right-slide-out');
+             ?>
         </div>
     </div>
     <?php

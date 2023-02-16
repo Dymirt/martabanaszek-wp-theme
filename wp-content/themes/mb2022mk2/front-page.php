@@ -1,13 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package storefront
+ * The template for displaying Front Page
  */
 
 get_header(); ?>
@@ -33,7 +26,22 @@ get_header(); ?>
             <!-- End Video Section -->
 
             <section id="s2" class="fullpage " data-aos="fade-in" data-aos-duration="500">
-                    <?php include('front-page_s2.php'); ?>
+                <div>
+                    <div style="background-image: url('<?php echo get_stylesheet_directory_uri() ?>/img/s2/2.jpg')"></div>
+                    <div style="background-image: url('<?php echo get_stylesheet_directory_uri() ?>/img/s2/1.jpg')"></div>
+                </div>
+                <div>
+                    <div style="background-image: url('<?php echo get_stylesheet_directory_uri() ?>/img/s2/3.jpg')">
+                        <div>
+                            <h2>New Classic</h2>
+                            <a href="/sklep/kategoria/garnitury/">
+                                <button class="black"><i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                                     Zobacz więcej
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!-- Video Section -->
@@ -62,7 +70,20 @@ get_header(); ?>
 
             <section id="s4" class="fullpage" data-aos="fade-in" data-aos-duration="500">
                 <div class="wrapper">
-                    <?php include('front-page_s4.php'); ?>
+                    <div class="col2" >
+                        <div class="wrapper">
+                            <img class="lazy" data-src="<?php echo get_stylesheet_directory_uri()?>/img/s4/1s4.jpg">
+                        </div>
+                    </div>
+                    <div class="col2" >
+                        <div class="wrapper">
+                            <img class="lazy" data-src="<?php echo get_stylesheet_directory_uri()?>/img/s4/2s4.jpg">
+                            <div class="overlay caption bottom">
+                                <h1>Total look</h1>
+                                <a href="/sklep/kategoria/kurtki/"><button class="black">Zobacz więcej</button></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
