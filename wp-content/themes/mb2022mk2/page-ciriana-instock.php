@@ -12,25 +12,13 @@ if (post_password_required()) :
 
 /* display the password protected content if the correct password is entered */
 else:?>
-    <div id="primary" class="content-area frontpage ciriana">
-        <main id="main" class="site-main" role="main" data-aos="fade-right" data-aos-duration="1000"
-              data-aos-anchor-placement="top-center">
-            <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper h50">
-                    <div class="video-overlay"></div>
-                    <video class="bg-video" id="video2" autoplay loop muted playsinline>
-                        <source src="<?php echo get_stylesheet_directory_uri() ?>/img/s2/chapter4_25fps.mp4"
-                                type="video/mp4">
-                    </video>
-                    <div class="overlay caption">
-                        <h5>Zapoznaj się z marką</h5>
-                        <h1>MB Marta Banaszek</h1>
-                    </div>
-                </div>
-            </section>
-
-        </main><!-- #main -->
-        <!-- Here Comes a PAGE -->
+    <div id="primary" class="content-area ciriana">
+        <section class="video-header">
+            <video autoplay loop muted playsinline>
+                <source src="<?php echo get_stylesheet_directory_uri() ?>/img/s2/chapter4_25fps.mp4"
+                        type="video/mp4">
+            </video>
+        </section>
 
         <div class='align-items-stretch' style='background-color: black; padding: 4rem 0;'>
             <h2 class='strong-header' style="text-align: center; color: white">o Marce</h2>
@@ -88,44 +76,13 @@ else:?>
         </div>
 
         <div class="container">
-            <h2 style="text-align: center; color: white;">Wykończenia</h2>
-            <?php
-            $args = array(
-                'post_type' => 'attachment',
-                'post_mime_type' => 'image',
-                'post_status' => 'inherit',
-                'posts_per_page' => 100,
-                'orderby' => 'rand',
-                's' => '#forpartnersfinishes',
-            );
-            $query_images = new WP_Query($args);
-            $images = array();
-            foreach ($query_images->posts as $image) {
-                $images[] = $image->ID;
-            }
-            $gallery_shortcode = '[gallery ids="' . implode(", ", $images) . '" size="large"  link="file"]';
-            echo do_shortcode($gallery_shortcode); ?>
+            <?php get_template_part('template-parts/content', 'finishes_gallery')?>
         </div>
-        <div class="container">
-            <h2 style="text-align: center; color: white;">Galeria Zdjęć</h2>
-            <?php
-            $args = array(
-                'post_type' => 'attachment',
-                'post_mime_type' => 'image',
-                'post_status' => 'inherit',
-                'posts_per_page' => 100,
-                'orderby' => 'rand',
-                's' => '#forpartnersgalery',
-            );
-            $query_images = new WP_Query($args);
-            $images = array();
-            foreach ($query_images->posts as $image) {
-                $images[] = $image->ID;
-            }
-            $gallery_shortcode = '[gallery ids="' . implode(", ", $images) . '" size="large"  link="file"]';
-            echo do_shortcode($gallery_shortcode); ?>
 
+        <div class="container">
+            <?php get_template_part('template-parts/content', 'for_partners_gallery')?>
         </div>
+
         <div class='container'>
             <h2 style="text-align: center; color: white;">Kontakt</h2>
 
@@ -135,8 +92,6 @@ else:?>
                 Zachęcamy do kontaktu poprzez poniższy formularz.
             </div>
             <div style='max-width:350px; margin: auto'><?php echo apply_shortcodes('[contact-form-7 id="65871" title="ciriana-price-offer-form"]'); ?></div>
-
-
         </div>
 
 

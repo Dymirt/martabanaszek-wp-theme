@@ -12,21 +12,13 @@ if (post_password_required()) :
 
 /* display the password protected content if the correct password is entered */
 else:?>
-    <div id="primary" class="content-area frontpage ciriana">
-        <main id="main" class="site-main" role="main" data-aos="fade-right" data-aos-duration="1000"
-              data-aos-anchor-placement="top-center">
-            <section class="fullpage" data-aos="fade-in" data-aos-duration="500">
-                <div class="wrapper h50">
-                    <div class="video-overlay"></div>
-                    <video class="bg-video" id="video2" autoplay loop muted playsinline style="object-position: top;">
+    <div id="primary" class="content-area ciriana">
+            <section class="video-header">
+                    <video autoplay loop muted playsinline>
                         <source src="<?php echo get_stylesheet_directory_uri() ?>/img/s2/chapter4_25fps.mp4"
                                 type="video/mp4">
                     </video>
-                </div>
             </section>
-
-        </main><!-- #main -->
-        <!-- Here Comes a PAGE -->
 
         <div class='container'>
             <h2 style="text-align: center; color: white; padding: 2rem;">Nasze najlepsze produkty</h2>
@@ -65,44 +57,13 @@ else:?>
         </div>
 
         <div class="container">
-            <h2 style="text-align: center; color: white; padding: 2rem;">Wykończenia</h2>
-            <?php
-            $args = array(
-                'post_type' => 'attachment',
-                'post_mime_type' => 'image',
-                'post_status' => 'inherit',
-                'posts_per_page' => 100,
-                'orderby' => 'rand',
-                's' => '#forpartnersfinishes',
-            );
-            $query_images = new WP_Query($args);
-            $images = array();
-            foreach ($query_images->posts as $image) {
-                $images[] = $image->ID;
-            }
-            $gallery_shortcode = '[gallery ids="' . implode(", ", $images) . '" size="large"  link="file"]';
-            echo do_shortcode($gallery_shortcode); ?>
+            <?php get_template_part('template-parts/content', 'finishes_gallery')?>
         </div>
-        <div class="container">
-            <h2 style="text-align: center; color: white; padding: 2rem;">Galeria Zdjęć</h2>
-            <?php
-            $args = array(
-                'post_type' => 'attachment',
-                'post_mime_type' => 'image',
-                'post_status' => 'inherit',
-                'posts_per_page' => 100,
-                'orderby' => 'rand',
-                's' => '#forpartnersgalery',
-            );
-            $query_images = new WP_Query($args);
-            $images = array();
-            foreach ($query_images->posts as $image) {
-                $images[] = $image->ID;
-            }
-            $gallery_shortcode = '[gallery ids="' . implode(", ", $images) . '" size="large"  link="file"]';
-            echo do_shortcode($gallery_shortcode); ?>
 
+        <div class="container">
+            <?php get_template_part('template-parts/content', 'for_partners_gallery')?>
         </div>
+
         <div class='container' id="contact">
             <h2 style="text-align: center; color: white; padding: 2rem;">Kontakt</h2>
 
