@@ -196,10 +196,6 @@ body
   .page-title
     text-align: center
 
-
-.site
-  overflow-x: unset
-
 .page-template-template-homepage, .single-blog, .single-portfolio
   .site-content
     margin-top: -80px
@@ -1302,7 +1298,7 @@ table.shop_table
     width: 60%
 
 
-.woocommerce-cart
+//.woocommerce-cart
   .content-area-wrapper
     overflow: hidden !important
 
@@ -1755,9 +1751,10 @@ form.checkout
             object-fit: cover
 
     .product-summary
-      padding: 5rem
+      padding: 1rem
       @media screen and (min-width: 480px)
         width: 50%
+        padding: 5rem
 
     section.related.products
       h2
@@ -1796,6 +1793,7 @@ form.checkout
   .fullpage
     width: 100vw
     height: 93vh
+    max-height: 1080px
     @media (max-width: 480px)
       height: 70vh
 
@@ -1962,8 +1960,99 @@ form.checkout
       width: 100%
 
 /* ==================================== */
-/*		  	  End Ciriana Page
+/*		  	    Cart Page
 /* ==================================== */
+.woocommerce-cart
+  .woocommerce
+    flex-flow: row wrap
+    @media screen and (min-width: 480px)
+      display: flex
+    //.content-area
+    .woocommerce-notices-wrapper
+      height: max-content
+      width: 100%
+
+    .woocommerce-cart-form
+      flex: 0 0 60%
+      display: flex
+      flex-flow: column nowrap
+      @media screen and (min-width: 480px)
+        width: 60%
+      table
+        padding: 1rem
+        margin-bottom: 0
+        @media screen and (min-width: 480px)
+          border-spacing: 0 1rem
+        //thead
+          display: none
+        tbody
+          tr
+            //display: flex
+            //flex-direction: column
+            //flex-wrap: wrap
+            //height: 200px
+            padding: 1rem
+
+            //.product-name, .product-price, .product-remove, .product-quantity, .product-subtotal
+              order: 1
+
+            //.product-remove
+              align-self: end
+            .product-name
+              padding-top: 0
+              padding-bottom: 0
+
+            .product-thumbnail
+              //height: 100%
+              padding: 0
+              @media screen and (max-width: 480px)
+                width: 40%
+              //.attachment-woocommerce_thumbnail
+                height: 100%
+                width: 100%
+                object-fit: cover
+
+          //td
+            padding: 0
+
+
+    .cart-collaterals
+      background-color: lightgray
+      display: flex
+      align-items: center
+      padding: 2rem
+      flex: 0 0 40%
+      @media screen and (min-width: 480px)
+        width: 40%
+
+      .cart_totals
+        width: 100%
+        h2
+          display: none
+
+        table.shop_table
+          .woocommerce-shipping-calculator
+            display: none
+          th, td
+            background-color: lightgray
+            padding: 0
+            width: 50%
+
+
+          th
+            text-transform: uppercase
+          td
+            text-align: end
+            @media screen and (max-width: 480px)
+              width: 100%
+
+      .wc-proceed-to-checkout
+        margin-bottom: 0
+
+/* ==================================== */
+/*		  	  End Cart Page
+/* ==================================== */
+
 
 .fullpage
   &.margins

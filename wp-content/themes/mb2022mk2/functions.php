@@ -72,6 +72,8 @@ function martabanaszek_dequeue_styles(){
         wp_dequeue_script('inpost-sdk-for-javascript');
 
     }
+
+    wp_dequeue_script('imagesLoaded'); // Very long response
 }
 add_action('wp_enqueue_scripts', 'martabanaszek_dequeue_styles', 999);
 
