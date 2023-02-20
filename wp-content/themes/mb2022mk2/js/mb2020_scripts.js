@@ -52,30 +52,6 @@ jQuery(document).ready(function() {
 		}, 300);
 	});
 
-	jQuery('.ebook-close, .ebook-link').click(function() {
-		localStorage["mb2020_ebook"]=0;
-		ebook_info();
-    });    
-
-	ebook_info();
-
-	jQuery('.ebook').on('mouseover', function() {
-		jQuery(this).addClass('showing');
-		jQuery(this).removeClass('hidding');
-
-	});
-
-	jQuery('.ebook').on('mouseout', function() {
-		var display_ebook = localStorage["mb2020_ebook"];
-		if(display_ebook==0){
-			setTimeout(function(){ 		
-				jQuery('#ebook-link').removeClass('showing');
-				jQuery('#ebook-link').addClass('hidding');	
-			}, 5000);
-		}
-
-	});
-
 	if($isProductPage){
 		// Get the modal
 		var modal = document.getElementById("sizeTableModal");
@@ -219,19 +195,4 @@ function is_touch_device4() {
 	// https://git.io/vznFH
 	var query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
 	return mq(query);
-}
-
-function ebook_info(){
-	var display_ebook = localStorage["mb2020_ebook"];
-	if(display_ebook==0){
-		//document.getElementById('ebook-link').classList.add('hidden');
-		if(jQuery('.ebook').hasClass('showing')){
-			jQuery('.ebook').addClass('hidding');
-			jQuery('.ebook').removeClass('showing');
-		}
-
-	}
-	else {
-		jQuery('.ebook').addClass('showing');
-	}
 }

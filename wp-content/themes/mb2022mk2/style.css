@@ -1407,19 +1407,27 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
   clear: both;
 }
 
+/* ==================================== */
+/*		  	  Ebook button */
+/* ==================================== */
 #ebook-link {
   position: fixed;
-  bottom: 50px;
-  right: -50vw;
+  bottom: 0;
+  right: -133px;
   z-index: 998;
 }
 @media (min-width: 768px) {
   #ebook-link {
     right: -210px;
+    bottom: 50px;
+    transition: right 2s;
+  }
+  #ebook-link:hover {
+    right: 0;
   }
 }
 #ebook-link img.ebook-bg {
-  width: 70vw;
+  width: 195px;
   transition: 0.25s linear;
 }
 @media (min-width: 768px) {
@@ -1431,51 +1439,16 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
 #ebook-link img.ebook-bg:hover {
   opacity: 1;
 }
-#ebook-link .ebook-close {
-  display: none;
-}
-#ebook-link.hidding {
-  position: fixed;
-  animation-name: slideRightMobile;
-  animation-fill-mode: forwards;
-  animation-duration: 1s;
-}
-@media (min-width: 768px) {
-  #ebook-link.hidding {
-    animation-name: slideRight;
-  }
-}
-#ebook-link.hidding .ebook-close {
-  display: none;
-}
-#ebook-link.showing {
-  position: fixed;
-  animation-name: slideLeftMobile;
-  animation-fill-mode: forwards;
-  animation-duration: 0.3s;
-}
-@media (min-width: 768px) {
-  #ebook-link.showing {
-    animation-name: slideLeft;
-  }
-}
-#ebook-link.showing .ebook-close {
-  display: block;
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  padding: 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
 
+/* ==================================== */
+/*		  	  Cookies */
+/* ==================================== */
 #cookies-info {
   display: flex;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 998;
-  padding: 10px;
   background-color: rgba(0, 0, 0, 0.65);
   color: white;
   justify-content: center;
@@ -1499,6 +1472,9 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
   color: #ddaa4c;
 }
 
+/* ==================================== */
+/*		  	 End Cookies */
+/* ==================================== */
 .wc-backward::before, .woocommerce-Button--prev::before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1692,7 +1668,7 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
   display: none;
 }
 .shop .products.columns-4 .product {
-  width: 100%;
+  width: 50%;
   margin: 0 !important;
 }
 @media (min-width: 768px) {

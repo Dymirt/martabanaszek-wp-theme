@@ -68,10 +68,6 @@
         <a class="ebook-link" href="<?php echo get_site_url() ?>/landing-stylebook/">
             <img class="ebook-bg" src="<?php echo get_stylesheet_directory_uri() ?>/img/btn_mobile_2_1.png"/>
         </a>
-        <a class="ebook-close">
-            <img src="<?php echo get_stylesheet_directory_uri() ?>/img/X_1.png"/>
-        </a>
-
     </div>
     <div id="cookies-info" class="cookies">
         <p>Strona korzysta z plików cookie.</p>

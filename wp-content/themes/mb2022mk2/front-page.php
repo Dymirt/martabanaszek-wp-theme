@@ -34,7 +34,7 @@ get_header(); ?>
                     <div style="background-image: url('<?php echo get_stylesheet_directory_uri() ?>/img/s2/3.jpg')">
                         <div>
                             <h2>New Classic</h2>
-                            <a href="/sklep/kategoria/garnitury/">
+                            <a href="/sklep/?filter_rodzaj=garnitury&query_type_rodzaj=or">
                                 <button class="black"><i class="fas fa-shopping-bag" aria-hidden="true"></i>
                                      Zobacz więcej
                                 </button>
@@ -80,7 +80,7 @@ get_header(); ?>
                             <img class="lazy" data-src="<?php echo get_stylesheet_directory_uri()?>/img/s4/2s4.jpg">
                             <div class="overlay caption bottom">
                                 <h1>Total look</h1>
-                                <a href="/sklep/kategoria/kurtki/"><button class="black">Zobacz więcej</button></a>
+                                <a href="/sklep/?filter_rodzaj=kurtki&query_type_rodzaj=or"><button class="black">Zobacz więcej</button></a>
                             </div>
                         </div>
                     </div>

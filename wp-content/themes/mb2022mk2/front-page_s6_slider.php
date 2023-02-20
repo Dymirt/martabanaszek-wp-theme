@@ -7,9 +7,9 @@
         <li data-bs-target="#suits" data-bs-slide-to="3"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="overlay caption d-flex d-sm-none">
-            <h1>Suits</h1>
-            <a href="sklep/kategoria/garnitury">
+        <div class="overlay caption d-flex d-sm-none" style="z-index: 1;">
+            <h1>Garnitury</h1>
+            <a href="/sklep/?filter_rodzaj=garnitury&query_type_rodzaj=or">
                 <button class="black">Zobacz więcej</button>
             </a>
         </div>

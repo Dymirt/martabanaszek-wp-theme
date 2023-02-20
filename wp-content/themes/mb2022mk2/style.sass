@@ -1451,16 +1451,24 @@ form.checkout
 .clearfix
   clear: both
 
+/* ==================================== */
+/*		  	  Ebook button
+/* ==================================== */
+
 #ebook-link
   position: fixed
-  bottom: 50px
-  right: -50vw
+  bottom: 0
+  right: -133px
   z-index: 998
   @media (min-width: 768px)
     right: -210px
+    bottom: 50px
+    transition: right 2s
+    &:hover
+      right: 0
 
   img.ebook-bg
-    width: 70vw
+    width: 195px
     transition: $transition-normal
     @media (min-width: 768px)
       width: 300px
@@ -1469,45 +1477,15 @@ form.checkout
     &:hover
       opacity: 1
 
-  .ebook-close
-    display: none
-
-  &.hidding
-    position: fixed
-    animation-name: slideRightMobile
-    animation-fill-mode: forwards
-    animation-duration: 1s
-    @media (min-width: 768px)
-      animation-name: slideRight
-
-    .ebook-close
-      display: none
-
-  &.showing
-    position: fixed
-    animation-name: slideLeftMobile
-    animation-fill-mode: forwards
-    animation-duration: .3s
-    @media (min-width: 768px)
-      animation-name: slideLeft
-
-    .ebook-close
-      display: block
-      position: absolute
-      top: -10px
-      left: -10px
-      padding: 20px
-      font-size: 1.5rem
-      cursor: pointer
-
-
+/* ==================================== */
+/*		  	  Cookies
+/* ==================================== */
 #cookies-info
   display: flex
   position: fixed
   bottom: 0
   left: 0
   z-index: 998
-  padding: 10px
   background-color: rgba(0, 0, 0, 0.65)
   color: white
   justify-content: center
@@ -1529,7 +1507,9 @@ form.checkout
 
   i:hover
     color: $text-color-accent
-
+/* ==================================== */
+/*		  	 End Cookies
+/* ==================================== */
 
 .wc-backward::before, .woocommerce-Button--prev::before
   -webkit-font-smoothing: antialiased
@@ -1712,7 +1692,7 @@ form.checkout
 
   .products.columns-4
     .product
-      width: 100%
+      width: 50%
       margin: 0 !important
       @media (min-width: 768px)
         width: 25% !important

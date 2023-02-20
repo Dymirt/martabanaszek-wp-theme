@@ -4,6 +4,12 @@ wp_enqueue_style('stylebook_page', get_stylesheet_directory_uri() . '/assets/css
 
 get_header(); ?>
 
+<style>
+    .ebook-link {
+        display: none;
+    }
+</style>
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main" data-aos="fade-right" data-aos-duration="1000" data-aos-anchor-placement="top-center">
         <!-- Here Comes a PAGE -->
