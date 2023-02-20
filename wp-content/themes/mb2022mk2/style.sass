@@ -1963,11 +1963,19 @@ form.checkout
 /*		  	    Cart Page
 /* ==================================== */
 .woocommerce-cart
+  header.entry-header
+    padding-bottom: 1rem !important
+    h1
+      text-align: center
   .woocommerce
     flex-flow: row wrap
     @media screen and (min-width: 480px)
       display: flex
-    //.content-area
+
+    .woocommerce-message
+      width: 100%
+      margin: 0 !important
+
     .woocommerce-notices-wrapper
       height: max-content
       width: 100%
@@ -1978,43 +1986,39 @@ form.checkout
       flex-flow: column nowrap
       @media screen and (min-width: 480px)
         width: 60%
-      table
-        padding: 1rem
-        margin-bottom: 0
-        @media screen and (min-width: 480px)
-          border-spacing: 0 1rem
-        //thead
-          display: none
-        tbody
-          tr
-            //display: flex
-            //flex-direction: column
-            //flex-wrap: wrap
-            //height: 200px
-            padding: 1rem
-
-            //.product-name, .product-price, .product-remove, .product-quantity, .product-subtotal
-              order: 1
-
-            //.product-remove
-              align-self: end
-            .product-name
-              padding-top: 0
-              padding-bottom: 0
-
-            .product-thumbnail
-              //height: 100%
+      .cart_item
+        border: none
+        p , dt, dd
+          font-size: 0.8rem
+        .card-body
+          padding-top: 0
+          padding-right: 2rem
+          .quantity
+            input
               padding: 0
-              @media screen and (max-width: 480px)
-                width: 40%
-              //.attachment-woocommerce_thumbnail
-                height: 100%
-                width: 100%
-                object-fit: cover
 
-          //td
-            padding: 0
+          a.remove
+            position: absolute
+            right: 0
+            top: 0
+          h6
+            font-size: 0.8rem
+          .backorder_notification
+            margin-bottom: 0
 
+          .variation
+            display: grid
+            grid-template-columns: auto auto
+            margin-bottom: 0
+            dt
+              text-transform: uppercase
+            dd
+              margin-bottom: 0
+
+      .coupon
+        margin-bottom: 1rem
+        #coupon_code
+          width: 50%
 
     .cart-collaterals
       background-color: lightgray
@@ -2038,11 +2042,9 @@ form.checkout
             padding: 0
             width: 50%
 
-
           th
             text-transform: uppercase
           td
-            text-align: end
             @media screen and (max-width: 480px)
               width: 100%
 
