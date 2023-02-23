@@ -8,9 +8,9 @@ get_header(); ?>
 <?php do_action('menu'); ?>
     <div class="content-area-wrapper">
     <div id="primary" class="content-area partners">
-        <main id="main" class="site-main" role="main">
-            <h1 class="page-title">DOTYCZCZAS ZAUFALI NAM</h1>
-            <div class="row row-cols-3 row-cols-md-6">
+        <main id="main" class="site-main" role="main" style="margin-top: 80px">
+            <h1 class="page-title" style="color: white; background-color: black; margin-bottom: 0">DOTYCZCZAS ZAUFALI NAM</h1>
+            <div class="row" style="background-color: black">
                 <?php
                 while (have_posts()) :
                     the_post();

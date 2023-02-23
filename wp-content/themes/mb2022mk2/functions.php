@@ -571,3 +571,7 @@ add_filter('wp_editor_set_quality', function ($arg) {
 add_filter('jpeg_quality', function ($arg) {
     return 100;
 });
+
+add_theme_support( 'custom-product-thumbnails' );
+add_image_size( 'custom-product-thumbnails', 800, 1200 , true);
+add_filter('single_product_archive_thumbnail_size', function ($size){ return 'custom-product-thumbnails';});

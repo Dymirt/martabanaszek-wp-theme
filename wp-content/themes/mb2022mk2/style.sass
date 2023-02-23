@@ -224,7 +224,7 @@ body
 
 
 body.admin-bar
-  .site-header
+  //.site-header
     top: 32px
     @media (max-width: 768px)
       top: 46px
@@ -246,17 +246,14 @@ body.admin-bar
 
 .site-header
   padding-top: 0
-  //height: 80px
   border-bottom: none
-  position: sticky
-  position: -webkit-sticky
   top: 0
+  position: fixed
+  width: 100%
   @media (max-width: 768px)
     padding-bottom: 0
-  //background: rgba(0,0,0,.5) !important
   .header-row
     display: flex
-    //max-width: 1200px
     margin: 0 auto
 
   .header-col
@@ -1673,6 +1670,7 @@ form.checkout
 /* ==================================== */
 .shop
   .woocommerce-products-header
+    margin-top: 80px
     background-color: black
     display: flex
     justify-content: center
@@ -1720,7 +1718,7 @@ form.checkout
       height: 70vh
       @media screen and (min-width: 480px)
         height: 100vh
-        max-height: 1080px
+        //max-height: 1080px
         width: 50%
       .carousel-inner
         height: 100%
@@ -2183,3 +2181,10 @@ form.checkout
 
 .woocommerce-result-count
   display: none
+
+.secondary-navigation
+  .gglobe
+    height: 20px
+    width: 20px
+    mix-blend-mode: luminosity
+    background-repeat: no-repeat
