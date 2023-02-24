@@ -60,7 +60,7 @@
 <!-- End Google Tag Manager (noscript) -->
 
 
-<div id="page" class="hfeed site">
+<div id="page">
     <header id="masthead" class="site-header black" role="banner">
         <div class="header-row">
             <div class="header-col">
@@ -73,9 +73,7 @@
             </div>
             <div class="header-col">
                 <?php
-                global $post;
-                $page_name = $post->post_name;
-                if ($page_name == 'ciriana' || $page_name == 'ciriana-instock'){
+                if (is_page('ciriana') || is_page('ciriana-instock')) {
                     get_template_part('template-parts/header/content', 'ciriana_by_mb');
                 } else {
                     get_template_part('template-parts/header/content', 'mb');

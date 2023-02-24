@@ -575,3 +575,66 @@ add_filter('jpeg_quality', function ($arg) {
 add_theme_support( 'custom-product-thumbnails' );
 add_image_size( 'custom-product-thumbnails', 800, 1200 , true);
 add_filter('single_product_archive_thumbnail_size', function ($size){ return 'custom-product-thumbnails';});
+
+function bm_get_product_query($page_slug){
+    if ($page_slug == "dla-partnerow"):
+        return new WP_Query(
+            array(
+                'post_type' => 'product',
+                'posts_per_page' => 100,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_tag',
+                        'terms' => 'for-partners',
+                        'field' => 'slug',
+                        'operator' => 'IN'
+                    )
+                ),
+            )
+        );
+
+    elseif ($page_slug == 'ciriana'):
+        return new WP_Query(
+            array(
+                'post_type' => 'product',
+                'posts_per_page' => 100,
+                'tax_query' => array(
+                    'relation' => 'OR',
+                    array(
+                        'taxonomy' => 'product_tag',
+                        'terms' => 'for-partners',
+                        'field' => 'slug',
+                        'operator' => 'IN'
+                    ),
+                    array(
+                        'taxonomy' => 'product_tag',
+                        'terms' => 'ciriana',
+                        'field' => 'slug',
+                        'operator' => 'IN'
+                    )
+                ),
+            )
+        );
+    elseif ($page_slug == 'ciriana-instock'):
+        return new WP_Query(
+            array(
+                'post_type' => 'product',
+                'posts_per_page' => 100,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_tag',
+                        'terms' => 'ciriana-instock',
+                        'field' => 'slug',
+                        'operator' => 'IN'
+                    )
+                ),
+                'meta_query' => array(
+                    array(
+                        'key' => '_stock_status',
+                        'value' => 'instock'
+                    )
+                )
+            )
+        );
+    endif;
+}

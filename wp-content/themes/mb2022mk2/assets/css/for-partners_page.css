@@ -1,5 +1,12 @@
 @import url('https://fonts.cdnfonts.com/css/barlow');
 
+.post-password-form{
+    margin-top: 80px;
+}
+
+h5.card-title{
+    color: black;
+}
   .card-header {
     padding: 0;
 }
