@@ -22,6 +22,13 @@ global $product;
 $attimages = get_attached_media('image', $product->ID);
 $variations_id = $product->get_children();
 
+$variations = $product->get_available_variations();
+if (count($variations) > 0) {
+    $minimum_price_pln = get_post_meta($variations[0]['variation_id'], 'minimum-price-pln', true);
+} else {
+    $minimum_price_pln = 0;
+}
+
 
 // Ensure visibility.
 
@@ -78,81 +85,59 @@ $variations_id = $product->get_children();
             </h5>
             <div class='card-text'
                  style="height: 150px; overflow: auto; color: black">
-                <?php woocommerce_template_single_excerpt(); ?>
-                <strong>Dostępne rozmiary i warianty:<br></strong>
-                <?php
-                foreach ($variations_id as $variation_id) {
-                    $variation_o = new WC_Product_Variation( $variation_id );
-                    $variation_stock = $variation_o->get_stock_quantity();
-                    if ($variation_stock > 0) {
-                        echo $variation_o->get_attribute_summary() . " (" . $variation_stock . "szt.)<br>" ;
+                <?php woocommerce_template_single_excerpt();
+                if (is_page( 'ciriana-instock' )){
+                    ?><strong>Dostępne rozmiary i warianty:<br></strong><?php
+                    foreach ($variations_id as $variation_id) {
+                        $variation_o = new WC_Product_Variation($variation_id);
+                        $variation_stock = $variation_o->get_stock_quantity();
+                        if ($variation_stock > 0) {
+                            echo $variation_o->get_attribute_summary() . " (" . $variation_stock . "szt.)<br>";
+                        }
                     }
                 }
                 ?>
             </div>
         </div>
-        <div class="card-footer">
-            <div class="row">
-                <div class="col-4">
-                    <h6>Nasza cena:</h6>
-                    <span class="badge text-bg-dark"><?php do_action('woocommerce_after_shop_loop_item_title'); ?></span>
-                </div>
-                <div class="col-8">
-                    <h6>Proponowana cena:</h6>
-                    <div id="priceform-<?php the_ID(); ?>">
-                        <form class="input-group input-group-sm mb-3"
-                              onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink();?>', '<?php echo get_woocommerce_currency_symbol() ?>', this['price-offer'].value); return false">
-                            <input type="number" name="price-offer" min="1" class="form-control"
-                                   value="<?php echo wc_get_price_to_display($product) ?>">
-                            <span class="input-group-text"><?php echo get_woocommerce_currency_symbol() ?></span>
-                            <button class="btn btn-outline-dark">Zapisz</button>
-                            <a id='<?php the_ID(); ?>-sendButton' class="btn btn-outline-success" style="display: none">Wyślij</a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
         <?php
-
-        /**
-         * Hook: woocommerce_before_shop_loop_item.
-         *
-         * @hooked woocommerce_template_loop_product_link_open - 10
-         */
-        //do_action('woocommerce_before_shop_loop_item'); // Link to product
-
-
-        /**
-         * Hook: woocommerce_before_shop_loop_item_title.
-         *
-         * @hooked woocommerce_show_product_loop_sale_flash - 10
-         * @hooked woocommerce_template_loop_product_thumbnail - 10
-         */
-        //do_action('woocommerce_before_shop_loop_item_title'); // Product immage
-
-        /**
-         * Hook: woocommerce_shop_loop_item_title.
-         *
-         * @hooked woocommerce_template_loop_product_title - 10
-         */
-        //do_action('woocommerce_shop_loop_item_title'); // Product title
-
-        /**
-         * Hook: woocommerce_after_shop_loop_item_title.
-         *
-         * @hooked woocommerce_template_loop_rating - 5
-         * @hooked woocommerce_template_loop_price - 10
-         */
-        //do_action('woocommerce_after_shop_loop_item_title'); // Product price
-
-        /**
-         * Hook: woocommerce_after_shop_loop_item.
-         *
-         * @hooked woocommerce_template_loop_product_link_close - 5
-         * @hooked woocommerce_template_loop_add_to_cart - 10
-         */
-        //do_action('woocommerce_after_shop_loop_item');
-
-        ?>
+         if (is_page('ciriana') || is_page('ciriana-instock')){?>
+             <div class="card-footer">
+                 <div class="row">
+                     <div class="col-4">
+                         <h6>Nasza cena:</h6>
+                         <span class="badge text-bg-dark">
+                        <?php
+                        if (is_page('ciriana')){
+                            echo $minimum_price_pln; ?>.00 zł<?php
+                        } else {
+                            do_action('woocommerce_after_shop_loop_item_title');
+                        }
+                        ?>
+                    </span>
+                     </div>
+                     <div class="col-8">
+                         <h6>Proponowana cena:</h6>
+                         <div id="priceform-<?php the_ID(); ?>">
+                             <form class="input-group input-group-sm mb-3" onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink(); ?>', '<?php echo get_woocommerce_currency_symbol() ?>', this['price-offer'].value); return false">
+                                 <input type="number"
+                                        name="price-offer"
+                                        min="1"
+                                        class="form-control"
+                                        value="<?php
+                                        if (is_page('ciriana')){
+                                            echo $minimum_price_pln;
+                                        } else {
+                                            echo wc_get_price_to_display($product);
+                                        }
+                                        ?>">
+                                 <span class="input-group-text"><?php echo get_woocommerce_currency_symbol() ?></span>
+                                 <button class="btn btn-outline-dark">Zapisz</button>
+                                 <a id='<?php the_ID(); ?>-sendButton' class="btn btn-outline-success" style="display: none">Wyślij</a>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         <?php } ?>
     </div>
 </div>

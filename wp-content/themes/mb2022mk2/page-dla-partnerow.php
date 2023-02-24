@@ -47,7 +47,7 @@ get_header(); ?>
             $loop = new WP_Query($args);
             if ($loop->have_posts()) {
                 while ($loop->have_posts()) : $loop->the_post();
-                    wc_get_template_part('content', 'products_for_partners');
+                    get_template_part('template-parts/for_partners/content', 'product');
                 endwhile;
             } else {
                 echo __('No products found');
@@ -58,11 +58,11 @@ get_header(); ?>
     </div>
 
     <div class="container">
-        <?php get_template_part('template-parts/content', 'finishes_gallery')?>
+        <?php get_template_part('template-parts/for_partners/content', 'finishes_gallery')?>
     </div>
 
     <div class="container">
-        <?php get_template_part('template-parts/content', 'for_partners_gallery')?>
+        <?php get_template_part('template-parts/for_partners/content', 'gallery')?>
     </div>
     <div class='container'>
         <h2 style="text-align: center; color: white;">Kontakt</h2>
@@ -83,4 +83,4 @@ Zachęcamy do kontaktu poprzez poniższy formularz.
 </div><!-- #primary -->
 
 <?php
-get_footer('shop');
+get_footer();

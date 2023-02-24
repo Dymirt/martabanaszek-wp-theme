@@ -2,7 +2,7 @@
 
 wp_enqueue_style('for-partners', get_stylesheet_directory_uri() . '/assets/css/for-partners_page.css');
 
-get_header('ciriana'); ?>
+get_header(); ?>
 <?php
 // STARTS - wrapp your content with this conditional statement
 if (post_password_required()) :
@@ -20,7 +20,7 @@ else:?>
                     </video>
             </section>
 
-        <div class='container'>
+        <div class=''>
             <h2 style="text-align: center; color: white; padding: 2rem;">Nasze najlepsze produkty</h2>
             <div class="row row-cols-1 row-cols-md-3 g-4 ">
                 <?php
@@ -46,7 +46,7 @@ else:?>
                 $loop = new WP_Query($args);
                 if ($loop->have_posts()) {
                     while ($loop->have_posts()) : $loop->the_post();
-                        wc_get_template_part('content', 'product_ciriana');
+                        get_template_part('template-parts/for_partners/content', 'product');
                     endwhile;
                 } else {
                     echo __('No products found');
@@ -57,11 +57,11 @@ else:?>
         </div>
 
         <div class="container">
-            <?php get_template_part('template-parts/content', 'finishes_gallery')?>
+            <?php get_template_part('template-parts/for_partners/content', 'finishes_gallery')?>
         </div>
 
         <div class="container">
-            <?php get_template_part('template-parts/content', 'for_partners_gallery')?>
+            <?php get_template_part('template-parts/for_partners/content', 'gallery')?>
         </div>
 
         <div class='container' id="contact">
