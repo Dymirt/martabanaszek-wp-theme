@@ -3,8 +3,6 @@
  * The header for our theme.
  *
  * Displays all of the <head> section and everything up till <div id="content">
- *
- * @package storefront
  */
 
 ?><!doctype html>
@@ -61,11 +59,8 @@
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<?php do_action('storefront_before_site'); ?>
 
 <div id="page" class="hfeed site">
-    <?php do_action('storefront_before_header'); ?>
-
     <header id="masthead" class="site-header black" role="banner">
         <div class="header-row">
             <div class="header-col">
@@ -74,14 +69,18 @@
                     <div class="menu-bar menu-bar-middle"></div>
                     <div class="menu-bar menu-bar-bottom"></div>
                 </span>
-                <?php do_action('menu_hidden'); ?>            </div>
+                <?php do_action('menu_hidden'); ?>
+            </div>
             <div class="header-col">
-                <a href="<?php echo get_site_url(); ?>" class="custom-logo-link" rel="home">
-                    <img width="276" height="67"
-                         src="/wp-content/uploads/2021/12/cropped-logo_final_poziom_white.png"
-                         class="custom-logo"
-                         alt="Marta Banaszek">
-                </a>
+                <?php
+                global $post;
+                $page_name = $post->post_name;
+                if ($page_name == 'ciriana' || $page_name == 'ciriana-instock'){
+                    get_template_part('template-parts/header/content', 'ciriana_by_mb');
+                } else {
+                    get_template_part('template-parts/header/content', 'mb');
+                }
+                ?>
             </div>
             <div class="header-col">
                 <?php
@@ -100,6 +99,3 @@
 
     <div id="content" class="site-content" tabindex="-1">
         <div class="col-full no-margin">
-
-<?php
-do_action('storefront_content_top');
