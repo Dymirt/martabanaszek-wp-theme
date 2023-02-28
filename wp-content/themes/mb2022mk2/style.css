@@ -3,7 +3,7 @@
  *  Description:  Marta Banaszek 2023
  *  Author:       Pawel Wnuk & Marcin Zajac & Dmytro Kolida
  *  Author URI:   https://dymirt.pythonanywhere.com
- *  Version:      1.2.1
+ *  Version:      1.2.21
  *  License:      GNU General Public License v2 or later
  *  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
  *  Tags:         
@@ -178,12 +178,10 @@ body .white a {
 body .page-title {
   text-align: center;
 }
-
-.page-template-template-homepage .site-content, .single-blog .site-content, .single-portfolio .site-content {
-  margin-top: -80px;
-}
-.page-template-template-homepage .site-header.transparent, .single-blog .site-header.transparent, .single-portfolio .site-header.transparent {
-  background: rgba(0, 0, 0, 0.5) !important;
+@media screen and (min-width: 768px) {
+  body .site-header.transparent {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
 }
 
 .page-template-template-homepage .toggle-button, .page-template-template-bio .toggle-button, .page-template-template-contact .toggle-button {
@@ -213,13 +211,13 @@ body .page-title {
 .site-header {
   padding-top: 0;
   border-bottom: none;
-  top: 0;
-  position: fixed;
   width: 100%;
+  padding-bottom: 0;
 }
-@media (max-width: 768px) {
+@media screen and (min-width: 768px) {
   .site-header {
-    padding-bottom: 0;
+    position: fixed;
+    top: 0;
   }
 }
 .site-header .header-row {
@@ -230,10 +228,6 @@ body .page-title {
   display: block;
   width: 33.33%;
   max-height: 80px;
-}
-.site-header .header-col:nth-child(2) {
-  text-align: center;
-  height: 100%;
 }
 .site-header .header-col:nth-child(2) a.custom-logo-link {
   display: flex;
@@ -999,6 +993,9 @@ ul.icon-list a:hover, .toggle-button i:hover {
   content: "\f178";
 }
 
+/* ==================================== */
+/*		  	  Footer */
+/* ==================================== */
 footer.site-footer {
   position: relative;
   padding: 1.618em 0;
@@ -1012,7 +1009,7 @@ footer.site-footer .custom-logo-link img {
   height: 60px;
   width: auto;
   max-width: 250px;
-  margin: 0 auto 3rem auto;
+  margin: 3rem auto;
 }
 footer.site-footer ul.menu, footer.site-footer ul.icon-list, footer.site-footer .copyright {
   list-style: none;
@@ -1120,6 +1117,9 @@ footer.site-footer .back-to-top:hover {
   color: #ddaa4c;
 }
 
+/* ==================================== */
+/*		  	  End Footer */
+/* ==================================== */
 .page-template-template-homepage::-webkit-scrollbar-thumb {
   background-color: #fff;
 }
@@ -1635,13 +1635,17 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
 /*		        Shop page */
 /* ==================================== */
 .shop .woocommerce-products-header {
-  margin-top: 80px;
   background-color: black;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   padding: 10px 35px;
+}
+@media screen and (min-width: 768px) {
+  .shop .woocommerce-products-header {
+    margin-top: 80px;
+  }
 }
 @media screen and (min-width: 768px) {
   .shop .woocommerce-products-header div {
@@ -1758,17 +1762,13 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
   background: #000;
   color: #fff;
 }
-.frontpage #main {
-  padding-top: 80px;
-}
 .frontpage .fullpage {
   width: 100vw;
   height: 93vh;
-  max-height: 1080px;
 }
 @media (max-width: 480px) {
   .frontpage .fullpage {
-    height: 70vh;
+    height: 80vh;
   }
 }
 .frontpage #s2 {
@@ -2098,9 +2098,6 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
     flex-direction: row;
   }
 }
-.fullpage .wrapper.h50 {
-  height: 50vh;
-}
 .fullpage .wrapper .col2 {
   width: 100%;
   height: 100%;
@@ -2217,11 +2214,57 @@ form.checkout table.woocommerce-checkout-review-order-table .product-name {
   display: none;
 }
 
+/* ==================================== */
+/*		  	  GTranslate */
+/* ==================================== */
 .secondary-navigation .gglobe {
   height: 20px;
   width: 20px;
   mix-blend-mode: luminosity;
   background-repeat: no-repeat;
+}
+
+/* ==================================== */
+/*		  	 StoreFront overwrite */
+/* ==================================== */
+.page-template-template-homepage:not(.has-post-thumbnail) .site-main {
+  padding-top: 0;
+}
+
+/* ==================================== */
+/*		  	 Partners page */
+/* ==================================== */
+@media screen and (min-width: 768px) {
+  .content-area.partners {
+    margin-top: 80px;
+  }
+}
+.content-area.partners h1 {
+  margin: 2rem;
+}
+.content-area.partners .row {
+  justify-content: center;
+}
+.content-area.partners .row .partner_logo {
+  flex: 0 0 auto;
+  width: max-content;
+  margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 768px) {
+  .content-area.partners .row .partner_logo {
+    margin: 1rem 2rem;
+  }
+}
+.content-area.partners .row .partner_logo img {
+  height: 30px;
+  max-width: 180px;
+  object-fit: contain;
+}
+@media screen and (min-width: 768px) {
+  .content-area.partners .row .partner_logo img {
+    height: 60px;
+    max-width: 200px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

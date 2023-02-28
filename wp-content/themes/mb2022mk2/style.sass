@@ -4,7 +4,7 @@
     Description:  Marta Banaszek 2023
     Author:       Pawel Wnuk & Marcin Zajac & Dmytro Kolida
     Author URI:   https://dymirt.pythonanywhere.com
-    Version:      1.2.1
+    Version:      1.2.21
     License:      GNU General Public License v2 or later
     License URI:  http://www.gnu.org/licenses/gpl-2.0.html
     Tags:         
@@ -196,12 +196,9 @@ body
   .page-title
     text-align: center
 
-.page-template-template-homepage, .single-blog, .single-portfolio
-  .site-content
-    margin-top: -80px
-
   .site-header.transparent
-    background: rgba(0, 0, 0, .5) !important
+    @media screen and (min-width: 768px)
+      background: rgba(0, 0, 0, .5) !important
 
 
 .page-template-template-homepage, .page-template-template-bio, .page-template-template-contact
@@ -247,11 +244,12 @@ body.admin-bar
 .site-header
   padding-top: 0
   border-bottom: none
-  top: 0
-  position: fixed
   width: 100%
-  @media (max-width: 768px)
-    padding-bottom: 0
+  padding-bottom: 0
+  @media screen and (min-width: 768px)
+    position: fixed
+    top: 0
+
   .header-row
     display: flex
     margin: 0 auto
@@ -262,9 +260,6 @@ body.admin-bar
     max-height: 80px
 
     &:nth-child(2)
-      text-align: center
-      height: 100%
-
       a.custom-logo-link
         display: flex
         justify-content: center
@@ -1021,7 +1016,9 @@ ul.icon-list a, .toggle-button i
       span::after
         content: "\f178"
 
-
+/* ==================================== */
+/*		  	  Footer
+/* ==================================== */
 footer.site-footer
   position: relative
   padding: 1.618em 0
@@ -1036,7 +1033,7 @@ footer.site-footer
       height: 60px
       width: auto
       max-width: 250px
-      margin: 0 auto 3rem auto
+      margin: 3rem auto
 
   ul.menu, ul.icon-list, .copyright
     list-style: none
@@ -1132,6 +1129,9 @@ footer.site-footer
       cursor: pointer
       color: $text-color-accent
 
+/* ==================================== */
+/*		  	  End Footer
+/* ==================================== */
 
 .page-template-template-homepage
   &::-webkit-scrollbar-thumb
@@ -1293,61 +1293,6 @@ table.shop_table
 
   td
     width: 60%
-
-
-//.woocommerce-cart
-  .content-area-wrapper
-    overflow: hidden !important
-
-  .entry-content
-    .woocommerce
-      .woocommerce-cart-flex
-        display: flex
-        flex-direction: column
-        @media (min-width: 768px)
-          flex-direction: row
-
-      .woocommerce-cart-form
-        width: 100%
-
-        tr
-          td
-            background-color: $bg-color-white
-
-            &.product-thumbnail
-              padding: 1rem 0
-
-              img
-                height: 300px
-                object-fit: cover
-
-            &.product-details
-              width: 65%
-
-            &.product-remove
-              width: 5%
-
-            a
-              text-decoration: none
-              font-weight: 500
-
-              &:hover
-                text-decoration: underline
-
-      .cart-collaterals
-        width: 100%
-        @media (min-width: 768px)
-          width: 33.3%
-
-        .cart_totals
-          width: 100%
-
-          .coupon
-            display: flex
-            margin: 0 0 1.41575em
-
-            input, button
-              width: 50%
 
 
 form.cart, .woocommerce-variation-add-to-cart
@@ -1670,13 +1615,16 @@ form.checkout
 /* ==================================== */
 .shop
   .woocommerce-products-header
-    margin-top: 80px
+
+
     background-color: black
     display: flex
     justify-content: center
     flex-direction: column
     align-items: center
     padding: 10px 35px
+    @media screen and (min-width: 768px)
+      margin-top: 80px
     div
       @media screen and (min-width: 768px)
         align-self: end
@@ -1765,15 +1713,12 @@ form.checkout
   background: $bg-color-black
   color: $text-color-white
 
-  #main
-    padding-top: 80px
-
   .fullpage
     width: 100vw
     height: 93vh
-    max-height: 1080px
+    //max-height: 1080px
     @media (max-width: 480px)
-      height: 70vh
+      height: 80vh
 
   #s2
     display: flex
@@ -2038,15 +1983,6 @@ form.checkout
   &.margins
     max-width: 1000px
 
-  //&:not(:first-child)
-  //min-height: calc(100vh - 80px)
-  //&:first-child
-    background: white
-
-    .wrapper
-      height: 100%
-      border: none
-
   .wrapper
     position: relative
     display: flex
@@ -2063,12 +1999,6 @@ form.checkout
 
     @media screen and (min-width: 768px)
       flex-direction: row
-    //border: 1px dashed #fff
-    //&.h100
-      height: 100vh
-
-    &.h50
-      height: 50vh
 
     .col2
       width: 100%
@@ -2086,7 +2016,6 @@ form.checkout
     img
       width: 100%
       height: 100%
-      //max-height: calc(100vh - 80px)
       object-fit: cover
       object-position: center top
 
@@ -2155,13 +2084,10 @@ form.checkout
 
     .carousel
       height: 100%
-      //width: 100%
       .carousel-inner
         height: 100%
-        //width: 100%
         .carousel-item
           height: 100%
-          //width: 100%
           img, video
             height: 100%
             width: auto
@@ -2182,9 +2108,47 @@ form.checkout
 .woocommerce-result-count
   display: none
 
+/* ==================================== */
+/*		  	  GTranslate
+/* ==================================== */
 .secondary-navigation
   .gglobe
     height: 20px
     width: 20px
     mix-blend-mode: luminosity
     background-repeat: no-repeat
+
+/* ==================================== */
+/*		  	 StoreFront overwrite
+/* ==================================== */
+
+.page-template-template-homepage:not(.has-post-thumbnail)
+  .site-main
+    padding-top: 0
+
+/* ==================================== */
+/*		  	 Partners page
+/* ==================================== */
+.content-area.partners
+  @media screen and (min-width: 768px)
+    margin-top: 80px
+  h1
+    margin: 2rem
+  .row
+    justify-content: center
+    .partner_logo
+      flex: 0 0 auto
+      width: max-content
+      margin-bottom: 0.5rem
+      @media screen and (min-width: 768px)
+        margin: 1rem 2rem
+
+      img
+        height: 30px
+        max-width: 180px
+        object-fit: contain
+        @media screen and (min-width: 768px)
+          height: 60px
+          max-width: 200px
+
+
