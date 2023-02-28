@@ -29,16 +29,12 @@ function addFilterOffcanvas()
 {
     ?>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="staticBackdropLabel">
-                Filtry
-            </h5>
+        <div class="offcanvas-header" style="padding: 24px 24px 12px 24px">
+            <?php woocommerce_catalog_ordering(); ?>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
-            <h6>Sortowanie</h6>
+        <div class="offcanvas-body" style="padding: 0 24px">
             <?php
-            woocommerce_catalog_ordering();
             dynamic_sidebar('right-slide-out');
              ?>
         </div>
