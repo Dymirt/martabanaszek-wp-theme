@@ -13,7 +13,7 @@ h5.card-title{
 
 .carousel-item > img {
     object-fit: cover;
-    height: 90vh;
+    aspect-ratio: 4/6;
 }
 
 .form-control:disabled {

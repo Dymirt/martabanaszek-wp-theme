@@ -57,9 +57,9 @@ else:?>
             </div>
         <?php endif; ?>
 
-        <div class='container'>
+        <div style="padding: 24px;">
             <h2 style="text-align: center; color: white;">Nasze najlepsze produkty</h2>
-            <div class="row row-cols-1 row-cols-md-3 g-4 ">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 ">
 
                 <?php
                 if (is_page('ciriana')):

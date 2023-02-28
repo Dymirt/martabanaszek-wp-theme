@@ -15,43 +15,46 @@
 <?php do_action('storefront_before_footer'); ?>
 
 <footer id="colophon" class="site-footer black" role="contentinfo">
-    <div class="col-full logo">
-        <?php //storefront_site_title_or_logo(); ?>
-        <a href="<?php echo get_site_url(); ?>" class="custom-logo-link" rel="home"><img width="276" height="67"
-                                                                                         src="/wp-content/uploads/2021/12/cropped-logo_final_poziom_white.png"
-                                                                                         class="custom-logo"
-                                                                                         alt="Marta Banaszek"></a>
-    </div>
-    <div class="col-full menu">
+    <?php if(!is_page('ciriana') || is_page('ciriana-instock')):?>
+        <div class="col-full logo">
+            <?php //storefront_site_title_or_logo(); ?>
+            <a href="<?php echo get_site_url(); ?>" class="custom-logo-link" rel="home"><img width="276" height="67"
+                                                                                             src="/wp-content/uploads/2021/12/cropped-logo_final_poziom_white.png"
+                                                                                             class="custom-logo"
+                                                                                             alt="Marta Banaszek"></a>
+        </div>
+        <div class="col-full menu">
 
-        <?php
-        /**
-         * Functions hooked in to storefront_footer action
-         *
-         * @hooked storefront_footer_widgets - 10
-         * @hooked storefront_credit         - 20
-         */
-        //do_action( 'storefront_footer' );
+            <?php
+            /**
+             * Functions hooked in to storefront_footer action
+             *
+             * @hooked storefront_footer_widgets - 10
+             * @hooked storefront_credit         - 20
+             */
+            //do_action( 'storefront_footer' );
 
-        wp_nav_menu(
-            array(
-                'theme_location' => 'footer_menu',
-                'container_class' => 'footer-navigation',
-            )
-        );
-        ?>
-    </div><!-- .col-full -->
-    <div class="col-full icons">
-        <?php
-        wp_nav_menu(
-            array(
-                'theme_location' => 'footer_icon_menu',
-                'container_class' => 'footer-icon-navigation',
-                'menu_class' => "icon-list"
-            )
-        );
-        ?>
-    </div>
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'footer_menu',
+                    'container_class' => 'footer-navigation',
+                )
+            );
+            ?>
+        </div><!-- .col-full -->
+        <div class="col-full icons">
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'footer_icon_menu',
+                    'container_class' => 'footer-icon-navigation',
+                    'menu_class' => "icon-list"
+                )
+            );
+            ?>
+        </div>
+    <?php endif;?>
+
     <div class="col-full copyright">
         <p class="">&copy; 2020 Marta Banaszek</p>
         <p class="d-none d-sm-block">|</p>

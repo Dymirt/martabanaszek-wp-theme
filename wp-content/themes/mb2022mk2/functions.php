@@ -576,8 +576,11 @@ add_theme_support( 'custom-product-thumbnails' );
 add_image_size( 'custom-product-thumbnails', 800, 1200 , true);
 add_filter('single_product_archive_thumbnail_size', function ($size){ return 'custom-product-thumbnails';});
 
+
+// Query for 'for-partners' pages
 function bm_get_product_query($page_slug){
     if ($page_slug == "dla-partnerow"):
+        // All products with 'for-partners' tag
         return new WP_Query(
             array(
                 'post_type' => 'product',
@@ -594,6 +597,7 @@ function bm_get_product_query($page_slug){
         );
 
     elseif ($page_slug == 'ciriana'):
+        // All products with 'for-partners' or with 'ciriana' tag
         return new WP_Query(
             array(
                 'post_type' => 'product',
@@ -616,6 +620,7 @@ function bm_get_product_query($page_slug){
             )
         );
     elseif ($page_slug == 'ciriana-instock'):
+        // All products with 'ciriana-instock' and "instock" status
         return new WP_Query(
             array(
                 'post_type' => 'product',

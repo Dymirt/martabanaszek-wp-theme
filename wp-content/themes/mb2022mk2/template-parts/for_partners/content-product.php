@@ -103,7 +103,7 @@ if (count($variations) > 0) {
          if (is_page('ciriana') || is_page('ciriana-instock')){?>
              <div class="card-footer">
                  <div class="row">
-                     <div class="col-4">
+                     <div class="col-5" style="padding-right: 0">
                          <h6>Nasza cena:</h6>
                          <span class="badge text-bg-dark">
                         <?php
@@ -115,7 +115,7 @@ if (count($variations) > 0) {
                         ?>
                     </span>
                      </div>
-                     <div class="col-8">
+                     <div class="col-7" style="padding-left: 0">
                          <h6>Proponowana cena:</h6>
                          <div id="priceform-<?php the_ID(); ?>">
                              <form class="input-group input-group-sm mb-3" onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink(); ?>', '<?php echo get_woocommerce_currency_symbol() ?>', this['price-offer'].value); return false">
