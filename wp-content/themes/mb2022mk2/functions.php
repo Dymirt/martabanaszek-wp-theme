@@ -72,6 +72,14 @@ function martabanaszek_dequeue_styles(){
         wp_dequeue_script('inpost-sdk-for-javascript');
 
     }
+    if (is_page_template('template-for_partners.php' )):
+
+        // Inpost enqueue styles with priority 75
+        wp_dequeue_style('easypack-front');
+        wp_dequeue_style('geowidget-4.5-css');
+        wp_dequeue_script('inpost-sdk-for-javascript');
+
+    endif;
 
     wp_dequeue_script('imagesLoaded'); // Very long response
 }
@@ -643,3 +651,19 @@ function bm_get_product_query($page_slug){
         );
     endif;
 }
+
+// Change Partners Custom Post Type Archive Title
+function custom_post_type_partners_archive_title( $title ) {
+    if ( is_post_type_archive( 'partners' ) ) {
+        $title = 'DOTYCZCZAS ZAUFALI NAM';
+    }
+    return $title;
+}
+add_filter( 'post_type_archive_title', 'custom_post_type_partners_archive_title' );
+
+/* Change excerpt length */
+
+function wplab_custom_excerpt_length( $length ) {
+    return 15;
+}
+add_filter( 'excerpt_length', 'wplab_custom_excerpt_length', 999 );
