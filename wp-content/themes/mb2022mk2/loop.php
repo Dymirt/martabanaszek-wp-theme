@@ -26,14 +26,18 @@ $query = new WP_Query($args);
 if ($query->have_posts()) :
     do_action('storefront_loop_before');
 
-    echo('<div id="infinite-scroll" class="flex row" style="justify-content: space-between">');
+    echo('<div id="infinite-scroll" class="container flex row" style="justify-content: space-between; margin: auto">');
 
     while ($query->have_posts()) :
         $query->the_post();
 
-        if (get_post_type() === 'portfolio' || get_post_type() === 'blog' || get_post_type() === 'post' || $post_type === 'partners') {
-            get_template_part('template-parts/content', $post_type);
-        } else {
+        if (get_post_type() === 'portfolio' || get_post_type() === 'blog' || get_post_type() === 'post') {
+            get_template_part('template-parts/content', 'post');
+        }
+        elseif ($post_type === 'partners'){
+            get_template_part('template-parts/content', 'partners');
+        }
+        else {
             get_template_part('template-parts/content', 'single');
         }
 
