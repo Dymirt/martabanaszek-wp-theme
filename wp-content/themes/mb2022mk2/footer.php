@@ -78,24 +78,23 @@
         <a onclick="cookiesClose()"><i class="fas fa-times-circle cookies-close"></i></a>
     </div>
 </footer><!-- #colophon -->
-<div id="newsletterModal" class="modal">
-    <div class="modal-content newsletter">
-        <?php
-        if (!is_front_page()) {
-            get_template_part('template-parts/newsletter', 'popup');
-        }
-        ?>
+
+<?php if (!is_front_page() && !is_page_template('template-for_partners.php' )):?>
+    <div id="newsletterModal" class="modal">
+        <div class="modal-content newsletter">
+            <?php get_template_part('template-parts/newsletter', 'popup'); ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>
+
+
+<?php if (is_product()):?>
 <div id="sizeTableModal" class="modal">
     <div class="modal-content">
-        <?php
-        if (is_product()) {
-            get_template_part('template-parts/product-size-table');
-        }
-        ?>
+        <?php get_template_part('template-parts/product-size-table'); ?>
     </div>
 </div>
+<?php endif; ?>
 
 <?php do_action('storefront_after_footer'); ?>
 
