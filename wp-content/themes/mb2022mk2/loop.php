@@ -26,7 +26,7 @@ $query = new WP_Query($args);
 if ($query->have_posts()) :
     do_action('storefront_loop_before');
 
-    echo('<div id="infinite-scroll" class="flex row">');
+    echo('<div id="infinite-scroll" class="flex row" style="justify-content: space-between">');
 
     while ($query->have_posts()) :
         $query->the_post();

@@ -9,7 +9,7 @@
 	<?php
 	do_action( 'storefront_post_content_before' );
 	?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>style="background-color: white" >
 
 
 		<?php do_action( 'menu'); ?>
