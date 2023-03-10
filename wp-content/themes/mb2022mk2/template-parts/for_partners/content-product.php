@@ -96,7 +96,9 @@ if (count($variations) > 0) {
                         }
                     }
                 }
-                ?>
+                if (is_page('ciriana') || is_page('ciriana-instock')):?>
+                    <p>ID produktu: <?php the_ID();?> </p>
+                <?php endif; ?>
             </div>
         </div>
         <?php
