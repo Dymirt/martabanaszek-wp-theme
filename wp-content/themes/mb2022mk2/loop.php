@@ -13,14 +13,13 @@ $args = array(
     'post_type' => $post_type,
 );
 
-if ( $post_type !== 'post' ):
+if ($post_type !== 'post'):
     $args['posts_per_page'] = -1;
-    if( $post_type === $partners ):
+    if ($post_type === $partners):
         $args['orderby'] = 'rand';
-        endif;
+    endif;
 
 endif;
-print_r ($args);
 $query = new WP_Query($args);
 
 if ($query->have_posts()) :
@@ -33,11 +32,9 @@ if ($query->have_posts()) :
 
         if (get_post_type() === 'portfolio' || get_post_type() === 'blog' || get_post_type() === 'post') {
             get_template_part('template-parts/content', 'post');
-        }
-        elseif ($post_type === 'partners'){
+        } elseif ($post_type === 'partners') {
             get_template_part('template-parts/content', 'partners');
-        }
-        else {
+        } else {
             get_template_part('template-parts/content', 'single');
         }
 
