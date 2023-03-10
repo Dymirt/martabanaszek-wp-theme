@@ -3,7 +3,7 @@
 
         <div class="entry-content">
             <a href="<?php the_permalink() ?>">
-                <?php the_post_thumbnail( 'medium_large' );?>
+                <?php the_post_thumbnail( 'medium' );?>
                 <div class="overlay">
                     <h2 class="alpha entry-title">
                         <?php
