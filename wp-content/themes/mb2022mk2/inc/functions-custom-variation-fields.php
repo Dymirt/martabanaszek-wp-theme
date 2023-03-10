@@ -77,3 +77,32 @@ function custom_variation_price_fields_save($variation_id, $loop)
     $text_field = !empty($_POST['variable_ciriana_wholesale_price'][$loop]) ? $_POST['variable_ciriana_wholesale_price'][$loop] : '';
     update_post_meta($variation_id, 'ciriana-wholesale-price', sanitize_text_field($text_field));
 }
+
+
+// Adding inventory
+add_action('woocommerce_variation_options_inventory', 'custom_variation_inventory_fields', 10, 3);
+function custom_variation_inventory_fields($loop, $variation_data, $variation)
+{
+    woocommerce_wp_text_input(
+        array(
+            'id' => 'variable_ciriana_stock_quantity[' . $loop . ']',
+            'type' => 'number',
+            'label' => 'Stan magazynowy CIRIANA',
+            'wrapper_class' => 'form-row form-row-first',
+            'placeholder' => '',
+            'desc_tip' => false,
+            'description' => '',
+            'value' => get_post_meta($variation->ID, 'ciriana-stock-quantity', true)
+        )
+    );
+}
+
+add_action('woocommerce_save_product_variation', 'custom_variation_inventory_fields_save', 10, 2);
+function custom_variation_inventory_fields_save($variation_id, $loop)
+{
+
+// CIRIANA inventory
+    $text_field = !empty($_POST['variable_ciriana_stock_quantity'][$loop]) ? $_POST['variable_ciriana_stock_quantity'][$loop] : '';
+    update_post_meta($variation_id, 'ciriana-stock-quantity', sanitize_text_field($text_field));
+
+}
