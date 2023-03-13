@@ -82,18 +82,14 @@ class WC_Widget_Recently_Viewed_MB2020 extends WC_Widget
 
             $this->widget_start($args, $instance);
 
-            echo wp_kses_post(apply_filters('woocommerce_before_widget_product_list', '<ul class="products">'));
-
-            $template_args = array(
-                'widget_id' => isset($args['widget_id']) ? $args['widget_id'] : $this->widget_id,
-            );
+            echo wp_kses_post(apply_filters('woocommerce_before_widget_product_list', '<div id="infinite-scroll" class="container flex row" style="justify-content: space-between; margin: auto">'));
 
             while ($r->have_posts()) {
                 $r->the_post();
-                wc_get_template('content-product.php', $template_args);
+                get_template_part('template-parts/content', 'post');
             }
 
-            echo wp_kses_post(apply_filters('woocommerce_after_widget_product_list', '</ul>'));
+            echo wp_kses_post(apply_filters('woocommerce_after_widget_product_list', '</div>'));
 
             $this->widget_end($args);
         }
