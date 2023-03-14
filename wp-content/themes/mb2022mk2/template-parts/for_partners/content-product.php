@@ -21,7 +21,6 @@ defined('ABSPATH') || exit;
 global $product;
 $attimages = get_attached_media('image', $product->ID);
 $variations_id = $product->get_children();
-
 $variations = $product->get_available_variations();
 if (count($variations) > 0) {
     $minimum_price_pln = get_post_meta($variations[0]['variation_id'], 'minimum-price-pln', true);
@@ -120,19 +119,19 @@ if (count($variations) > 0) {
                      <div class="col-7" style="padding-left: 0">
                          <h6>Proponowana cena:</h6>
                          <div id="priceform-<?php the_ID(); ?>">
-                             <form class="input-group input-group-sm mb-3" onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink(); ?>', '<?php echo get_woocommerce_currency_symbol() ?>', this['price-offer'].value); return false">
+                             <form class="input-group input-group-sm mb-3" onsubmit="savePriceProposal(<?php the_ID(); ?>,'<?php echo get_permalink(); ?>', '€', this['price-offer'].value); return false">
                                  <input type="number"
                                         name="price-offer"
                                         min="1"
                                         class="form-control"
                                         value="<?php
                                         if (is_page('ciriana')){
-                                            echo $minimum_price_pln;
+                                            echo 0;
                                         } else {
                                             echo wc_get_price_to_display($product);
                                         }
                                         ?>">
-                                 <span class="input-group-text"><?php echo get_woocommerce_currency_symbol() ?></span>
+                                 <span class="input-group-text">€</span>
                                  <button class="btn btn-outline-dark">Zapisz</button>
                                  <a id='<?php the_ID(); ?>-sendButton' class="btn btn-outline-success" style="display: none">Wyślij</a>
                              </form>

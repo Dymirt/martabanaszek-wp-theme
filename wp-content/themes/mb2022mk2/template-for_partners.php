@@ -63,15 +63,17 @@ else:?>
 
                 <?php
                 if (is_page('ciriana')):
-                    $the_query = bm_get_product_query('ciriana');
+                    $args = bm_get_product_query('ciriana');
                 elseif (is_page('ciriana-instock')):
-                    $the_query = bm_get_product_query('ciriana-instock');
+                    $args = bm_get_product_query('ciriana-instock');
                 else:
-                    $the_query = bm_get_product_query('dla-partnerow');
+                    $args = bm_get_product_query('dla-partnerow');
                 endif;
 
-                if ($the_query->have_posts()):
-                    while ($the_query->have_posts()) : $the_query->the_post();
+                $query = new WP_Query($args);
+                if ($query->have_posts()):
+                    while ($query->have_posts()) :
+                        $query->the_post();
                         get_template_part('template-parts/for_partners/content', 'product');
                     endwhile;
                 else : echo __('No products found');

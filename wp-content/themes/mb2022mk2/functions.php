@@ -394,7 +394,6 @@ function storefront_after_content()
     <?php endif;
 }
 
-
 add_action('init', 'remove_storefront_unused_elements');
 function remove_storefront_unused_elements()
 {
@@ -580,6 +579,7 @@ add_filter('jpeg_quality', function ($arg) {
     return 100;
 });
 
+// Register product custom thumbnails
 add_theme_support( 'custom-product-thumbnails' );
 add_image_size( 'custom-product-thumbnails', 800, 1200 , true);
 add_filter('single_product_archive_thumbnail_size', function ($size){ return 'custom-product-thumbnails';});
@@ -587,10 +587,9 @@ add_filter('single_product_archive_thumbnail_size', function ($size){ return 'cu
 
 // Query for 'for-partners' pages
 function bm_get_product_query($page_slug){
-    if ($page_slug == "dla-partnerow"):
+    if ($page_slug === "dla-partnerow"):
         // All products with 'for-partners' tag
-        return new WP_Query(
-            array(
+        return array(
                 'post_type' => 'product',
                 'posts_per_page' => 100,
                 'tax_query' => array(
@@ -600,14 +599,12 @@ function bm_get_product_query($page_slug){
                         'field' => 'slug',
                         'operator' => 'IN'
                     )
-                ),
-            )
+                )
         );
 
-    elseif ($page_slug == 'ciriana'):
+    elseif ($page_slug === 'ciriana'):
         // All products with 'for-partners' or with 'ciriana' tag
-        return new WP_Query(
-            array(
+        return array(
                 'post_type' => 'product',
                 'posts_per_page' => 100,
                 'tax_query' => array(
@@ -624,13 +621,11 @@ function bm_get_product_query($page_slug){
                         'field' => 'slug',
                         'operator' => 'IN'
                     )
-                ),
-            )
+                )
         );
-    elseif ($page_slug == 'ciriana-instock'):
+    elseif ($page_slug === 'ciriana-instock'):
         // All products with 'ciriana-instock' and "instock" status
-        return new WP_Query(
-            array(
+        return array(
                 'post_type' => 'product',
                 'posts_per_page' => 100,
                 'tax_query' => array(
@@ -647,7 +642,6 @@ function bm_get_product_query($page_slug){
                         'value' => 'instock'
                     )
                 )
-            )
         );
     endif;
 }
@@ -661,8 +655,8 @@ function custom_post_type_partners_archive_title( $title ) {
 }
 add_filter( 'post_type_archive_title', 'custom_post_type_partners_archive_title' );
 
-/* Change excerpt length */
 
+/* Change BLOG excerpt length */
 function wplab_custom_excerpt_length( $length ) {
     return 15;
 }
