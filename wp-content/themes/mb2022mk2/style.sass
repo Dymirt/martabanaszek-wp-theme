@@ -4,7 +4,7 @@
     Description:  Marta Banaszek 2023
     Author:       Pawel Wnuk & Marcin Zajac & Dmytro Kolida
     Author URI:   https://dymirt.pythonanywhere.com
-    Version:      1.2.21
+    Version:      1.2.22
     License:      GNU General Public License v2 or later
     License URI:  http://www.gnu.org/licenses/gpl-2.0.html
     Tags:         
@@ -89,16 +89,19 @@ $transition-slow: .50s linear
     opacity: 0
 
 /* ==================================== */
-/*		  	   End Keyframes
+/*		  	   General
 /* ==================================== */
 
 
 body
   font-family: 'Roboto', sans-serif
-  background: $bg-color-white
+  background: $bg-color-black
   color: $text-color-black
   font-size: 1em
   font-weight: 300
+  #content
+    @media screen and (min-width: 768px)
+      margin-top: 80px
 
   a
     color: $text-color-black
@@ -201,6 +204,10 @@ body
       background: rgba(0, 0, 0, .5) !important
 
 
+/* ==================================== */
+/*		  	  End General
+/* ==================================== */
+
 .page-template-template-homepage, .page-template-template-bio, .page-template-template-contact
   .toggle-button
     display: block
@@ -267,7 +274,7 @@ body.admin-bar
         height: 100%
 
         img
-          height: 60px
+          height: 100%
           width: auto
           max-width: 250px
           margin: 10px
@@ -392,7 +399,7 @@ ul.icon-list a, .toggle-button i
       margin-left: 0
 
 
-.col-full
+.col-full, .bottom-widgets
   &.no-margin
     width: 100%
     max-width: 100vw
@@ -452,250 +459,16 @@ ul.icon-list a, .toggle-button i
       aside
         #map-canvas
           width: 100%
-          height: 100%
+          //height: 100%
           height: 50vh
           @media (min-width: 768px)
-            min-height: 600px
-            height: calc(100vh - 80px * 2)
+            width: 50vh
+            //min-height: 600px
+            //height: calc(100vh - 80px * 2)
 
       .entry-header
         & > img
           display: none
-
-    &.news
-      main
-        margin-top: 4.235801032em
-
-        .flex
-          display: flex
-          flex-direction: row
-          flex-wrap: wrap
-          justify-content: flex-start
-          align-items: stretch
-
-      article
-        border: 1px solid $bg-color-lightgrey
-        margin-bottom: 2em
-        //display: flex
-        //align-items: center
-        width: calc(100% - 10px * 2)
-        max-width: 400px
-        margin: 0 10px 2em
-        background: $bg-color-lightgrey
-
-        &:nth-child(n)
-          flex-direction: column
-          justify-content: flex-start
-
-          header > img.wp-post-image
-            object-position: left
-
-          @media screen and (min-width: 768px)
-            width: calc(33% - 10px * 3)
-            flex-direction: row
-
-        &:nth-child(2n)
-          background: $bg-color-lightgrey
-
-
-        header
-          border-bottom: none
-          margin-bottom: 0
-
-          img.wp-post-image
-            height: 100%
-            //max-height: 80px
-            width: 100%
-            //max-width: 400px
-            object-fit: contain
-            margin-bottom: 1em
-            margin-left: 0
-            margin-right: 0
-
-        .entry-content
-          width: 100%
-          padding: 0 10px
-          @media screen and (min-width: 768px)
-          //margin-left: 2em
-          h5
-            font-size: .8em
-            font-weight: 500
-            color: $bg-color-grey
-
-      .alpha.entry-title
-        //text-align: center
-        text-transform: uppercase
-        font-size: 1em
-
-        a
-          font-weight: 500
-          text-decoration: none
-
-    &.blog
-      article
-        border-bottom: 1px solid $bg-color-lightgrey
-
-        &:first-child
-          margin-top: 4.235801032em
-
-      .entry-header
-        border-bottom: none
-        display: flex
-        flex-direction: column-reverse
-        justify-content: center
-        align-items: center
-        @media (min-width: 768px)
-          flex-direction: column
-          margin-bottom: 0
-
-        img
-          max-height: 50vh
-          max-width: 760px
-          width: auto
-
-      .alpha.entry-title
-        text-align: center
-        text-transform: uppercase
-        font-size: 2em
-
-        a
-          font-weight: 700
-
-      .entry-content
-        text-align: center
-        position: relative
-
-        p
-          @media (min-width: 768px)
-            margin: 0 5% 1.41575em
-            line-height: 2
-          @media (min-width: 1200px)
-            margin: 0 10% 1.41575em
-          @media (min-width: 1600px)
-            margin: 0 20% 1.41575em
-
-          a
-            &.read-more
-              text-transform: uppercase
-              text-decoration: none
-              font-weight: 500
-
-              &::before
-                content: " >"
-                position: absolute
-                margin-left: 5px
-                left: 100%
-
-    &.portfolio
-      main
-        margin-bottom: 0
-        @media (min-width: 768px)
-          margin-bottom: 2.617924em
-
-        .flex
-          margin: 0 auto
-          overflow: auto
-          display: flex
-          justify-content: flex-start
-          align-items: center
-          flex-wrap: wrap
-          @media (min-width: 768px)
-            margin: 4.235801032em auto
-
-          article
-            width: 100%
-            margin-bottom: 0
-            @media (min-width: 768px)
-              width: calc(33.3% - 2em)
-              float: left
-              margin: 1em
-              margin-bottom: 4.2358em
-
-          .entry-content
-            text-align: center
-            position: relative
-
-            > a
-              img
-                opacity: .85
-                transition: $transition-fast
-
-              &:hover
-                img
-                  opacity: 1
-                  transform: scale(1.05)
-
-                .overlay
-                  transform: scale(1.05)
-                  background: rgba(0, 0, 0, 0)
-
-            img
-              max-height: 80vh
-              max-width: 760px
-              width: 100%
-              height: 350px
-              object-fit: cover
-              object-position: center
-              margin: 0
-              @media screen and (min-width: 768px)
-                max-height: 50vh
-
-            .overlay
-              width: 100%
-              height: 100%
-              display: flex
-              align-items: center
-              max-width: 100%
-              position: absolute
-              bottom: 0
-              background: rgba(0, 0, 0, .25)
-              transition: $transition-fast
-
-              .alpha.entry-title
-                padding: .5em
-                width: 100%
-                font-size: 2rem
-                text-align: center
-                text-transform: uppercase
-                font-weight: 700
-                text-decoration: none
-                color: $text-color-white
-
-    &.post
-      article
-        margin-top: calc(80px + 4.235801032em)
-
-      .entry-title
-        margin-top: 1.618em
-        text-align: center
-        font-weight: 700
-
-      .entry-slug
-        text-align: center
-
-      .entry-content
-        p
-          text-align: justify
-          padding: 0 1rem
-
-    &.portfolio
-      display: block
-
-      article
-      //width: 33.3%
-      //padding: 1rem
-      //float: left
-      .entry-title
-        text-align: center
-
-      .blocks-gallery-grid
-        img
-          opacity: .85
-          transition: $transition-fast
-
-          &:hover
-            transform: scale(1.05)
-            opacity: 1
 
     &.single
       main > img.wp-post-image
@@ -1615,16 +1388,11 @@ form.checkout
 /* ==================================== */
 .shop
   .woocommerce-products-header
-
-
-    background-color: black
     display: flex
     justify-content: center
     flex-direction: column
     align-items: center
     padding: 10px 35px
-    @media screen and (min-width: 768px)
-      margin-top: 80px
     div
       @media screen and (min-width: 768px)
         align-self: end
@@ -1638,6 +1406,7 @@ form.checkout
 
   .products.columns-4
     .product
+      background-color: white
       width: 50%
       margin: 0 !important
       @media (min-width: 768px)
@@ -1649,16 +1418,10 @@ form.checkout
       color: black !important
 
 /* ==================================== */
-/*		  	Portfolio Page
-/* ==================================== */
-
-.content-area.portfolio
-  background-color: black
-
-/* ==================================== */
 /*		  	Single Product Page
 /* ==================================== */
 .single-product
+  background-color: white
   .details
     @media screen and (min-width: 480px)
       display: flex
@@ -1695,7 +1458,7 @@ form.checkout
           @media screen and (min-width: 768px)
             width: 20%
 
-.bottom-widgets
+//.bottom-widgets
   .related
     h2
       text-align: center
@@ -1709,7 +1472,12 @@ form.checkout
 /* ==================================== */
 /*		  	    Front Page
 /* ==================================== */
-.frontpage
+.home
+  #content
+    @media screen and (min-width: 768px)
+      margin-top: 0
+
+  .frontpage
   background: $bg-color-black
   color: $text-color-white
 
@@ -2130,16 +1898,16 @@ form.checkout
 /*		  	 Partners page
 /* ==================================== */
 .content-area.partners
-  @media screen and (min-width: 768px)
-    margin-top: 80px
   h1
     margin: 2rem
+    @media screen and (min-width: 768px)
+      margin-bottom: 5rem
   .row
     justify-content: center
     .partner_logo
       flex: 0 0 auto
       width: max-content
-      margin-bottom: 0.5rem
+      margin-bottom: 1rem
       @media screen and (min-width: 768px)
         margin: 1rem 2rem
 
@@ -2151,4 +1919,118 @@ form.checkout
           height: 60px
           max-width: 200px
 
+/* ==================================== */
+/*		  	  Contact Page
+/* ==================================== */
+.page-id-56391
+  *
+    color: white
 
+.woocommerce-cart, .page-id-10, .post.single
+  background-color: white
+
+/* ==================================== */
+/*		  	  Content Post
+/* ==================================== */
+#infinite-scroll
+  &.flex
+    margin: 0 auto
+    overflow: auto
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    flex-wrap: wrap
+    @media (min-width: 768px)
+      margin: 4.235801032em auto
+  article
+    //width: 100%
+    //margin-bottom: 1rem
+    width: calc(50% - 0.5rem)
+    float: left
+    margin-bottom: 1em
+    padding: 0
+    //margin-bottom: 2.2358em
+
+    //@media (min-width: 768px)
+      width: calc(50% - 2em)
+      float: left
+      margin: 1em
+
+
+    @media screen and (min-width: 992px)
+      width: calc(33.3% - 2em)
+      margin-bottom: 2.2358em
+
+    .entry-content
+      text-align: center
+      position: relative
+
+      > a
+        img
+          opacity: .85
+          transition: $transition-fast
+          object-position: center
+
+        &:hover
+          img
+            opacity: 1
+            transform: scale(1.05)
+
+          .overlay
+            transform: scale(1.05)
+            background: rgba(0, 0, 0, 0)
+
+      img
+        max-height: 80vh
+        max-width: 760px
+        width: 100%
+        //height: 350px
+        object-fit: cover
+        object-position: center
+        margin: 0
+        aspect-ratio: 4/6
+
+      .overlay
+        width: 100%
+        height: 100%
+        display: flex
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        max-width: 100%
+        position: absolute
+        bottom: 0
+        background: rgba(0, 0, 0, .25)
+        transition: $transition-fast
+        *
+          color: white
+
+        .alpha.entry-title
+          font-size: 1rem
+          padding: .5em
+          width: 100%
+          text-align: center
+          text-transform: uppercase
+          font-weight: 700
+          text-decoration: none
+          @media screen and (min-width: 768px)
+            font-size: 1.5rem
+          @media screen and (min-width: 1200px)
+            font-size: 2rem
+
+    &.product
+      .entry-content
+        .overlay
+          justify-content: end
+          .price
+            font-size: 1rem
+            @media screen and (min-width: 992px)
+              font-size: 1.5rem
+    &.blog
+      @media screen and (max-width: 576px)
+        width: 100%
+
+
+/* ==================================== */
+/*		  	  End Content Post
+/* ==================================== */
